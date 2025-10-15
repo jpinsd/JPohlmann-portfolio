@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='UTF-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+	<title>jpohlmann.com</title>
+	<style>
+		@property --deg {
+		syntax: '<angle>';
+		inherits: false;
+		initial-value: 0deg;
+		}
+		:root {
+			--c1: #0071a8;
+			--c2: #5e1e9fcc;
+			--c3: #00576499;
+			--c4: #ffffff09;
+			--deg: 0deg;
+		}
+		@keyframes rotate {
+			to {--deg: 360deg}
+		}
+		html, body {padding: 0; margin: 0;}
+		html {background: #f33}
+		body {font-family: sans-serif; font-size: 1rem; display: flex; justify-content: center; align-items: center; min-height: 100vh;}
+		body {background: radial-gradient(circle at 32.6802% 46.4145%, var(--c1), transparent 47%), 
+						radial-gradient(circle at 51.3906% 69.4247%, var(--c2), transparent 17%), 
+						radial-gradient(circle at 74.5259% 17.4941%, var(--c3), transparent 42%), 
+						linear-gradient(var(--deg), var(--c1), var(--c2), var(--c3)); 
+						animation: rotate infinite linear 24s;
+				position: relative;		
+				z-index: 1;
+			}
+		/* body:before,
+		body:after {
+			content:'';
+			position: absolute;
+			top: 0;right: 0; bottom: 0; left: 0;
+			z-index: 1;
+		}
+		body:before{background: repeating-linear-gradient(var(--c4) 1px 2px, transparent 2px 60px)}
+		body:after {background: repeating-linear-gradient(90deg, var(--c4) 1px 2px, transparent 2px 60px);} */
+		main {color: white; font-size: clamp(18px, 3vw, 72px)}
+		h1, h2 {font-weight: 700; margin: 0; opacity: .7; line-height: .75}
+		h2 {opacity: .3; font-weight: 100}
+		
+	</style>
+</head>
+<body>
+	<main>
+		<h1>JPohlmann.com</h1>
+		<h2>coming soon</h2>
+	</main>
+</body>
+</html>
