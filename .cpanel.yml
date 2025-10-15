@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/jpinsdco/__jpohlmann.com/
+    - /bin/cp -R * $DEPLOYPATH
