@@ -17,6 +17,7 @@
 			--c3: #00576499;
 			--c4: #ffffff09;
 			--deg: 0deg;
+			--c5: yellow;
 		}
 		@keyframes rotate {
 			to {--deg: 360deg}
@@ -24,33 +25,78 @@
 		html, body {padding: 0; margin: 0;}
 		html {background: #f33}
 		body {font-family: sans-serif; font-size: 1rem; display: flex; justify-content: center; align-items: center; min-height: 100vh;}
-		body {background: radial-gradient(circle at 32.6802% 46.4145%, var(--c1), transparent 47%), 
-						radial-gradient(circle at 51.3906% 69.4247%, var(--c2), transparent 17%), 
-						radial-gradient(circle at 74.5259% 17.4941%, var(--c3), transparent 42%), 
-						linear-gradient(var(--deg), var(--c1), var(--c2), var(--c3)); 
-						animation: rotate infinite linear 24s;
-				position: relative;		
-				z-index: 1;
+		body {background: radial-gradient(circle at 32.6802% 46.4145%, var(--c1), transparent 47%),
+											radial-gradient(circle at 51.3906% 69.4247%, var(--c2), transparent 17%),
+											radial-gradient(circle at 74.5259% 17.4941%, var(--c3), transparent 42%),
+											linear-gradient(var(--deg), var(--c1), var(--c2), var(--c3));
+											animation: rotate infinite linear 10s;
+					position: relative;
+					z-index: 1;
 			}
-		/* body:before,
-		body:after {
+		body:before {
 			content:'';
 			position: absolute;
 			top: 0;right: 0; bottom: 0; left: 0;
 			z-index: 1;
+			pointer-events: none;
 		}
-		body:before{background: repeating-linear-gradient(var(--c4) 1px 2px, transparent 2px 60px)}
-		body:after {background: repeating-linear-gradient(90deg, var(--c4) 1px 2px, transparent 2px 60px);} */
-		main {color: white; font-size: clamp(18px, 3vw, 72px)}
+		body:before{background: repeating-linear-gradient(var(--c4) 1px 2px, transparent 2px 60px),
+														repeating-linear-gradient(90deg, var(--c4) 1px 2px, transparent 2px 60px);
+							}
+
+
+		main {color: white; font-size: clamp(18px, 3vw, 72px);}
 		h1, h2 {font-weight: 700; margin: 0; opacity: .7; line-height: .75}
-		h2 {opacity: .3; font-weight: 100}
-		
+		h2 {
+			opacity: .3;
+			font-weight: 100;
+
+		}
+		.icons {
+			display: flex;
+			flex-direction: row;
+			justify-content: start;
+			align-items: bottom;
+			gap: 1rem;
+
+			a {
+				display: inline-block;
+				height: 1.5em;
+				aspect-ratio: 1;
+				opacity: .6;
+				transition: .35s;
+
+				&:hover {
+					opacity: 1;
+				}
+			}
+		}
+
+		main {
+			display:grid;
+			grid-template-columns: auto auto;
+			grid-template-rows: auto auto;
+			grid-template-areas: "title title" "soon icons";
+		}
+		h1 {grid-area: title}
+		h2 {grid-area: soon}
+		.icons{grid-area:icons; justify-self: end}
+
 	</style>
 </head>
 <body>
 	<main>
 		<h1>JPohlmann.com</h1>
 		<h2>coming soon</h2>
+		<div class='icons'>
+			<a href='mailto:jp@jpohlmann.com'>
+				<img src='/img/svg/envelope-regular-full.svg' alt='email me'>
+			</a>
+
+			<a href='https://www.linkedin.com/in/jeffreypohlmann/'>
+				<img src="/img/svg/square-linkedin-brands-solid-full.svg" alt="Connect to me on LinkedIN" />
+			</a>
+		</div>
 	</main>
 </body>
 </html>
