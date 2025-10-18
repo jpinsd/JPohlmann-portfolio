@@ -6,99 +6,139 @@
 	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 	<meta name="theme-color" content="#5e1e9fcc">
 	<title>jpohlmann.com</title>
-	<style>
-		@property --deg {
-		syntax: '<angle>';
-		inherits: false;
-		initial-value: 0deg;
-		}
-		:root {
-			--c1: #0071a8;
-			--c2: #5e1e9fcc;
-			--c3: #00576499;
-			--c4: #ffffff09;
-			--deg: 0deg;
-			--c5: yellow;
-		}
-		@keyframes rotate {
-			to {--deg: 360deg}
-		}
-		html, body {padding: 0; margin: 0;}
-		html {background: #5e1e9f}
-		body {font-family: sans-serif; font-size: 1rem; display: flex; justify-content: center; align-items: center; min-height: 100vh;}
-		body {background: radial-gradient(circle at 32.6802% 46.4145%, var(--c1), transparent 47%),
-											radial-gradient(circle at 51.3906% 69.4247%, var(--c2), transparent 17%),
-											radial-gradient(circle at 74.5259% 17.4941%, var(--c3), transparent 42%),
-											linear-gradient(var(--deg), var(--c1), var(--c2), var(--c3)),
-											linear-gradient(#f33);
-											animation: rotate infinite linear 10s;
-					position: relative;
-					z-index: 1;
-			}
-		body:before {
-			content:'';
-			position: absolute;
-			top: 0;right: 0; bottom: 0; left: 0;
-			z-index: 1;
-			pointer-events: none;
-		}
-		body:before{background: repeating-linear-gradient(var(--c4) 1px 2px, transparent 2px 60px),
-														repeating-linear-gradient(90deg, var(--c4) 1px 2px, transparent 2px 60px);
-							}
+	<link rel='stylesheet' href='css/styles.css'>
 
+<style>
+	#swatches{
+		display: flex;
+		gap: 1rem;
+	}
+	.swatch {
+		--bkg: var(--primary);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		aspect-ratio: 1;
+		inline-size: 5rem;
+		background-color: var(--bkg);
+	}
+	 .-var-2 { --bkg: var(--secondary)}
+	 .-var-3 { --bkg: var(--accent1)}
+	 .-var-4 { --bkg: var(--accent2)}
 
-		main {color: white; font-size: clamp(18px, 3vw, 72px);}
-		h1, h2 {font-weight: 700; margin: 0; opacity: .7; line-height: .75}
-		h2 {
-			opacity: .3;
-			font-weight: 100;
+</style>
 
-		}
-		.icons {
-			display: flex;
-			flex-direction: row;
-			justify-content: start;
-			align-items: bottom;
-			gap: 1rem;
-
-			a {
-				display: inline-block;
-				height: 1.5em;
-				aspect-ratio: 1;
-				opacity: .6;
-				transition: .35s;
-
-				&:hover {
-					opacity: 1;
-				}
-			}
-		}
-
-		main {
-			display:grid;
-			grid-template-columns: auto auto;
-			grid-template-rows: auto auto;
-			grid-template-areas: "title title" "soon icons";
-		}
-		h1 {grid-area: title}
-		h2 {grid-area: soon}
-		.icons{grid-area:icons; justify-self: end}
-
-	</style>
 </head>
 <body>
 	<main>
-		<h1>JPohlmann.com</h1>
-		<h2>coming soon</h2>
-		<div class='icons'>
-			<a href='mailto:jp@jpohlmann.com'>
-				<img src='/img/svg/envelope-regular-full.svg' alt='email me'>
+
+		<!-- <section id='swatches'>
+			<div class='swatch -var-1'>prime</div>
+			<div class='swatch -var-2'>secondary</div>
+			<div class='swatch -var-3'>accent 1</div>
+			<div class='swatch -var-4'>accent 2</div>
+		</section> -->
+
+	<section id="about">
+		<h2>About JP</h2>
+		<p>HI! I'm <em>Jeffrey Pohlmann</em>, but I go by "JP". I've been developing web sites since the very begining in 1995. I love modern CSS, and all the things it can do. I also enjoy JavaScript. I also love dogs, electronic music, and 3D printing.</p>
+		<p>I'm pretty easy to talk to. Choose your favorite method:</p>
+		<div class='contacts'>
+			<a href='--mailto:jp@jpohlmann.com' class="icon">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M125.4 128C91.5 128 64 155.5 64 189.4C64 190.3 64 191.1 64.1 192L64 192L64 448C64 483.3 92.7 512 128 512L512 512C547.3 512 576 483.3 576 448L576 192L575.9 192C575.9 191.1 576 190.3 576 189.4C576 155.5 548.5 128 514.6 128L125.4 128zM528 256.3L528 448C528 456.8 520.8 464 512 464L128 464C119.2 464 112 456.8 112 448L112 256.3L266.8 373.7C298.2 397.6 341.7 397.6 373.2 373.7L528 256.3zM112 189.4C112 182 118 176 125.4 176L514.6 176C522 176 528 182 528 189.4C528 193.6 526 197.6 522.7 200.1L344.2 335.5C329.9 346.3 310.1 346.3 295.8 335.5L117.3 200.1C114 197.6 112 193.6 112 189.4z" fill="currentcolor" alt="Email me!" /></svg>
 			</a>
 
-			<a href='https://www.linkedin.com/in/jeffreypohlmann/'>
-				<img src="/img/svg/square-linkedin-brands-solid-full.svg" alt="Connect to me on LinkedIN" />
+			<a href="https://www.linkedin.com/in/jeffreypohlmann/" class="icon">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M160 96C124.7 96 96 124.7 96 160L96 480C96 515.3 124.7 544 160 544L480 544C515.3 544 544 515.3 544 480L544 160C544 124.7 515.3 96 480 96L160 96zM165 266.2L231.5 266.2L231.5 480L165 480L165 266.2zM236.7 198.5C236.7 219.8 219.5 237 198.2 237C176.9 237 159.7 219.8 159.7 198.5C159.7 177.2 176.9 160 198.2 160C219.5 160 236.7 177.2 236.7 198.5zM413.9 480L413.9 376C413.9 351.2 413.4 319.3 379.4 319.3C344.8 319.3 339.5 346.3 339.5 374.2L339.5 480L273.1 480L273.1 266.2L336.8 266.2L336.8 295.4L337.7 295.4C346.6 278.6 368.3 260.9 400.6 260.9C467.8 260.9 480.3 305.2 480.3 362.8L480.3 480L413.9 480z" fill="currentcolor" alt="contact me on LinkedIN" /></svg>
 			</a>
 		</div>
+	</section>
+
+
+	<section id='experience'>
+		<h2>Experience</h2>
+
+		<dl class='experience'>
+			<dt>
+				<div class='company'>Simpson Strong-Tie <span class='years'>[2022 - 2025]</span></div>
+				<div class='title'>Lead UX Engineer</div>
+			</dt>
+				<dd>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit accusamus, itaque quae quaerat a hic nulla? Fugit earum tenetur eveniet! Vitae id debitis aperiam molestias officia iusto quod consequatur minima asperiores praesentium ipsa illo, vel itaque laborum blanditiis unde odio cumque voluptatibus aspernatur autem suscipit fuga consectetur! Laborum maiores dignissimos veniam velit esse qui repellat molestias, sit, labore ea reprehenderit, omnis similique cupiditate. Ipsam voluptas id perferendis iure necessitatibus aperiam ducimus eius laudantium est, saepe magni ratione, officiis voluptate molestias.</dd>
+
+			<dt>
+				<div class='company'>PuppySpot <span class='years'>[2019 - 2020]</span></div>
+				<div class='title'>Interaction and Frontend Designer</div>
+			</dt>
+				<dd>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis corporis possimus hic repudiandae dicta nemo at quidem ipsam commodi id sunt debitis quia dolor ut dolores amet, placeat ipsum error! Ut nam odit ex aliquam eveniet, eum aspernatur est voluptatum repellat quisquam iure assumenda magnam quo, ad pariatur? Reiciendis odio praesentium itaque numquam fugit harum sapiente similique cupiditate laudantium quisquam? Neque, corrupti rem facilis, perspiciatis eius dolore fugiat consequuntur itaque debitis amet molestias ratione nemo tempora quibusdam dolor fugit ipsum?</dd>
+
+			<dt>
+				<div class='company'>Illumina <span class='years'>[2016 - 2018]</span></div>
+				<div class='title'>Interaction Designer</div>
+			</dt>
+				<dd>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil amet quibusdam provident quod in, ipsa, soluta minus eveniet dolorem, sunt delectus itaque? Esse sit repudiandae repellat ipsa similique porro accusamus, quisquam incidunt aut maiores, sunt aperiam expedita natus consequatur beatae eaque nulla obcaecati autem asperiores. Esse natus error architecto unde ullam, at accusantium ad earum nihil quibusdam eius repudiandae iure voluptas minima ut, odio sapiente, voluptatem dicta. Vel est minima, sed laborum quae aspernatur! Est corrupti consequuntur voluptate odio deleniti maxime iure, quaerat ad ducimus! Atque non, aspernatur optio at dicta dolores ipsam aperiam, excepturi accusamus quos repudiandae blanditiis est.</dd>
+
+				<dt>
+					<div class='company'>Business.com <span class='years'>[2012 - 2016]</span></div>
+					<div class='title'>Frontend UI/UX Developer</div>
+				</dt>
+					<dd>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat asperiores, debitis laborum minima nobis aut molestiae necessitatibus atque. Nemo beatae distinctio commodi perferendis dicta laboriosam voluptate, possimus officia in eum nostrum labore ad, odio ipsa dignissimos quod saepe animi eos dolorem voluptas. Veritatis perspiciatis odit doloremque consectetur voluptate consequuntur, ullam eius, exercitationem atque dolores officiis. Dignissimos in veniam iure aspernatur tenetur reiciendis repellat iusto, quaerat tempore quae reprehenderit eum, qui tempora id officiis quod fuga dolorem sequi quibusdam corrupti. Nostrum.</dd>
+
+				<dt>And more...</dt>
+					<dd>
+						<dl class='more'>
+							<dt class="company">CSUPERB <span class='years'>[2009 - 2010]</span></dt>
+								<dd>Web Developer</dd>
+							<dt class='company'>San Diego State University — Field Stations Program<span class='years'>[2005 - 2010]</span></dt>
+								<dd>Web Developer</dd>
+							<dt class='company'>JP Arts <span class='years'>[2002 - 2005]</span></dt>
+								<dd>Graphic Designer | Web Developer</dd>
+							<dt class='company'>Promotional Broadcasting Network, Inc. <span class='years'>[2000 - 2002]</span></dt>
+								<dd>Art Director | Lead Programmer</dd>
+						</dl>
+					</dd>
+		</dl>
+	</section>
+
+	<section id='projects'>
+		<h2>Projects</h2>
+		<div class='projects'>
+			<div class='project'>
+				<h3>project 1</h3>
+				<div class='description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo modi cupiditate quam fugiat reiciendis illum aliquam!</div>
+			</div>
+			<div class='project'>
+				<h3>project 2</h3>
+				<div class='description'>Neque corrupti, cum, voluptatum a consectetur repudiandae aut omnis sint molestiae, reiciendis atque commodi esse ut!</div>
+			</div>
+			<div class='project'>
+				<h3>project 3</h3>
+				<div class='description'>Consectetur omnis laudantium repellat veniam, doloribus dolore doloremque debitis officia similique a eaque esse corrupti velit?</div>
+			</div>
+			<div class='project'>
+				<h3>project 4</h3>
+				<div class='description'>Optio doloremque laborum nostrum sed quaerat. Perferendis repellendus delectus, neque amet molestiae beatae accusamus cupiditate ad?</div>
+			</div>
+			<div class='project'>
+				<h3>project 5</h3>
+				<div class='description'>Consequatur perferendis asperiores odit dolor provident eveniet maxime porro ea, ad nam, vel hic ipsam sequi!</div>
+			</div>
+			<div class='project'>
+				<h3>project 6</h3>
+				<div class='description'>Molestiae doloribus obcaecati atque modi, sint natus eos culpa neque deleniti minus, totam incidunt consequuntur error?</div>
+			</div>
+
+		</div>
+	</section>
+
+
 	</main>
 </body>
+<!--
+
+
+
+			all your base are belong to us.
+
+ -->
 </html>

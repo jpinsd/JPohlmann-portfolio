@@ -1,0 +1,23 @@
+:root {
+  color-scheme: light dark;
+}
+
+html {
+  background: Canvas;
+  color: var(--base-700)
+}
+
+main {
+  margin-inline: auto;
+  width: min(var(--content-width), 100vw - 4rem);
+
+}
+
+h1, h2, h3, h4, h5 {
+  margin-block-start: 0;
+}
+
+em {
+  font-style: normal;
+  font-weight: var(--font-emphasis);
+}
