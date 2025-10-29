@@ -1,4 +1,25 @@
 :root {
   --padding: 1rem;
-  --content-width: 600px;
+  --content-width: 70ch;
+
+  /* absolute sizing */
+  --xs  : .75rem;
+  --s   : .8rem;
+  --m   : 1rem;
+  --l   : 1.125rem;
+  --xl  : 1.5rem;
+  --xxl : 1.75rem;
+  --xxxl: 2rem;
+
+  /* relative sizing */
+  --r-xs  : .75em;
+  --r-s   : .8em;
+  --r-m   : 1em;
+  --r-l   : 1.125em;
+  --r-xl  : 1.5em;
+  --r-xxl : 1.75em;
+  --r-xxxl: 2em;
 }
+
+
+

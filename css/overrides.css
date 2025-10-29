@@ -1,0 +1,45 @@
+/* testing */
+
+section {
+  border: 1px dotted var(--t);
+}
+
+section {
+  --t: red;
+}
+
+
+.experience {
+  font-size: var(--r-m);
+
+  .company {
+    font-weight: var(--font-emphasis);
+    font-size: var(--r-l);
+  }
+
+  .years {
+    font-size: var(--r-xs);
+    color: var(--text-color-light);
+  }
+
+  .title {
+    color: var(--text-color-dark);
+  }
+
+  .more {
+    font-size: var(--r-s);
+
+    dt { margin-block-end: 0}
+    dd {   margin-block-end: var(--r-m)}
+  }
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--r-m);
+
+  .project {
+    border: 1px solid var(--border);
+  }
+}

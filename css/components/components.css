@@ -1,4 +1,4 @@
-section {
+/* section {
   --bkg: var(--primary);
   --o: 1;
   --b: rgb(from var(--bkg) r g b / var(--o));
@@ -11,13 +11,13 @@ section {
   border-image: linear-gradient(var(--b) 0 0) fill 0 / / 0 100vw;
 
   @media( prefers-color-scheme: dark) {
-      --o: .2;
+      --o: .4;
   }
 }
 
 #experience {--bkg: var(--accent1)}
 #projects {--bkg: var(--accent2)}
-
+ */
 
 
 .contacts {

@@ -1,16 +1,21 @@
-:root {
-  color-scheme: light dark;
-}
-
 html {
-  background: Canvas;
-  color: var(--base-700)
+  background: var(--canvas);
+  color: var(--text-color);
+  font-size: 1rem;
 }
 
 main {
-  margin-inline: auto;
-  width: min(var(--content-width), 100vw - 4rem);
+  --min: 1rem;
+  --max: 1.35rem;
+  --margins: 4rem;
+  --clamp: ((var(--max) /
+            (var(--content-width) + (var(--margins) * 4))
+            ) * 100) * 1vw;
 
+  /* --clamp: 2.25vw; */
+  margin-inline: auto;
+  width: min(var(--content-width), 100vw - var(--margins));
+  font-size: clamp(var(--min), var(--clamp), var(--max));
 }
 
 h1, h2, h3, h4, h5 {
@@ -20,4 +25,20 @@ h1, h2, h3, h4, h5 {
 em {
   font-style: normal;
   font-weight: var(--font-emphasis);
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+dt {
+  margin-block-end: var(--xs);
+}
+
+dd {
+  margin-block-end: var(--r-xxxl);
+  margin-inline-start: 0;
 }

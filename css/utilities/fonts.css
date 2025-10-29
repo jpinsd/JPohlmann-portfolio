@@ -1,6 +1,10 @@
 :root {
+  /*font weights */
   --font-thin: 200;
   --font-normal: 400;
   --font-emphasis: 600;
   --font-black: 800;
+
+  /* font-sizes */
+  /* use the absolute and relative font sizing in metrics.css */
 }

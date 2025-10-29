@@ -1,5 +1,5 @@
-@layer colors, fonts, metrics;
+@layer colors, metrics, fonts;
 
 @import url(colors.css) layer(colors);
-@import url(fonts.css) layer(fonts);
 @import url(metrics.css) layer(metrics);
+@import url(fonts.css) layer(fonts);

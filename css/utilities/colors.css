@@ -16,6 +16,7 @@ Choose a primary color. CTA, accent-1 and accent-2 colors are calculated.
 
   --primary: #ffc001;
   --base: CanvasText;
+  --canvas: Canvas;
 
   --secondary: hsl(from var(--primary) calc(h + 180) calc(s - 15) calc(l - 5));
   --accent1  : hsl(from var(--primary) calc(h + var(--accent-angle)) calc(s - 15) calc(l - 5));
@@ -31,11 +32,13 @@ Choose a primary color. CTA, accent-1 and accent-2 colors are calculated.
   */
 
 
-  /* dark mode only color change */
+  /* dark mode only color changes */
   @media (prefers-color-scheme: dark) {
+  --canvas: #211b2e
 
     /*
-    --base: #0070FF;
+    --canvas: rebeccapurple;
+    --base: aquamarine;
     --accent1  : hsl(from var(--primary) calc(h + 122.25) s calc(l + 2));
     */
 
@@ -43,51 +46,5 @@ Choose a primary color. CTA, accent-1 and accent-2 colors are calculated.
 }
 
 
-/* @TODO: move this to the themes file */
-:root {
-  --primary-hover         : hsl(from var(--primary) h calc(s + 5) calc(l + 7));
-  --primary-active        : hsl(from var(--primary) h calc(s + 5) calc(l - 7));
-  --primary-muted         : hsl(from var(--primary) h s l / 30%);
-  --primary-muted-hover   : hsl(from var(--primary) h calc(s + 5) calc(l + 7) / 30%);
-  --primary-muted-active  : hsl(from var(--primary) h calc(s + 5) calc(l - 7) / 30%);
-
-  --secondary-hover       : hsl(from var(--secondary) h calc(s + 10) calc(l + 7));
-  --secondary-active      : hsl(from var(--secondary) h calc(s + 10) calc(l - 7));
-  --secondary-muted       : hsl(from var(--secondary) h s l / 30%);
-  --secondary-muted-hover : hsl(from var(--secondary) h calc(s + 10) calc(l + 7) / 30%);
-  --secondary-muted-active: hsl(from var(--secondary) h calc(s + 10) calc(l - 7) / 30%);
-
-  --accent1-hover         : hsl(from var(--accent1) h calc(s + 8) calc(l + 5));
-  --accent1-active        : hsl(from var(--accent1) h calc(s + 8) calc(l - 5));
-  --accent2-hover         : hsl(from var(--accent2) h calc(s + 8) calc(l + 5));
-  --accent2-active        : hsl(from var(--accent2) h calc(s + 8) calc(l - 5));
-
-
-
-  /* color gradient ramp for base color */
-  --base-000: rgb(from var(--base) r g b / 0);
-  --base-025: rgb(from var(--base) r g b / 2.5%);
-  --base-050: rgb(from var(--base) r g b / 5%);
-  --base-075: rgb(from var(--base) r g b / 7.5%);
-  --base-100: rgb(from var(--base) r g b / 10%);
-  --base-150: rgb(from var(--base) r g b / 15%);
-  --base-200: rgb(from var(--base) r g b / 20%);
-  --base-250: rgb(from var(--base) r g b / 25%);
-  --base-300: rgb(from var(--base) r g b / 30%);
-  --base-350: rgb(from var(--base) r g b / 35%);
-  --base-400: rgb(from var(--base) r g b / 40%);
-  --base-450: rgb(from var(--base) r g b / 45%);
-  --base-500: rgb(from var(--base) r g b / 50%);
-  --base-550: rgb(from var(--base) r g b / 55%);
-  --base-600: rgb(from var(--base) r g b / 60%);
-  --base-650: rgb(from var(--base) r g b / 65%);
-  --base-700: rgb(from var(--base) r g b / 70%);
-  --base-750: rgb(from var(--base) r g b / 75%);
-  --base-800: rgb(from var(--base) r g b / 80%);
-  --base-850: rgb(from var(--base) r g b / 85%);
-  --base-900: rgb(from var(--base) r g b / 90%);
-  --base-950: rgb(from var(--base) r g b / 95%);
-  --base-999: rgb(from var(--base) r g b / 1);
-}
 
 
