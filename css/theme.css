@@ -46,7 +46,7 @@
   --accent2-active        : hsl(from var(--accent2) h calc(s + 8) calc(l - 5));
 
   /* text colors */
-  --text-color      : var(--base-700);
+  --text-color      : var(--base-750);
   --text-color-light: var(--base-400);
   --text-color-med  : var(--base-800);
   --text-color-dark : var(--base-950);

@@ -2,6 +2,11 @@ html {
   background: var(--canvas);
   color: var(--text-color);
   font-size: 1rem;
+
+  font-family: var(--font-family);
+  font-optical-sizing: var(--font-sizing);
+  font-weight: var(--font-normal);
+  /* font-variation-settings: var(--font-variation); */
 }
 
 main {
@@ -20,7 +25,11 @@ main {
 
 h1, h2, h3, h4, h5 {
   margin-block-start: 0;
+  font-weight: var(--font-emphasis);
+  color: var(--secondary);
 }
+
+h2 {color: var(--primary)}
 
 em {
   font-style: normal;

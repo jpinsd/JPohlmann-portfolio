@@ -12,13 +12,15 @@ Choose a primary color. CTA, accent-1 and accent-2 colors are calculated.
 
 :root {
   /* utils */
-  --accent-angle: 135;
+  --accent-angle: 145;
 
-  --primary: #ffc001;
+  /* --primary: #5f3dcf; */
+  /* --primary: #ec724a; */
+  --primary: #0dc1e7;
   --base: CanvasText;
   --canvas: Canvas;
 
-  --secondary: hsl(from var(--primary) calc(h + 180) calc(s - 15) calc(l - 5));
+  --secondary: hsl(from var(--primary) calc(h + 15) calc(s - 15) calc(l - 15));
   --accent1  : hsl(from var(--primary) calc(h + var(--accent-angle)) calc(s - 15) calc(l - 5));
   --accent2  : hsl(from var(--primary) calc(h - var(--accent-angle)) calc(s - 15) calc(l - 5));
 
@@ -34,7 +36,8 @@ Choose a primary color. CTA, accent-1 and accent-2 colors are calculated.
 
   /* dark mode only color changes */
   @media (prefers-color-scheme: dark) {
-  --canvas: #211b2e
+  --canvas: #1D1325;
+  --secondary: hsl(from var(--primary) calc(h + 15) calc(s - 15) calc(l + 5));
 
     /*
     --canvas: rebeccapurple;
