@@ -2,7 +2,9 @@
   --padding: 1rem;
   --content-width: 70ch;
 
+
   /* absolute sizing */
+  --xxs : .5rem;
   --xs  : .75rem;
   --s   : .8rem;
   --m   : 1rem;
@@ -12,8 +14,9 @@
   --xxxl: 2rem;
 
   /* relative sizing */
+  --r-xxs  : .5em;
   --r-xs  : .75em;
-  --r-s   : .8em;
+  --r-s   : .875em;
   --r-m   : 1em;
   --r-l   : 1.125em;
   --r-xl  : 1.5em;

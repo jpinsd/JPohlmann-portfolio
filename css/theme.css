@@ -1,6 +1,28 @@
 :root {
-  color-scheme: light dark;
+  --theme: light;
+    color-scheme: light;
 
+  @media (prefers-color-scheme: dark) {
+    --theme: dark;
+    color-scheme: dark;
+  }
+
+  &:has(#theme-light:checked) {
+    --theme: light;
+    color-scheme: light;
+  }
+
+  &:has(#theme-dark:checked) {
+    --theme: dark;
+    color-scheme: dark;
+  }
+}
+
+body {
+  /*  body is required instead of :root,
+      otherwise the container style query
+      won't work, and color themes break
+  */
 
   /* color gradient ramp for base color (default is CanvasText) */
   --base-000: rgb(from var(--base) r g b / 0);
@@ -61,6 +83,10 @@
     --text-color-med  : var(--base-999);
     --text-color-dark : var(--base-999);
   }
+
+
+
+
 
 
 

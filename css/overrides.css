@@ -8,10 +8,53 @@ section {
   /* --t: var(--accent1); */
 }
 
-#about {
-  /* color: var(--text-color-dark); */
-  /* font-size: var(--r-l); */
+/* hiding for now */
+menu .external {display: none;}
+
+.mode {
+  /* display: flex; */
+  justify-content: end;
+  gap: 4px;
+  padding-block-end: .5em;
+  border-bottom: 1px solid var(--border);
+
+  display: none;
+
+  [type="radio"] {
+    display: none;
+  }
+  [type="radio"] + label {
+    width: 3em;
+    height: 3em;
+    padding: .5em;
+    font-size: 12px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2.25em;
+    border: 2px dotted transparent;
+    opacity: .75;
+    transition: .3s;
+
+    &:hover {
+      opacity: 1;
+      scale: 1.1;
+      background-color: rgb(from var(--text-color) r g b / 20%);
+    }
+  }
+
+  [type='radio']:checked + label {border-color: rgb(from var(--text-color) r g b / 40%)}
+
+  /* quick fix to remove light/dark from firefox */
+  @container style(--theme: dark) or style(--theme: light) {
+    display: flex;
+  }
+
 }
+
+
+
 
 .experience {
   font-size: var(--r-m);
@@ -49,3 +92,72 @@ section {
     border: 1px solid var(--border);
   }
 }
+
+details {
+  --d: 0s;
+
+  @media (prefers-reduced-motion: no-preference) {
+    --d: .3s;
+  }
+}
+
+details::details-content {
+  display: block;
+  block-size: 0;
+  overflow: clip;
+  transition-property: block-size, content-visibility;
+  transition-duration: var(--d);
+  transition-behavior: allow-discrete;
+}
+
+details[open]::details-content {
+  block-size: auto;
+  block-size: calc-size(auto, size);
+}
+
+details div.detail-wrapper {
+  font-size: var(--r-s);
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: clip;
+  transition: var(--d);
+}
+
+details div.detail-wrapper ul {
+  min-height: 0;
+}
+
+details[open] div.detail-wrapper {
+  grid-template-rows: 1fr;
+}
+
+details[open] div.detail-wrapper ul {
+}
+
+summary {
+  list-style: none;
+}
+
+summary::marker {
+  content: none;
+}
+
+summary::before {
+  content: '▶︎';
+  color: var(--primary);
+  font-size: .875em;
+  display: inline-flex;
+  width: 1.5em;
+  height: 1.5em;
+  justify-content: center;
+  align-items: center;
+  transition: var(--d);
+
+}
+
+details[open] summary::before {
+  rotate: 90deg;
+}
+
+
+

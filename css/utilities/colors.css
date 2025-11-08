@@ -9,17 +9,14 @@ Choose a primary color. CTA, accent-1 and accent-2 colors are calculated.
 
 */
 
-
-:root {
+body {
   /* utils */
   --accent-angle: 145;
 
-  /* --primary: #5f3dcf; */
-  /* --primary: #ec724a; */
-  --primary: #0dc1e7;
-  --base: CanvasText;
-  --canvas: Canvas;
+  --base: #000000;
+  --canvas: #ffffff;
 
+  --primary: #0dc1e7;
   --secondary: hsl(from var(--primary) calc(h + 15) calc(s - 15) calc(l - 15));
   --accent1  : hsl(from var(--primary) calc(h + var(--accent-angle)) calc(s - 15) calc(l - 5));
   --accent2  : hsl(from var(--primary) calc(h - var(--accent-angle)) calc(s - 15) calc(l - 5));
@@ -35,9 +32,13 @@ Choose a primary color. CTA, accent-1 and accent-2 colors are calculated.
 
 
   /* dark mode only color changes */
-  @media (prefers-color-scheme: dark) {
-  --canvas: #1D1325;
-  --secondary: hsl(from var(--primary) calc(h + 15) calc(s - 15) calc(l + 5));
+  /* @media (prefers-color-scheme: dark) { */
+
+  @container style(--theme: dark) {
+
+    --base: #ffffff;
+    --canvas: #221a29;
+    --secondary: hsl(from var(--primary) calc(h + 15) calc(s - 15) calc(l + 5));
 
     /*
     --canvas: rebeccapurple;
@@ -46,8 +47,8 @@ Choose a primary color. CTA, accent-1 and accent-2 colors are calculated.
     */
 
   }
-}
 
+}
 
 
 
