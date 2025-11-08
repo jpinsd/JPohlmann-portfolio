@@ -46,15 +46,12 @@ menu .external {display: none;}
 
   [type='radio']:checked + label {border-color: rgb(from var(--text-color) r g b / 40%)}
 
-  /* quick fix to remove light/dark from firefox */
+  /* quick fix to remove light/dark switches from firefox */
   @container style(--theme: dark) or style(--theme: light) {
     display: flex;
   }
 
 }
-
-
-
 
 .experience {
   font-size: var(--r-m);
@@ -157,6 +154,23 @@ summary::before {
 
 details[open] summary::before {
   rotate: 90deg;
+}
+
+
+#achievements {
+  --bkg: var(--primary-muted);
+  --a: 2.5deg;
+
+  border-image: linear-gradient(var(--bkg) 0 0) fill 0 / / 9999px;
+  clip-path: polygon(
+              -9999px calc(tan(var(--a)) * 9999px),
+              9999px calc(tan(var(--a)) * -9999px),
+              calc(100% + 9999px) calc(100% - tan(var(--a)) * 9999px),
+              calc(100% - 9999px) calc(100% + tan(var(--a)) * 9999px)
+            );
+  margin-block-end: 6rem;
+  padding-block-start: 2rem;
+
 }
 
 
