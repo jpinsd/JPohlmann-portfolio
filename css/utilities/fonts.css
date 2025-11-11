@@ -9,7 +9,7 @@
   /* font-sizes */
   /* use the absolute and relative font sizing in metrics.css */
 
-  --font-family: "Montserrat", sans-serif;
+  --font-family: "Montserrat", system-ui, sans-serif;
   --font-sizing: auto;
 
   /* --font-weight-light: 275;

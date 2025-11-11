@@ -11,7 +11,7 @@ Choose a primary color. CTA, accent-1 and accent-2 colors are calculated.
 
 body {
   /* utils */
-  --accent-angle: 145;
+  --accent-angle: 105;
 
   --base: #000000;
   --canvas: #ffffff;
@@ -21,6 +21,8 @@ body {
   --accent1  : hsl(from var(--primary) calc(h + var(--accent-angle)) calc(s - 15) calc(l - 5));
   --accent2  : hsl(from var(--primary) calc(h - var(--accent-angle)) calc(s - 15) calc(l - 5));
 
+  --card-accent: var(--primary-muted);
+  --card-shadow: 0 .5rem 1.5rem rgba(0,0,0,.2);
 
   /* override calculated colors with static */
   /*
@@ -33,12 +35,18 @@ body {
 
   /* dark mode only color changes */
   /* @media (prefers-color-scheme: dark) { */
-
   @container style(--theme: dark) {
 
     --base: #ffffff;
     --canvas: #221a29;
     --secondary: hsl(from var(--primary) calc(h + 15) calc(s - 15) calc(l + 5));
+    --card-accent: rgb(from var(--accent1) r g b / .5);
+
+    /* --card-shadow: 0 .5rem 1.5rem hsl(from var(--accent1) h s calc(l - 10) / .9); */
+
+    /* crazy neon effect */
+    /* --card-shadow: 0 0 3.5rem hsl(from var(--accent1) calc(h - 180) 120% 395% / .9) */
+
 
     /*
     --canvas: rebeccapurple;

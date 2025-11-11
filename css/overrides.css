@@ -16,7 +16,7 @@ menu .external {display: none;}
   justify-content: end;
   gap: 4px;
   padding-block-end: .5em;
-  border-bottom: 1px solid var(--border);
+  /* border-bottom: 1px solid var(--border); */
 
   display: none;
 
@@ -53,13 +53,56 @@ menu .external {display: none;}
 
 }
 
+@keyframes scroll-in {
+  0%   {opacity: var(--opacity); scale: var(--scale)}
+  50%  { opacity: 1; scale: 1}
+  100% {opacity: var(--opacity); scale: var(--scale)}
+}
+@keyframes scroll-in-font {
+  0%   {opacity: var(--opacity); scale: var(--scale)}
+  50%  { opacity: 1; scale: 1}
+  100% {opacity: var(--opacity); scale: var(--scale)}
+}
+
+@keyframes slide-in {
+  to {transform: translateX(0); opacity: 1}
+}
+
+
+
+
 .experience {
   font-size: var(--r-m);
+
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+
+  @media (width < 600px) {
+    grid-template-columns: 1fr;
+    gap: 1rem 0;
+  }
+
+  .card {
+    grid-column: 1 / span 2;
+
+    display: grid;
+    grid-template-areas:
+      "company"
+      "title"
+      "job-details"
+      "details";
+  }
+
+  .card:nth-child(even) {
+    grid-column: 2 / -1;
+  }
 
   .company {
     font-weight: var(--font-emphasis);
     font-size: var(--r-l);
     color: var(--secondary);
+    grid-area: company;
   }
 
   .years {
@@ -70,6 +113,17 @@ menu .external {display: none;}
   .title {
     color: var(--text-color-dark);
     font-weight: var(--font-strong);
+    grid-area: title;
+  }
+
+  .job-details {
+    /* width: min(100%, 40ch); */
+    font-size: 1rem;
+    grid-area: job-details;
+  }
+
+  details {
+    grid-area: details;
   }
 
   .more {
@@ -77,6 +131,46 @@ menu .external {display: none;}
 
     dt { margin-block-end: 0}
     dd {   margin-block-end: var(--r-m)}
+  }
+}
+
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .card {
+      opacity: .3;
+      transform: translateX(-20%);
+      animation: slide-in linear forwards;
+      animation-timeline: view();
+      animation-range: 5% 40%;
+    }
+
+    .card:nth-child(even) {
+      transform: translateX(20%);
+    }
+
+    /* .details { */
+      /* .experience dt {
+      --scale: .6;
+      --opacity: .8;
+      scale: var(--scale);
+      opacity: var(--opacity);
+      transform-origin: left;
+      animation: scroll-in linear forwards;
+      animation-timeline: view();
+      animation-range: 30% 60%;
+    } */
+
+    /* .details {
+      --scale: .1;
+      --opacity: .2;
+      scale: var(--scale);
+      opacity: var(--opacity);
+      transform-origin: left;
+      animation: scroll-in-font linear forwards;
+      animation-timeline: view();
+      animation-range: 30% 60%;
+    } */
   }
 }
 
@@ -158,19 +252,20 @@ details[open] summary::before {
 
 
 #achievements {
-  --bkg: var(--primary-muted);
-  --a: 2.5deg;
+  --bkg: rgb( from var(--card-accent) r g b / .3);
+  --a: 3.5deg;
+  --n: 100vw;
+  --nn: calc(var(--n) * -1);
 
-  border-image: linear-gradient(var(--bkg) 0 0) fill 0 / / 9999px;
+  border-image: linear-gradient(var(--bkg) 0 0) fill 0 / / var(--n);
   clip-path: polygon(
-              -9999px calc(tan(var(--a)) * 9999px),
-              9999px calc(tan(var(--a)) * -9999px),
-              calc(100% + 9999px) calc(100% - tan(var(--a)) * 9999px),
-              calc(100% - 9999px) calc(100% + tan(var(--a)) * 9999px)
+              var(--nn) calc(tan(var(--a)) * var(--n)),
+              var(--n) calc(tan(var(--a)) * var(--nn)),
+              calc(100% + var(--n)) calc(100% - tan(var(--a)) * var(--n)),
+              calc(100% - var(--n)) calc(100% + tan(var(--a)) * var(--n))
             );
   margin-block-end: 6rem;
   padding-block-start: 2rem;
-
 }
 
 
