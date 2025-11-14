@@ -64,8 +64,10 @@ body {
 
   --accent1-hover         : hsl(from var(--accent1) h calc(s + 8) calc(l + 5));
   --accent1-active        : hsl(from var(--accent1) h calc(s + 8) calc(l - 5));
+  --accent1-muted         : hsl(from var(--accent1) h s l / 60%);
   --accent2-hover         : hsl(from var(--accent2) h calc(s + 8) calc(l + 5));
   --accent2-active        : hsl(from var(--accent2) h calc(s + 8) calc(l - 5));
+  --accent2-muted         : hsl(from var(--accent2) h s l / 60%);
 
   /* text colors */
   --text-color      : var(--base-750);

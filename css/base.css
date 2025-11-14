@@ -1,6 +1,10 @@
 :root {
   /* interpolate-size: allow-keywords; */
 }
+::selection {
+  background: CanvasText;
+  color: Canvas;
+}
 
 html {
   font-size: 1rem;
