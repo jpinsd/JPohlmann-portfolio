@@ -1,0 +1,298 @@
+dialog::backdrop {
+  background: rgba(50, 50, 50, 0.5);
+  backdrop-filter: blur(5px);
+}
+dialog.details {
+  background: var(--studs-app);
+  border-radius: calc(var(--padding) / 2);
+  border: none;
+  padding: 0px;
+  overflow-x: clip;
+  overscroll-behavior: contain;
+  color: var(--studs-on-app);
+  max-width: var(--content-wide);
+  max-height: 90vh;
+  box-shadow: 0 0 36px rgba(0, 0, 0, 0.6);
+}
+@media (max-width: 800px), (max-height: 800px) {
+  dialog.details {
+    max-height: 100dvh;
+    max-width: 100vw;
+    height: 100dvh;
+    width: 100dvw;
+    border-radius: 0px;
+  }
+}
+dialog.details .detailsWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+dialog.details .closeButton {
+  color: var(--studs-primary);
+  background: var(--studs-app);
+  width: 45px;
+  grid-row: 1;
+  justify-self: end;
+  margin: 0.5rem;
+  cursor: pointer;
+  border: 1px solid var(--studs-primary);
+  border-radius: 50%;
+  padding: 0;
+  position: sticky;
+  top: 1rem;
+  right: 1rem;
+  margin-left: auto;
+  z-index: 100;
+  transition: all 0.2s;
+}
+dialog.details .closeButton svg {
+  display: block;
+}
+dialog.details .closeButton:hover {
+  background: var(--studs-primary-subtle-hover);
+}
+dialog.details .detailsContent {
+  grid-row: 2;
+  --font-size: clamp(16px, 1.6vw, 20px);
+}
+dialog header {
+  padding-inline: var(--padding);
+  display: grid;
+  grid-template-columns: 60fr 46fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+@media (max-width: 800px) {
+  dialog header {
+    grid-template-columns: 1fr;
+  }
+}
+dialog header h2 {
+  text-align: left;
+  margin: 0;
+}
+dialog header p {
+  margin-block: 0;
+}
+dialog .banner {
+  background: var(--studs-primary);
+  height: clamp(32px, 15vw, 220px);
+  width: 100%;
+  position: relative;
+}
+dialog .banner::before {
+  --padding: .75rem;
+  content: "";
+  position: absolute;
+  top: var(--padding);
+  left: var(--padding);
+  right: var(--padding);
+  bottom: var(--padding);
+  background-image: var(--cardBkg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  opacity: 0.075;
+}
+dialog .detailsContents {
+  padding-inline: var(--padding);
+  margin-block: 3rem;
+}
+dialog .detailsContents.-infrastructure {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 2rem;
+}
+dialog .detailsContents.-services .river, dialog .detailsContents.-data .river {
+  margin-block: calc(var(--padding) * 4);
+  display: grid;
+  gap: calc(var(--padding) * 2);
+  transition: all 0.3s;
+}
+dialog .detailsContents.-services .riverContent, dialog .detailsContents.-data .riverContent {
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (max-width: 700px) {
+  dialog .detailsContents.-services .-l,
+  dialog .detailsContents.-services .-r, dialog .detailsContents.-data .-l,
+  dialog .detailsContents.-data .-r {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "img" "content";
+  }
+}
+dialog .detailsContents.-services img {
+  box-shadow: 0 0 var(--padding) rgba(0, 0, 0, 0.4);
+  grid-area: img;
+}
+dialog .detailsContents.-services .-l {
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: "img content";
+}
+dialog .detailsContents.-services .-r {
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas: "content img";
+}
+@media (max-width: 850px) {
+  dialog .detailsContents.-services .-l,
+  dialog .detailsContents.-services .-r {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 650px) {
+  dialog .detailsContents.-services .-l,
+  dialog .detailsContents.-services .-r {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "img" "content";
+  }
+}
+dialog .detailsContents.-data {
+  width: var(--content-mid);
+  margin: auto;
+}
+dialog .detailsContents.-data .river {
+  margin-block: calc(var(--padding) * 4);
+  display: grid;
+  gap: calc(var(--padding) * 3);
+  transition: all 0.3s;
+}
+@media (max-width: 800px) {
+  dialog .detailsContents.-data .river {
+    gap: var(--padding);
+  }
+}
+dialog .detailsContents.-data .img {
+  grid-area: img;
+}
+dialog .detailsContents.-data img {
+  max-width: 300px;
+  width: calc(100% - 4rem);
+}
+dialog .detailsContents.-data .-l {
+  grid-template-columns: 4fr 6fr;
+  grid-template-areas: "img content";
+}
+dialog .detailsContents.-data .-r {
+  grid-template-columns: 6fr 4fr;
+  grid-template-areas: "content img";
+}
+@media (max-width: 600px) {
+  dialog .detailsContents.-data img {
+    width: 100%;
+  }
+  dialog .detailsContents.-data .-l {
+    grid-template-columns: 1fr 6fr;
+  }
+  dialog .detailsContents.-data .-r {
+    grid-template-columns: 6fr 1fr;
+  }
+}
+@media (max-width: 500px) {
+  dialog .detailsContents.-data .river {
+    margin-block: var(--padding);
+  }
+  dialog .detailsContents.-data .img {
+    width: 80px;
+    margin-inline: auto;
+  }
+  dialog .detailsContents.-data .-l,
+  dialog .detailsContents.-data .-r {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "img" "content";
+  }
+}
+dialog .detailsContents.-internalDev {
+  width: var(--content-width);
+  margin-inline: auto;
+}
+dialog .detailsContents.-internalDev .internals {
+  --bkg: var(--studs-surface);
+  --color: var(--studs-on-surface);
+  margin-block: calc(var(--padding) * 2);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: "buttonsl buttonsr" "content content";
+  gap: 1rem;
+}
+dialog .detailsContents.-internalDev .internals input:checked + label {
+  --bkg: var(--studs-primary);
+  --color: var(--studs-on-primary);
+}
+dialog .detailsContents.-internalDev .internals input {
+  grid-area: buttonsl;
+  display: none;
+}
+dialog .detailsContents.-internalDev .internals label {
+  background-color: var(--bkg);
+  color: var(--color);
+  padding: 0.5em 1.5em;
+  border-radius: 2em;
+  max-width: 20ch;
+  text-align: center;
+  justify-self: end;
+  cursor: pointer;
+  transition: all 0.3s;
+  grid-area: buttonsl;
+}
+dialog .detailsContents.-internalDev .internals label[for=benefits] {
+  grid-area: buttonsr;
+  justify-self: start;
+}
+dialog .detailsContents.-internalDev .internals .radioContents {
+  opacity: 0;
+  grid-area: content;
+  transition: opacity 1s;
+}
+dialog .detailsContents.-internalDev .internals .radioContents dt {
+  font-size: clamp(1.1rem, 3vw, 1.875rem);
+  font-weight: 700;
+}
+dialog .detailsContents.-internalDev .internals .radioContents dd {
+  margin-inline: 0;
+  margin-bottom: var(--padding);
+}
+dialog .detailsContents.-internalDev .internals input:checked + label + .radioContents {
+  opacity: 1;
+}
+dialog .detailsContents h3 {
+  max-width: var(--content-width);
+  margin: 1rem auto;
+  grid-column: 1/-1;
+  grid-row: 1;
+}
+dialog .detailsContents .detailCards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+dialog .detailsContents .detailCards .img {
+  background: var(--studs-surface);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: calc(var(--padding) / 2);
+  aspect-ratio: 1/1;
+}
+dialog .detailsContents .detailCards .img img {
+  height: 100%;
+  width: auto;
+}
+dialog .detailsContents .detailCards p {
+  margin: 0;
+}
+dialog footer.-banner {
+  height: clamp(32px, 15vw, 240px);
+  width: 105%;
+  background-image: url("../../img/modal-footer.svg");
+  background-size: 1400px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}

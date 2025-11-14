@@ -1,0 +1,30 @@
+button {
+  --button-border: transparent;
+  --button-background: var(--studs-surface);
+  --button-hover: var(--studs-surface-hover);
+  --button-text: var(--studs-on-surface);
+  padding: 1em;
+  border: 2px solid var(--button-border);
+  background: var(--button-background);
+  cursor: pointer;
+  color: var(--button-text);
+}
+button:hover {
+  background: var(--button-hover);
+  border-color: var(--button-border);
+}
+button.-cta {
+  --button-background: var(--studs-primary);
+  --button-hover: var(--studs-primary-hover);
+  --button-text: var(--studs-on-primary);
+}
+button.-tertiary {
+  --button-border: var(--studs-primary);
+  --button-background: transparent;
+  --button-hover: transparent;
+  --button-text: var(--studs-primary);
+}
+button.-tertiary:hover {
+  --button-border: var(--studs-primary-hover);
+  --button-text: var(--studs-primary-hover);
+}

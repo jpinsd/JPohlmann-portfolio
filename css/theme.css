@@ -69,12 +69,19 @@ body {
 
   /* text colors */
   --text-color      : var(--base-750);
-  --text-color-light: var(--base-400);
+  --text-color-light: var(--base-500);
   --text-color-med  : var(--base-800);
   --text-color-dark : var(--base-950);
 
+
   /* decoration colors */
   --border: var(--base-075);
+  --card-accent: rgb(from var(--primary) r g b / .2);
+  --card-shadow: 0 .5rem 1.5rem rgba(0,0,0,.2);
+  --callout-bkg: rgb(from var(--primary) r g b / .2);
+  --logo-shadow: drop-shadow(.175em .325em .55em rgb(from var(--base) r g b / .225));
+
+
 
 
   @media (prefers-contrast: more) {
@@ -83,6 +90,24 @@ body {
     --text-color-med  : var(--base-999);
     --text-color-dark : var(--base-999);
   }
+
+
+  @container style(--theme: dark) {
+  --card-accent: rgb(from var(--accent1) r g b / .5);
+  --callout-bkg: rgb(from var(--accent1) r g b / .2);
+  --logo-shadow: drop-shadow(.175em .325em 2em rgb(from var(--accent1) r g b / .6));
+
+
+
+  /* --card-shadow: 0 .5rem 1.5rem hsl(from var(--accent1) h s calc(l - 10) / .9); */
+
+  /* crazy neon effect */
+  /* --card-shadow: 0 0 3.5rem hsl(from var(--accent1) calc(h - 180) 120% 395% / .9) */
+
+
+  }
 }
+
+
 
 

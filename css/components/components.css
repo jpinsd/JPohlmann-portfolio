@@ -32,6 +32,11 @@
   color: currentcolor;
 }
 
+.disclaimer {
+  font-size: var(--r-s);
+  color: var(--text-color-light);
+}
+
 .card {
   --border-width: 2px;
   /* border: var(--border-width) solid transparent; */
@@ -48,7 +53,10 @@
   content:'';
   inset: 0;
   position: absolute;
-  background: linear-gradient(to bottom right, var(--card-accent), transparent 40%) border-box;
+  background: linear-gradient(to bottom right,
+                              var(--card-accent),
+                              rgb(from var(--card-accent) r g b / 0) 40% 70%,
+                              rgb(from var(--card-accent) r g b / .25) 100%) border-box;
   border-radius: inherit;
   z-index: -1;
 
@@ -76,8 +84,8 @@
   width: var(--s);
   height: var(--s);
 
-  background: radial-gradient(ellipse calc(var(--s) / 5) 3px at center, rgba(255,255,255,.02), transparent),
-              radial-gradient(ellipse 3px calc(var(--s) / 5) at center, rgba(255,255,255,.02), transparent),
+  background: radial-gradient(ellipse calc(var(--s) / 10) 3px at center, rgba(255,255,255,.02), transparent),
+              radial-gradient(ellipse 3px calc(var(--s) / 10) at center, rgba(255,255,255,.02), transparent),
               radial-gradient(circle, rgba(255,255,255, .05), rgba(255,255,255,0) 50%);
 }
 
