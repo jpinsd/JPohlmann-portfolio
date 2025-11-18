@@ -1,4 +1,6 @@
 {
   "workspace.color" : 9,
-  "workspace.name" : "JPohlmann-portfolio"
+  "workspace.name" : "JPohlmann-portfolio",
+  "workspace.preview_server_allow_external" : false,
+  "workspace.preview_server_port" : 4000
 }

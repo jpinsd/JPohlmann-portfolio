@@ -1,0 +1,118 @@
+:root {
+  --theme: light;
+    color-scheme: light;
+
+  @media (prefers-color-scheme: dark) {
+    --theme: dark;
+    color-scheme: dark;
+  }
+
+  &:has(#theme-light:checked) {
+    --theme: light;
+    color-scheme: light;
+  }
+
+  &:has(#theme-dark:checked) {
+    --theme: dark;
+    color-scheme: dark;
+  }
+}
+
+body {
+  /*  body is required instead of :root,
+      otherwise the container style query
+      won't work, and color themes break
+  */
+
+  /* color gradient ramp for base color (default is CanvasText) */
+  --base-000: rgb(from var(--base) r g b / 0);
+  --base-025: rgb(from var(--base) r g b / 2.5%);
+  --base-050: rgb(from var(--base) r g b / 5%);
+  --base-075: rgb(from var(--base) r g b / 7.5%);
+  --base-100: rgb(from var(--base) r g b / 10%);
+  --base-150: rgb(from var(--base) r g b / 15%);
+  --base-200: rgb(from var(--base) r g b / 20%);
+  --base-250: rgb(from var(--base) r g b / 25%);
+  --base-300: rgb(from var(--base) r g b / 30%);
+  --base-350: rgb(from var(--base) r g b / 35%);
+  --base-400: rgb(from var(--base) r g b / 40%);
+  --base-450: rgb(from var(--base) r g b / 45%);
+  --base-500: rgb(from var(--base) r g b / 50%);
+  --base-550: rgb(from var(--base) r g b / 55%);
+  --base-600: rgb(from var(--base) r g b / 60%);
+  --base-650: rgb(from var(--base) r g b / 65%);
+  --base-700: rgb(from var(--base) r g b / 70%);
+  --base-750: rgb(from var(--base) r g b / 75%);
+  --base-800: rgb(from var(--base) r g b / 80%);
+  --base-850: rgb(from var(--base) r g b / 85%);
+  --base-900: rgb(from var(--base) r g b / 90%);
+  --base-950: rgb(from var(--base) r g b / 95%);
+  --base-999: rgb(from var(--base) r g b / 1);
+
+  /* theme colors */
+  --primary-hover         : hsl(from var(--primary) h calc(s + 5) calc(l + 7));
+  --primary-active        : hsl(from var(--primary) h calc(s + 5) calc(l - 7));
+  --primary-muted         : hsl(from var(--primary) h s l / 30%);
+  --primary-muted-hover   : hsl(from var(--primary) h calc(s + 5) calc(l + 7) / 30%);
+  --primary-muted-active  : hsl(from var(--primary) h calc(s + 5) calc(l - 7) / 30%);
+
+  --secondary-hover       : hsl(from var(--secondary) h calc(s + 10) calc(l + 7));
+  --secondary-active      : hsl(from var(--secondary) h calc(s + 10) calc(l - 7));
+  --secondary-muted       : hsl(from var(--secondary) h s l / 30%);
+  --secondary-muted-hover : hsl(from var(--secondary) h calc(s + 10) calc(l + 7) / 30%);
+  --secondary-muted-active: hsl(from var(--secondary) h calc(s + 10) calc(l - 7) / 30%);
+
+  --accent1-hover         : hsl(from var(--accent1) h calc(s + 8) calc(l + 5));
+  --accent1-active        : hsl(from var(--accent1) h calc(s + 8) calc(l - 5));
+  --accent1-muted         : hsl(from var(--accent1) h s l / 60%);
+  --accent2-hover         : hsl(from var(--accent2) h calc(s + 8) calc(l + 5));
+  --accent2-active        : hsl(from var(--accent2) h calc(s + 8) calc(l - 5));
+  --accent2-muted         : hsl(from var(--accent2) h s l / 60%);
+
+  /* text colors */
+  --text-color      : var(--base-750);
+  --text-color-light: var(--base-500);
+  --text-color-med  : var(--base-800);
+  --text-color-dark : var(--base-950);
+
+
+  /* decoration colors */
+  --border: var(--base-075);
+  --card-accent: rgb(from var(--primary) r g b / .1);
+  --card-shadow: 0 .35rem .65rem rgb(from var(--primary) r g b / .2);
+  --callout-bkg: rgb(from var(--primary) r g b / .2);
+  --logo-shadow: drop-shadow(.175em .325em .55em rgb(from var(--base) r g b / .225));
+  --link-color: var(--base);
+  --link-decoration: var(--primary);
+  --backdrop-color: rgb(from var(--canvas) r g b / .7);
+
+
+  @media (prefers-contrast: more) {
+    --text-color      : var(--base-999);
+    --text-color-light: var(--base-999);
+    --text-color-med  : var(--base-999);
+    --text-color-dark : var(--base-999);
+  }
+
+
+  @container style(--theme: dark) {
+  --card-accent: rgb(from var(--accent1) r g b / .5);
+  --card-shadow: 0 .5rem 1.5rem rgba(0,0,0,.2);
+  --callout-bkg: rgb(from var(--accent1) r g b / .2);
+  --logo-shadow: drop-shadow(.175em .325em 2em rgb(from var(--accent1) r g b / .6));
+  --backdrop-color: rgb(from var(--canvas) r g b / .75);
+
+
+
+  /* --card-shadow: 0 .5rem 1.5rem hsl(from var(--accent1) h s calc(l - 10) / .9); */
+
+  /* crazy neon effect */
+  /* --card-shadow: 0 0 3.5rem hsl(from var(--accent1) calc(h - 180) 120% 395% / .9) */
+
+
+  }
+}
+
+
+
+

@@ -1,0 +1,331 @@
+/* hiding for now */
+menu .external {display: none;}
+
+.mode {
+  /* display: flex; */
+  justify-content: end;
+  gap: .5rem;
+  padding-block-end: .5em;
+  /* border-bottom: 1px solid var(--border); */
+
+  display: none;
+
+  [type="radio"] {
+    display: none;
+  }
+  [type="radio"] + label {
+    color: var(--text-color-light);
+    width: 3em;
+    height: 3em;
+    padding: .5em;
+    font-size: 12px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2.25em;
+    border: 2px solid transparent;
+    backdrop-filter: blur(5px);
+    background: rgb(from var(--text-color) r g b / .07) padding-box;
+    /* opacity: .875; */
+    transition: var(--tx-m);
+
+    &:hover {
+      /* opacity: 1; */
+      scale: 1.1;
+      background: rgb(from var(--text-color) r g b / .2) padding-box;
+    }
+
+    &::before {
+      content:'';
+      inset: 0;
+      position: absolute;
+      background: linear-gradient(to bottom right,
+                                  rgba(255,255,255, .65),
+                                  rgba(255,255,255, 0) 40% 70%,
+                                  rgba(255,255,255, .25) 100%) border-box;
+      border-radius: inherit;
+      z-index: -1;
+
+      border: 2px solid transparent;
+
+      filter: blur(2px);
+
+      mask: linear-gradient(black 0 0) border-box,
+            linear-gradient(black 0 0) padding-box;
+      mask-composite: subtract;
+    }
+  }
+
+  [type='radio']:checked + label {
+    /* border-color: rgb(from var(--text-color) r g b / 40%) */
+    background: rgb(from var(--primary) r g b / .2) padding-box
+  }
+
+  /* quick fix to remove light/dark switches from firefox */
+  @container style(--theme: dark) or style(--theme: light) {
+    display: flex;
+  }
+
+}
+
+.-more {
+  display: inline-flex;
+  gap: .5em;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    aspect-ratio: 1;
+    width: 1.2em;
+    height: 1.2em;
+    background: var(--primary);
+
+    mask-image: url(../img/svg/arrow-right-solid-full.svg);
+    mask-repeat: no-repeat;
+
+  }
+}
+
+.new-window {
+  position: relative;
+  display: inline-flex;
+  gap: .5em;
+
+  &::after {
+    content: '';
+    display: inline-block;
+    aspect-ratio: 1;
+    width: 1.2em;
+    height: 1.2em;
+    background: var(--primary);
+
+    mask-image: url(../img/svg/arrow-up-right-from-square-solid-full.svg);
+    mask-repeat: no-repeat;
+  }
+}
+
+@keyframes slide-in {
+  to {transform: translateX(0); opacity: 1}
+}
+
+#about {
+  min-height: 80vh;
+  margin-block: 0;
+}
+.about-wrapper{
+  display: grid;
+  grid-template-areas: "img heading"
+                       "img intro"
+                       "img contacts";
+
+  grid-template-columns: minmax(100px, 1fr) 3fr;
+  grid-template-rows: repeat(3, min-content);
+  gap: 0 2rem;
+
+  /* grid-template-columns: 1fr 2fr;
+  grid-template-rows: repeat(3, auto);
+
+  h2        {grid-column: 2; grid-row: 1}
+  img       {grid-column: 1; grid-row: 1 / -1}
+  .intro    {grid-column: 2; grid-row: 2}
+  .contacts {grid-column: 2; grid-row: 3}
+  */
+
+  h2        {grid-area: heading}
+  img       {grid-area: img}
+  .intro    {grid-area: intro}
+  .contacts {grid-area: contacts}
+
+  img {
+    width: 100%;
+    filter: var(--logo-shadow);
+    display: block;
+    /* opacity: .8 */
+  }
+}
+
+
+.experience {
+  font-size: var(--r-m);
+
+  display: grid;
+  gap: 4rem;
+  grid-template-columns: repeat(3, 1fr);
+
+  @media (width < 600px) {
+    grid-template-columns: 1fr;
+    gap: 1rem 0;
+  }
+
+  .card {
+    grid-column: 1 / span 2;
+
+    display: grid;
+    grid-template-areas:
+      "company"
+      "title"
+      "job-details"
+      "details";
+  }
+
+  .card:nth-child(even) {
+    grid-column: 2 / -1;
+  }
+
+  .company {
+    font-weight: var(--font-emphasis);
+    font-size: var(--r-l);
+    color: var(--secondary);
+    grid-area: company;
+  }
+
+  .years {
+    font-size: var(--r-xs);
+    color: var(--text-color-light);
+  }
+
+  .title {
+    color: var(--text-color-dark);
+    font-weight: var(--font-strong);
+    grid-area: title;
+  }
+
+  .job-details {
+    /* width: min(100%, 40ch); */
+    font-size: 1rem;
+    grid-area: job-details;
+  }
+
+  details {
+    grid-area: details;
+  }
+
+  .more {
+    font-size: var(--r-s);
+
+    dt { margin-block-end: 0}
+    dd {   margin-block-end: var(--r-m)}
+  }
+}
+
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .card {
+      opacity: .3;
+      transform: translateX(-20%);
+      animation: slide-in linear forwards;
+      animation-timeline: view();
+      animation-range: 5% 40%;
+    }
+
+    .card:nth-child(even) {
+      transform: translateX(20%);
+    }
+  }
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--r-m);
+  font-size: 1rem;
+
+  .project {
+    border-radius: var(--s);
+    border: 1px solid var(--border);
+    padding: 1rem;
+    background-color: var(--base-025);
+  }
+  summary {
+    font-size: var(--r-s);
+  }
+}
+
+/* details {
+  --d: 0s;
+
+  @media (prefers-reduced-motion: no-preference) {
+    --d: .3s;
+  }
+} */
+
+details::details-content {
+  display: block;
+  block-size: 0;
+  overflow: clip;
+  transition-property: block-size, content-visibility;
+  transition-duration: var(--tx-m);
+  transition-behavior: allow-discrete;
+}
+
+details[open]::details-content {
+  block-size: auto;
+  block-size: calc-size(auto, size);
+}
+
+details div.detail-wrapper {
+  font-size: var(--r-s);
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: clip;
+  transition: var(--tx-m);
+}
+
+details div.detail-wrapper > * {
+  min-height: 0;
+  margin-block-start: 0;
+}
+
+details[open] div.detail-wrapper {
+  grid-template-rows: 1fr;
+}
+
+summary {
+  list-style: none;
+}
+
+summary::marker {
+  content: none;
+}
+
+summary::before {
+  content: '▶︎';
+  color: var(--primary);
+  font-size: .875em;
+  display: inline-flex;
+  width: 1.5em;
+  height: 1.5em;
+  justify-content: center;
+  align-items: center;
+  transition: var(--tx-m);
+
+}
+
+details[open] summary::before {
+  rotate: 90deg;
+}
+
+
+
+#achievements {
+  --bkg: rgb( from var(--card-accent) r g b / .3);
+  --bkg: var(--callout-bkg);
+  --a: 3.5deg;
+  --n: 100vw;
+  --nn: calc(var(--n) * -1);
+
+  border-image: linear-gradient(var(--bkg) 0 0) fill 0 / / var(--n);
+  clip-path: polygon(
+              var(--nn) calc(tan(var(--a)) * var(--n)),
+              var(--n) calc(tan(var(--a)) * var(--nn)),
+              calc(100% + var(--n)) calc(100% - tan(var(--a)) * var(--n)),
+              calc(100% - var(--n)) calc(100% + tan(var(--a)) * var(--n))
+            );
+  margin-block-start: 0;
+  padding-block-start: 2rem;
+}
+
+
+

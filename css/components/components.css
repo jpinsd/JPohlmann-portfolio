@@ -1,0 +1,102 @@
+/* section {
+  --bkg: var(--primary);
+  --o: 1;
+  --b: rgb(from var(--bkg) r g b / var(--o));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 60vh;
+
+
+  border-image: linear-gradient(var(--b) 0 0) fill 0 / / 0 100vw;
+
+  @media( prefers-color-scheme: dark) {
+      --o: .4;
+  }
+}
+
+#experience {--bkg: var(--accent1)}
+#projects {--bkg: var(--accent2)}
+ */
+
+
+.contacts {
+  display: inline-flex;
+  gap: 1rem;
+}
+
+.icon {
+  display: inline-flex;
+  aspect-ratio: 1;
+  block-size: 2em;
+  color: currentcolor;
+}
+
+.disclaimer {
+  font-size: var(--r-s);
+  color: var(--text-color-light);
+}
+
+.card {
+  --border-width: 2px;
+  /* border: var(--border-width) solid transparent; */
+  border-radius: var(--s);
+  padding: var(--padding);
+  background: radial-gradient(circle at 50% 160%, var(--card-accent), transparent) padding-box;
+
+  position: relative;
+
+  box-shadow: var(--card-shadow);
+}
+
+.card::before {
+  content:'';
+  inset: 0;
+  position: absolute;
+  background: linear-gradient(to bottom right,
+                              var(--card-accent),
+                              rgb(from var(--card-accent) r g b / 0) 40% 70%,
+                              rgb(from var(--card-accent) r g b / .25) 100%) border-box;
+  border-radius: inherit;
+  z-index: -1;
+
+  border: var(--border-width) solid transparent;
+
+  mask: linear-gradient(black 0 0) border-box,
+        linear-gradient(black 0 0) padding-box;
+  mask-composite: subtract;
+}
+
+@keyframes rotate-in {
+  from {rotate: 0deg}
+    to {rotate: 80deg}
+}
+
+.card::after {
+  --s: 500px;
+  content:'';
+  pointer-events: none;
+  position: absolute;
+  left: calc((var(--s) / 2) * -1);
+  top:  calc((var(--s) / 2) * -1);
+  rotate: 30deg;
+
+  width: var(--s);
+  height: var(--s);
+
+  background: radial-gradient(ellipse calc(var(--s) / 10) 3px at center, rgba(255,255,255,.02), transparent),
+              radial-gradient(ellipse 3px calc(var(--s) / 10) at center, rgba(255,255,255,.02), transparent),
+              radial-gradient(circle, rgba(255,255,255, .05), rgba(255,255,255,0) 50%);
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .card::after {
+      rotate: 0deg;
+      animation: rotate-in linear;
+      animation-timeline: view();
+      /* animation-range: 5% 40%; */
+    }
+  }
+}
+

@@ -1,0 +1,53 @@
+/*
+Choose a primary color. CTA, accent-1 and accent-2 colors are calculated.
+- CTA is complimentary, and by default both accent colors are analogous by 12.5° on either side.
+- Base color is used to calculate the text and the color ramp for surface colors.
+    Default base color is browser CanvasText
+- Base, CTA, and both accents can be hard coded instead of calculated,
+    and all colors based on them will update.
+- Colors can also be overridden for dark mode.
+
+*/
+
+body {
+  /* utils */
+  --accent-angle: 105;
+
+  --base: #000000;
+  /* --canvas: #ECFBFE; */
+  /* --canvas: #F5FDFE; */
+  --canvas: #ffffff;
+
+  --primary: #0dc1e7;
+  --secondary: hsl(from var(--primary) calc(h + 15) calc(s - 15) calc(l - 15));
+  --accent1  : hsl(from var(--primary) calc(h + var(--accent-angle)) calc(s - 15) calc(l - 5));
+  --accent2  : hsl(from var(--primary) calc(h - var(--accent-angle)) calc(s - 15) calc(l - 5));
+
+  /* override calculated colors with static */
+  /*
+    --base: rebeccapurple;
+    --secondary: #b720e9;
+    --accent1: #003FC5;
+    --accent2: #00C5B3;
+  */
+
+
+  /* dark mode only color changes */
+  @container style(--theme: dark) {
+
+    --base: #ffffff;
+    --canvas: #221a29;
+    --secondary: hsl(from var(--primary) calc(h + 15) calc(s - 15) calc(l + 5));
+
+    /*
+    --canvas: rebeccapurple;
+    --base: aquamarine;
+    --accent1  : hsl(from var(--primary) calc(h + 122.25) s calc(l + 2));
+    */
+
+  }
+
+}
+
+
+

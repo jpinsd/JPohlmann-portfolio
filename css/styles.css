@@ -1,0 +1,8 @@
+@layer reset, utilities, themes, base, components, layout, overrides;
+
+@import url(utilities/modern-normalize-min.css) layer(reset);
+@import url(utilities/utilities.css) layer(utilities);    /* colors, fonts, metrics */
+@import url(theme.css) layer(themes);                     /* tokens, light and dark, accessability variants */
+@import url(base.css) layer(base);                        /* default styles, building off of reset */
+@import url(components/components.css) layer(components); /* mostly form elements */
+@import url(overrides.css) layer(overrides);              /* site- or page-specific styles */

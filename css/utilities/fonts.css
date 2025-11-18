@@ -1,0 +1,23 @@
+:root {
+  /*font weights */
+  --font-thin: 275;
+  --font-normal: 450;
+  --font-emphasis: 525;
+  --font-strong: 650;
+  --font-black: 800;
+
+  /* font-sizes */
+  /* use the absolute and relative font sizing in metrics.css */
+
+  --font-family: "Montserrat", system-ui, sans-serif;
+  --font-sizing: auto;
+
+  /* --font-weight-light: 275;
+  --font-weight-medium: 450;
+  --font-weight-bold: 650;
+  --font-weight-black: 800; */
+
+  /* --font-variation: "wdth" 100; */
+
+}
+
