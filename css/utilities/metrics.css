@@ -22,7 +22,22 @@
   --r-xl  : 1.5em;
   --r-xxl : 1.75em;
   --r-xxxl: 2em;
+
+  /* animations and transitions */
+  --tx-xs : 0.1s;
+  --tx-s : 0.25s;
+  --tx-m : 0.3s;
+  --tx-l : 0.5s;
+  --tx-x : 0.65s;
+  --tx-xx: 1s;
+
+  @media (prefers-reduced-motion: reduce) {
+    --tx-s : 0s;
+    --tx-m : 0s;
+    --tx-l : 0s;
+    --tx-x : 0s;
+    --tx-xx: 0s;
+  }
+
+
 }
-
-
-

@@ -53,7 +53,7 @@
 			<h2>About Me</h2>
 			<img src='img/logo-2025-web.svg' alt='my face'>
 			<div class='intro'>
-				<p>HI! I'm <em>Jeffrey Pohlmann</em>, but I go by <strong>"JP"</strong>. I've been developing web sites since the very begining in 1995. I love modern CSS and all the things it can do. At times, I even enjoy JavaScript. I also love dogs, electronic music, and 3D printing.</p>
+				<p>HI! I'm <strong>Jeffrey Pohlmann</strong>, but I go by <strong>"JP"</strong>. I've been developing web sites since the very begining in 1995. I love modern CSS and all the things it can do. At times, I even enjoy JavaScript. I also love dogs, electronic music, and 3D printing.</p>
 				<p>I'm pretty easy to talk to. Choose your favorite method:</p>
 			</div>
 			<div class='contacts'>
@@ -205,39 +205,108 @@
 				<h3>Strongtie.io</h3>
 				<p class='description'>Internal website for education, marketing, and visibility of upcoming products and policy shifts. </p>
 
-				<details>
+				<!-- <details>
 					<summary>more about this project…</summary>
-					<div class='detail-wrapper'>
-						<p class="description -more">The website was created by a UX designer in our department, and then I took over the coding. I collaborated with the designer throughout the design and coding stages, offering ideas for how users could interact with the site and what animations would be best.</p>
-						<p class='disclaimer -more'> Due to NDA, I have "sanitized" most of the text.</p>
-					</div>
-				</details>
-				<a href='st-io/index.html' target="_blank" class='new-window'>view in a new window</a>
+					<div class='detail-wrapper'> -->
+						<p class="description">The website was created by a UX designer in our department, and then I took over the coding. I collaborated with the designer throughout the design and coding stages, offering ideas for how users could interact with the site and what animations would be best.</p>
+						<p class='disclaimer'> Due to NDA, I have "sanitized" most of the text.</p>
+					<!-- </div> -->
+				<!-- </details> -->
+				<a href='st-io/index.html' target="_blank" class='new-window'>view project…</a>
 			</div>
 
 			<div class='project'>
 				<h3><abbr title='Strong-Tie Unified Design System'>STUDS</abbr></h3>
-				<div class='description'>Neque corrupti, cum, voluptatum a consectetur repudiandae aut omnis sint molestiae, reiciendis atque commodi esse ut!</div>
+				<p class='description'>
+					STUDS (Strong-Tie Unified Design System) was a long-term project aimed at consolidating and unifying all the diverse software applications and websites at Simpson Strong-Tie.</p>
+
+
+					<button popovertarget="studs-popover" class="popover-trigger -more">more…</button>
+					<div popover id="studs-popover">
+						<p class="description">Over the past 65+ years at Simpson, development had often been conducted in isolation, leading to wildly different appearances and user experiences across various products and applications.</p>
+						<p>To address this, we created a comprehensive design system that included style guides and a diverse range of components, such as Web Components, React, and Blazor, to facilitate the integration of our design elements into other developers’ projects.</p>
+						<p> By leveraging these components, developers could seamlessly incorporate the unified look and feel into their applications, eliminating the need for extensive focus on presentation. This approach allowed them to concentrate on building robust and functional applications.</p>
+					</div>
+
+
 			</div>
 
 			<div class='project'>
 				<h3><abbr title='Purpose-Modifier'>P-M</abbr> Methodology</h3>
-				<div class='description'>Consectetur omnis laudantium repellat veniam, doloribus dolore doloremque debitis officia similique a eaque esse corrupti velit?</div>
+				<div class='description'>
+					<p>One constant will always remain true: designs change. Whether it's the whims of fashion, the needs of users, or the desire for design to just be "new", change is constant.</p>
+
+					<p>The <strong>P-M</strong> methodology understands this, and is based around naming components and elements based on their function and purpose, instead of how they look.</p>
+
+					<p class='disclaimer'>documentation and github link coming soon</p>
+					</div>
 			</div>
 
 			<div class='project'>
 				<h3>PuppySpot templating</h3>
-				<div class='description'>Optio doloremque laborum nostrum sed quaerat. Perferendis repellendus delectus, neque amet molestiae beatae accusamus cupiditate ad?</div>
+				<div class='description'>
+
+					<p>I created a template system for PuppySpot that helped to drastically speed up web page design, development, and deployment.</p>
+
+					<p>The system I created uses a series of section templates that can be stitched together in arbitrary order to create a new page. Not only did this greatly decrease the time to design or update pages, but <strong>development time was also drastically reduced</strong> from a couple days down to about an hour.</p>
+
+					<button popovertarget="puppyspot-popover" class="popover-trigger -more">more…</button>
+					<div popover id="puppyspot-popover">
+						<p>The requirements for this project were to create a system that would let them update their older "legacy" pages, but also set guidelines for creating new pages and sections of the website.</p>
+
+						<p>While the legacy pages have important information that doesn't change often, they wanted a way to allow the marketing and design departments to <strong>easily update text and images without needing additional developer support</strong> or time.</p>
+
+						<p>Each design template has a corresponding HTML, CSS, and JavaScript component. The component also has connections to the company's CMS which will provide the text, data, and images on the page.</p>
+
+						<p><strong>Designing or updating legacy pages is now a simple process</strong> of choosing which section templates to use and in which order, then sending that list over to the front-end developers. For example, on the No Puppy Mills Promise page, the list would be "A, C, L".</p>
+
+						<p>Developing the page becomes almost trivial; list which templates to use in which order, and provide the hook to the corresponding CMS entries.</p>
+
+						<p>Once that's set up, the marketing department can enter and change the text and images whenever they need, and the page will automatically be updated.</p>
+
+					</div>
+
+
+
+
+				</div>
 			</div>
 
 			<div class='project'>
 				<h3>Interface for the iSeq 100 gene sequencer</h3>
-				<div class='description'>Consequatur perferendis asperiores odit dolor provident eveniet maxime porro ea, ad nam, vel hic ipsam sequi!</div>
+				<div class='description'>
+
+					<p><strong>The project was to make an interface that was more colorful and less clinical</strong> for the <a href='https://www.illumina.com/systems/sequencing-platforms/iseq.html'>Illumina iSeq 100</a> gene sequencer. The instrument was originally intended for a less scientific audience. Whereas the usual audience for these instruments are large universities and labs, this instrument was going to be marketed towards doctors, veterinarians, and other smaller, non-research oriented places.</p>
+
+					<p><strong>Creating a streamlined and simple-to-follow interface</strong> for genetic testing was the primary task.</p>
+
+					<button popovertarget="illumina-popover" class="popover-trigger -more">more…</button>
+					<div popover id="illumina-popover">
+
+						<p><strong>The interface was to be touch-screen and about the size of an iPad</strong>. Touch targets and legibility of information presented per screen also needed to be considered.</p>
+
+						<p><strong>These prototypes were completely interactive</strong>, built from standard HTML5, CSS, and JavaScript. Having a working prototype greatly facilitated troubleshooting the workflow, finding pain points, and bridging the gap between hardware, software, and interface early in the process. When questions arose or pain points were identified, it allowed for quick changes early in the development process. </p>
+
+						<p><strong>The marketing department was still working on the final color palette</strong> when I was making these, so I used some of the standard company colors. While the final version doesn't use any of these colors, the basic workflow I designed and refined though extensive user testing is still there.</p>
+
+						<p>I divided the process so that <strong>each screen would represent a single task</strong> the user needed to accomplish before proceeding. Some screens required user input, and others were to show that the instrument was busy processing, calibrating, or sequencing.</p>
+
+						<p>I wanted <strong>a fluid interface that moved in from the right</strong> and off to the left. Some steps could be completed while the instrument worked on other tasks.  Using a two-paned layout was the answer, providing a way for the user to enter information and still see the instrument's progress.</p>
+					</div>
+
+
+				</div>
 			</div>
 
 			<div class='project'>
-				<h3>project 6</h3>
-				<div class='description'>Molestiae doloribus obcaecati atque modi, sint natus eos culpa neque deleniti minus, totam incidunt consequuntur error?</div>
+				<h3>Code examples</h3>
+				<div class='description'>
+					<p>Take a look at my <a href='https://github.com/jpinsd' class="external">github</a> and my <a href='https://codepen.io/jp-arts' class="external">CodePen</a> for code examples.</p>
+					<p>Did you know? This website is also available as a <a href='https://github.com/jpinsd/JPohlmann-portfolio' target="_blank" class="external">public repo</a> on github.</p>
+
+					<aside><p>All animations, effects, popups, and theme changes on this website are  controlled through <strong>modern CSS</strong>.</p> <p>No Javascript was harmed in the making of this website. </p></aside>
+
+				</div>
 			</div>
 
 		</div>

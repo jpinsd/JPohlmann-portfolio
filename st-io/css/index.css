@@ -81,7 +81,8 @@
   --studs-info-80: #203E69;
   --studs-info-90: #18263B;
   --studs-info-100: #060D07;
-  --studs-focus: #1d9bf0;
+  /* --studs-focus: #1d9bf0; */
+  --studs-focus: var(--studs-orange-60);
 }
 
 @font-face {
@@ -1044,7 +1045,7 @@ dialog .detailsContents .detailCards p {
 dialog footer.-banner {
   height: clamp(32px, 15vw, 240px);
   width: 105%;
-  background-image: url("../../img/modal-footer.svg");
+  background-image: url("../img/modal-footer.svg");
   background-size: 1400px;
   background-repeat: no-repeat;
   background-position: center center;

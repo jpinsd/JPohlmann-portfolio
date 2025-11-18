@@ -2,8 +2,30 @@
   /* interpolate-size: allow-keywords; */
 }
 ::selection {
-  background: CanvasText;
-  color: Canvas;
+  background: var(--accent1);
+  color: white;
+  /* background: CanvasText;
+  color: Canvas; */
+}
+
+/* ::-webkit-scrollbar {
+  width: 8px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0dc1e7 ;
+  border-radius: 8px;
+} */
+
+* {
+  scrollbar-gutter: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #0dc1e7 transparent;
 }
 
 html {
@@ -13,11 +35,13 @@ html {
   font-optical-sizing: var(--font-sizing);
   font-weight: var(--font-normal);
   /* font-variation-settings: var(--font-variation); */
+
 }
 
 body {
   background: var(--canvas);
   color: var(--text-color);
+  overflow-x: clip;
 }
 
 main {
@@ -32,6 +56,7 @@ main {
   margin-inline: auto;
   width: min(var(--content-width), 100vw - var(--margins));
   font-size: clamp(var(--min, 1rem), var(--clamp, 2.25vw), var(--max, 1.35rem));
+  line-height: 1.35;
 
 }
 
@@ -44,8 +69,30 @@ h1, h2, h3, h4, h5 {
 h2 {color: var(--primary)}
 
 em {
-  font-style: normal;
+  font-style: italic;
   font-weight: var(--font-emphasis);
+  color: var(--text-color-dark);
+}
+
+strong {
+  font-style: normal;
+  font-weight: var(--font-strong);
+  color: var(--text-color-dark);
+}
+
+:where(a, a:visited, [popovertarget]) {
+  color: var(--link-color);
+  text-decoration: underline;
+  text-underline-offset: .25em;
+  text-decoration-color: var(--link-decoration);
+  font-weight: var(--font-strong);
+}
+
+aside {
+  background-color: var(--callout-bkg);
+  border: 2px solid var(--border);
+  border-radius: var(--m);
+  padding-inline: var(--r-xs);
 }
 
 section {
@@ -53,6 +100,7 @@ section {
   flex-direction: column;
   justify-content: center;
   min-height: 55vh;
+  margin-block: 6rem;
 }
 
 ul {
@@ -109,3 +157,60 @@ summary {
   color: var(--primary);
   margin-block-end: var(--r-xl);
 }
+
+/* popovers */
+body:has([popover]:popover-open) {
+  overflow: clip;
+}
+
+button[popovertarget] {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+::backdrop {
+  background: var(--backdrop-color);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: all var(--tx-l) allow-discrete;
+}
+
+[popover] {
+  max-width: min(var(--content-width), 100vw - 2rem);
+  max-height: calc(100dvh - 4rem);
+  overflow-y: auto;
+  opacity: 0;
+  transform: scale(0);
+  transition: all var(--tx-m) allow-discrete;
+
+  padding-inline: 1rem;
+  border-radius: 1rem;
+  border-color: rgb(from var(--card-accent) r g b / .5);
+  background-color: rgb(from Canvas r g b / .75);
+  box-shadow: .25rem .325rem 1rem rgba(0,0,0, .5);
+}
+
+[popover]:popover-open {
+  opacity: 1;
+  transform: scale(1);
+}
+
+[popover]:popover-open::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  [popover]:popover-open {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  [popover]:popover-open::backdrop {
+    opacity: 0;
+  }
+}
+
+
+
