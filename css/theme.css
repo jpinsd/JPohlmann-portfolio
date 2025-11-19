@@ -78,8 +78,11 @@ body {
 
   /* decoration colors */
   --border: var(--base-075);
-  --card-accent: rgb(from var(--primary) r g b / .1);
-  --card-shadow: 0 .35rem .65rem rgb(from var(--primary) r g b / .2);
+  --card-accent: rgb(from var(--primary) r g b / .2);
+  --card-shadow: 0 1rem 1.65rem rgb(from var(--primary) r g b / .2);
+  --card-bkg: linear-gradient(#fff 0 0) padding-box;
+  --project-bkg: rgba(255, 255, 255, .75);
+
   --callout-bkg: rgb(from var(--primary) r g b / .2);
   --logo-shadow: drop-shadow(.175em .325em .55em rgb(from var(--base) r g b / .225));
   --link-color: var(--base);
@@ -98,6 +101,9 @@ body {
   @container style(--theme: dark) {
   --card-accent: rgb(from var(--accent1) r g b / .5);
   --card-shadow: 0 .5rem 1.5rem rgba(0,0,0,.2);
+  --card-bkg:  radial-gradient(circle at 50% 160%, var(--card-accent), var(--canvas)) padding-box;
+  --project-bkg: var(--base-025);
+
   --callout-bkg: rgb(from var(--accent1) r g b / .2);
   --logo-shadow: drop-shadow(.175em .325em 2em rgb(from var(--accent1) r g b / .6));
   --backdrop-color: rgb(from var(--canvas) r g b / .75);
