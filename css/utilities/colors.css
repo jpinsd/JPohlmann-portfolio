@@ -16,7 +16,7 @@ body {
   --base: #000000;
   /* --canvas: #ECFBFE; */
   /* --canvas: #F5FDFE; */
-  --canvas: #ffffff;
+  --canvas: #f0fcff;
 
   --primary: #0dc1e7;
   --secondary: hsl(from var(--primary) calc(h + 15) calc(s - 15) calc(l - 15));

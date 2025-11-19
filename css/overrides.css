@@ -217,7 +217,7 @@ menu .external {display: none;}
       transform: translateX(-20%);
       animation: slide-in linear forwards;
       animation-timeline: view();
-      animation-range: 5% 40%;
+      animation-range: 5% 43%;
     }
 
     .card:nth-child(even) {
@@ -236,7 +236,7 @@ menu .external {display: none;}
     border-radius: var(--s);
     border: 1px solid var(--border);
     padding: 1rem;
-    background-color: var(--base-025);
+    background-color: var(--project-bkg);
   }
   summary {
     font-size: var(--r-s);

@@ -42,7 +42,7 @@
   /* border: var(--border-width) solid transparent; */
   border-radius: var(--s);
   padding: var(--padding);
-  background: radial-gradient(circle at 50% 160%, var(--card-accent), transparent) padding-box;
+  background: var(--card-bkg);
 
   position: relative;
 
