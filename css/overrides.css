@@ -210,7 +210,13 @@ menu .external {display: none;}
 }
 
 @keyframes appear {
-  to {opacity: 1}
+  to {rotate: 30deg}
+}
+
+@keyframes pulse-in {
+  0%  {opacity: 0}
+  70% {opacity: 1}
+  100%{opacity: .3}
 }
 
 @supports (animation-timeline: view()) {
@@ -228,8 +234,10 @@ menu .external {display: none;}
     }
 
     .card::after {
+      rotate: -35deg;
       opacity: 0;
-      animation: appear linear forwards;
+      animation:  pulse-in linear forwards,
+                  appear linear forwards;
       animation-timeline: view();
       animation-range: 43% 60%;
     }
@@ -339,5 +347,24 @@ details[open] summary::before {
   padding-block-start: 2rem;
 }
 
+/* patent office links */
+[href^="https://ppubs"] {
+  display: inline-flex;
+  justify-content: center;
+  font-size: .75em;
+  margin-inline: .125em;
+  width: 1.5em;
+  aspect-ratio: 1;
+  border: 2px solid transparent;
+  background: var(--canvas);
+  text-decoration: none;
+  font-weight: normal;
+  translate: 0 -.75em;
+  transition: var(--tx-m);
+
+  &:hover {
+    border-color: var(--base-500);
+  }
+}
 
 

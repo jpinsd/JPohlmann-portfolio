@@ -84,8 +84,8 @@
   width: var(--s);
   height: var(--s);
 
-  background: radial-gradient(ellipse calc(var(--s) / 10) 3px at center, rgba(255,255,255,.02), transparent),
-              radial-gradient(ellipse 3px calc(var(--s) / 10) at center, rgba(255,255,255,.02), transparent),
+  background: radial-gradient(ellipse calc(var(--s) / 10) 3px at center, rgba(255,255,255,.1), transparent),
+              radial-gradient(ellipse 3px calc(var(--s) / 10) at center, rgba(255,255,255,.1), transparent),
               radial-gradient(circle, rgba(255,255,255, .05), rgba(255,255,255,0) 50%);
 }
 
