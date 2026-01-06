@@ -348,7 +348,7 @@ details[open] summary::before {
 }
 
 /* patent office links */
-[href^="https://ppubs"] {
+[href^="https://image-ppubs"] {
   display: inline-flex;
   justify-content: center;
   font-size: .75em;
