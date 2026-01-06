@@ -178,12 +178,13 @@ button[popovertarget] {
 }
 
 [popover] {
-  max-width: min(var(--content-width), 100vw - 2rem);
+  max-width: min(var(--content-width) - 4rem, 100vw - 4rem);
   max-height: calc(100dvh - 4rem);
   overflow-y: auto;
   opacity: 0;
   transform: scale(0);
   transition: all var(--tx-m) allow-discrete;
+  font-size: clamp(1rem, 2.25vw, 1.35rem);
 
   padding-inline: 1rem;
   border-radius: 1rem;
