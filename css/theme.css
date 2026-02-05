@@ -88,6 +88,7 @@ body {
   --link-color: var(--base);
   --link-decoration: var(--primary);
   --backdrop-color: rgb(from var(--canvas) r g b / .7);
+  --logo-color: CanvasText;
 
 
   @media (prefers-contrast: more) {
