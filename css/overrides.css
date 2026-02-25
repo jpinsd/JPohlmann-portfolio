@@ -175,7 +175,7 @@ menu .external {display: none;}
     grid-column: 1 / span 2;
 
     display: grid;
-    grid-template-columns: repeat(2, 50%);
+    grid-template-columns: minmax(auto, 12.5rem) 1fr;
     grid-template-areas:
       "logo years"
       "company company"
@@ -200,11 +200,6 @@ menu .external {display: none;}
 
     display: flex;
     justify-content: start;
-
-    svg {
-      width: min(12.5rem, 100%);
-      /* max-width: 12.5rem; */
-    }
   }
 
   .company {
@@ -269,7 +264,7 @@ menu .external {display: none;}
 }
 
 @supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
+  @media (prefers-reduced-motion: no-preference) and (width >= 600px){
     .card {
       opacity: .3;
       transform: translateX(-20%);
