@@ -1,5 +1,6 @@
 /*
-Choose a primary color. CTA, accent-1 and accent-2 colors are calculated.
+  CTA, accent-1 and accent-2 colors are calculated from Primary.
+
 - CTA is complimentary, and by default both accent colors are analogous by 12.5° on either side.
 - Base color is used to calculate the text and the color ramp for surface colors.
     Default base color is browser CanvasText

@@ -2,7 +2,6 @@
 menu .external {display: none;}
 
 .mode {
-  /* display: flex; */
   justify-content: end;
   gap: .5rem;
   padding-block-end: .5em;
@@ -10,9 +9,33 @@ menu .external {display: none;}
 
   display: none;
 
+  /* quick fix to remove light/dark switches from firefox */
+  @container style(--theme: dark) or style(--theme: light) {
+    display: flex;
+  }
+
+  /* contrasting shadow */
+  &::before {
+    --w: 300px;
+    --h: 150px;
+    --b: var(--canvas);
+    /* --b: red; */
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    width:  min(100vw, var(--w));
+    height: min(100vw, var(--h));
+    pointer-events: none;
+    background: radial-gradient(ellipse calc(var(--w) * .8) calc(var(--h) * .8) at 80% 10%,
+                                rgb(from var(--b) r g b / .76) 20%,
+                                rgb(from var(--b) r g b / .01) 95%);
+  }
+
   [type="radio"] {
     display: none;
   }
+
   [type="radio"] + label {
     color: var(--text-color-light);
     width: 3em;
@@ -61,12 +84,6 @@ menu .external {display: none;}
     /* border-color: rgb(from var(--text-color) r g b / 40%) */
     background: rgb(from var(--primary) r g b / .2) padding-box
   }
-
-  /* quick fix to remove light/dark switches from firefox */
-  @container style(--theme: dark) or style(--theme: light) {
-    display: flex;
-  }
-
 }
 
 .-more {
@@ -183,6 +200,11 @@ menu .external {display: none;}
 
     display: flex;
     justify-content: start;
+
+    svg {
+      width: min(12.5rem, 100%);
+      /* max-width: 12.5rem; */
+    }
   }
 
   .company {
