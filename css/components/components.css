@@ -80,6 +80,7 @@
   left: calc((var(--s) / 2) * -1);
   top:  calc((var(--s) / 2) * -1);
   rotate: 30deg;
+  opacity: 0;
 
   width: var(--s);
   height: var(--s);
