@@ -249,8 +249,29 @@ menu .external {display: none;}
   }
 }
 
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--r-m);
+  font-size: 1rem;
+
+  .project {
+    border-radius: var(--s);
+    border: 1px solid var(--border);
+    padding: 1rem;
+    background-color: var(--project-bkg);
+  }
+  summary {
+    font-size: var(--r-s);
+  }
+}
+
+
 @keyframes slide-in {
   to {transform: translateX(0); opacity: 1}
+}
+@keyframes slide-up {
+  to {transform: translateY(0); opacity: 1}
 }
 
 @keyframes appear {
@@ -286,26 +307,28 @@ menu .external {display: none;}
       animation-range: 43% 60%;
     }
 
+    .projects {padding-bottom: 300px}
+    .project {
+      --idx: calc(sibling-index());
 
+      opacity: .25;
+      transform: translateY(100px);
+      animation: slide-up linear forwards;
+      animation-timeline: view();
+      animation-range: 0% 30%;
+      animation-range: entry-crossing calc(var(--idx) * 12%) cover calc(var(--idx) * 5% + 2%);
+      /*
+        this is kind of a hack.
+        It works fine for just a couple items,
+        but anything more than 2 rows, and it falls apart
+                --Jp
+      */
+
+    }
   }
 }
 
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: var(--r-m);
-  font-size: 1rem;
 
-  .project {
-    border-radius: var(--s);
-    border: 1px solid var(--border);
-    padding: 1rem;
-    background-color: var(--project-bkg);
-  }
-  summary {
-    font-size: var(--r-s);
-  }
-}
 
 /* details {
   --d: 0s;
@@ -371,10 +394,9 @@ details[open] summary::before {
   rotate: 90deg;
 }
 
-
-
+#phillisophy,
 #achievements {
-  --bkg: rgb( from var(--card-accent) r g b / .3);
+  /* --bkg: rgb( from var(--card-accent) r g b / .3); */
   --bkg: var(--callout-bkg);
   --a: 3.5deg;
   --n: 100vw;
@@ -388,16 +410,25 @@ details[open] summary::before {
               calc(100% - var(--n)) calc(100% + tan(var(--a)) * var(--n))
             );
   margin-block-start: 0;
-  padding-block-start: 2rem;
+  padding-block: 2rem;
+}
+
+#phillisophy {
+  min-height: 45vh;
+}
+
+#achievements {
+  --a: -3.5deg;
 }
 
 /* patent office links */
 [href^="https://image-ppubs"] {
   display: inline-flex;
   justify-content: center;
+  align-items: center;
   font-size: .75em;
   margin-inline: .125em;
-  width: 1.5em;
+  width: 1.75em;
   aspect-ratio: 1;
   border: 2px solid transparent;
   background: var(--canvas);
@@ -405,6 +436,8 @@ details[open] summary::before {
   font-weight: normal;
   translate: 0 -.75em;
   transition: var(--tx-m);
+
+  border-radius:3em;
 
   &:hover {
     border-color: var(--base-500);
