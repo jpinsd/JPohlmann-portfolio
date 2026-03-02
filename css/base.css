@@ -95,6 +95,17 @@ aside {
   padding-inline: var(--r-xs);
 }
 
+blockquote {
+  margin-inline: 0;
+  font-family: var(--font-family);
+  font-weight: var(--font-emphasis);
+}
+
+figcaption {
+  text-align: end;
+}
+
+
 section {
   display: flex;
   flex-direction: column;
