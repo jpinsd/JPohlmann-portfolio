@@ -395,7 +395,7 @@ details[open] summary::before {
   rotate: 90deg;
 }
 
-#phillisophy,
+#philosophy,
 #achievements {
   /* --bkg: rgb( from var(--card-accent) r g b / .3); */
   --bkg: var(--callout-bkg);
@@ -414,13 +414,18 @@ details[open] summary::before {
   padding-block: 2rem;
 }
 
-#phillisophy {
+#philosophy {
   min-height: 45vh;
 }
 
 #achievements {
   --a: -3.5deg;
 }
+
+#philosophy {
+
+}
+
 
 /* patent office links */
 [href^="https://image-ppubs"] {
