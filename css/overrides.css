@@ -220,6 +220,7 @@ menu .external {display: none;}
   }
 
   .title {
+    font-size: var(--r-l);
     color: var(--text-color-dark);
     font-weight: var(--font-strong);
     color: var(--secondary);
@@ -228,7 +229,7 @@ menu .external {display: none;}
 
   .job-details {
     /* width: min(100%, 40ch); */
-    font-size: 1rem;
+    /* font-size: 1rem; */
     grid-area: job-details;
   }
 
