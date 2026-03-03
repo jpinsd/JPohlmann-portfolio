@@ -403,6 +403,7 @@ details[open] summary::before {
   --n: 100vw;
   --nn: calc(var(--n) * -1);
 
+  border: 1px solid var(--bkg);
   border-image: linear-gradient(var(--bkg) 0 0) fill 0 / / var(--n);
   clip-path: polygon(
               var(--nn) calc(tan(var(--a)) * var(--n)),
@@ -423,8 +424,59 @@ details[open] summary::before {
 }
 
 #philosophy {
+  /* overflow: clip; */
+  display: grid;
+  grid-template: 1fr / 1fr;
 
+  &:hover {
+    --playstate: paused;
+  }
 }
+
+@keyframes slide-through {
+  0%, 100% {opacity: 0; left: 100%}
+  12%,50%  {opacity: 1; left: 0}
+  62%, 99.99% {opacity: 0; left: -100%}
+}
+
+.personal-quotes {
+  --t: 16s;
+  /* --easing: linear(0, 0.223 11.7%, 0.392 18.4%, 0.619 24.8%, 0.999 33.3%, 0.748 40%, 0.691 42.7%, 0.672 45.3%, 0.69 47.8%, 0.743 50.4%, 0.999 57.7%, 0.883 61.8%, 0.856 63.6%, 0.848 65.3%, 0.855 67%, 0.879 68.8%, 0.999 74.5%, 0.953 77.5%, 0.94 80.2%, 0.95 82.7%, 1 88.2%, 0.987 91.9%, 1); */
+  --easing: linear(0, 0.041 1.1%, 0.175 2.4%, 0.867 6.7%, 1.104 8.5%, 1.247 10.2%, 1.289 11.1%, 1.309 12%, 1.305 13.2%, 1.267 14.6%, 1.039 19.2%, 0.963 21.1%, 0.922 22.7%, 0.904 24.4%, 0.905 25.7%, 0.918 27.1%, 1.011 33.5%, 1.03 36.8%, 0.991 49.1%, 1.003 61.5%, 1);
+  position: relative;
+  opacity: 1;
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  place-self: center;
+  margin: 0;
+  padding-inline: calc(var(--padding) * 4);
+  text-wrap: pretty;
+
+  animation: slide-through var(--t) infinite var(--easing);
+  animation-play-state: var(--playstate);
+
+  &:nth-child(1) {
+    animation-delay: calc((var(--t) / 2) * -1);
+  }
+
+  & figcaption {
+    padding-inline-end: calc(var(--padding) * 4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #philosophy {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .personal-quotes {
+    animation: none;
+  }
+}
+
+
 
 
 /* patent office links */
