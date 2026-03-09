@@ -14,37 +14,36 @@ body {
   /* utils */
   --accent-angle: 105;
 
-  --base: #000000;
-  /* --canvas: #ECFBFE; */
-  /* --canvas: #F5FDFE; */
-  --canvas: #f0fcff;
+  --base: #ffffff;
+  --canvas: #221a29;
 
   --primary: #0dc1e7;
-  --secondary: hsl(from var(--primary) calc(h + 15) calc(s - 15) calc(l - 15));
+  --secondary: hsl(from var(--primary) calc(h + 15) calc(s - 15) calc(l + 5));
   --accent1  : hsl(from var(--primary) calc(h + var(--accent-angle)) calc(s - 15) calc(l - 5));
   --accent2  : hsl(from var(--primary) calc(h - var(--accent-angle)) calc(s - 15) calc(l - 5));
+
+
 
   /* override calculated colors with static */
   /*
     --base: rebeccapurple;
     --secondary: #b720e9;
-    --accent1: #003FC5;
-    --accent2: #00C5B3;
   */
 
 
-  /* dark mode only color changes */
-  @container style(--theme: dark) {
+  /* loght mode only color changes */
+  @container style(--theme: light) {
 
-    --base: #ffffff;
+    /* --base: #ffffff;
     --canvas: #221a29;
-    --secondary: hsl(from var(--primary) calc(h + 15) calc(s - 15) calc(l + 5));
+    --secondary: hsl(from var(--primary) calc(h + 15) calc(s - 15) calc(l + 5)); */
 
-    /*
-    --canvas: rebeccapurple;
-    --base: aquamarine;
-    --accent1  : hsl(from var(--primary) calc(h + 122.25) s calc(l + 2));
-    */
+    --base: #000000;
+    --canvas: #f0fcff;
+    --secondary: hsl(from var(--primary) calc(h + 15) calc(s - 15) calc(l - 15));
+
+
+
 
   }
 

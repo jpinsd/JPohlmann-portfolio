@@ -31,12 +31,17 @@
   --tx-x : 0.65s;
   --tx-xx: 1s;
 
+  --playstate: running;
+
+
   @media (prefers-reduced-motion: reduce) {
     --tx-s : 0s;
     --tx-m : 0s;
     --tx-l : 0s;
     --tx-x : 0s;
     --tx-xx: 0s;
+
+    --playstate: paused;
   }
 
 

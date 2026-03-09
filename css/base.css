@@ -55,7 +55,9 @@ main {
   /* --clamp: 2.25vw; */
   margin-inline: auto;
   width: min(var(--content-width), 100vw - var(--margins));
-  font-size: clamp(var(--min, 1rem), var(--clamp, 2.25vw), var(--max, 1.35rem));
+  font-size: clamp(var(--min, 1rem),
+                   var(--clamp, 2.25vw),
+                   var(--max, 1.35rem));
   line-height: 1.35;
 
 }
@@ -94,6 +96,17 @@ aside {
   border-radius: var(--m);
   padding-inline: var(--r-xs);
 }
+
+blockquote {
+  margin-inline: 0;
+  font-family: var(--font-family);
+  font-weight: var(--font-emphasis);
+}
+
+figcaption {
+  text-align: end;
+}
+
 
 section {
   display: flex;
