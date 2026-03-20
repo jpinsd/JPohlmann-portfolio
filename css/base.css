@@ -137,6 +137,14 @@ dd {
   margin-inline-start: 0;
 }
 
+mark {
+  background: rgb(from var(--primary) r g b / .15);
+  border: 1px solid var(--primary);
+  color: var(--base);
+  font-weight: bold;
+  padding-inline: .25em;
+}
+
 nav {
   position: fixed;
   top: 0;
