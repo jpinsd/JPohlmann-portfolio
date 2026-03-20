@@ -15,11 +15,14 @@ menu .external {display: none;}
   }
 
   /* contrasting shadow */
-  &::before {
+  &::before,
+  &::after {
     --w: 300px;
     --h: 150px;
     --b: var(--canvas);
+    --gradient: ellipse calc(var(--w) * .8) calc(var(--h) * .8) at 80% 10%;
     /* --b: red; */
+
     content: '';
     position: fixed;
     top: 0;
@@ -27,9 +30,23 @@ menu .external {display: none;}
     width:  min(100vw, var(--w));
     height: min(100vw, var(--h));
     pointer-events: none;
-    background: radial-gradient(ellipse calc(var(--w) * .8) calc(var(--h) * .8) at 80% 10%,
+    background: radial-gradient(var(--gradient),
                                 rgb(from var(--b) r g b / .76) 20%,
                                 rgb(from var(--b) r g b / .01) 95%);
+  }
+
+  &::after {
+    background: var(--gradient);
+    z-index: -1;
+  }
+
+  &::before {
+    /* background: red; */
+    backdrop-filter: blur(6px);
+    /* mask-image: var(--gradient); */
+    mask-image: radial-gradient(var(--gradient),
+                                black 50%,
+                                transparent 95%);
   }
 
   [type="radio"] {
