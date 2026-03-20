@@ -232,7 +232,7 @@ button[popovertarget] {
   max-height: calc(100dvh - 4rem);
   overflow-y: auto;
 
-  font-size: clamp(1rem, 2.25vw, 1.35rem);
+  font-size: clamp(1rem, 2.25vw, 1.2rem);
   padding-inline: 1rem;
   border-radius: 1rem;
   border: 2.5px solid rgb(from var(--card-accent) r g b / .5);

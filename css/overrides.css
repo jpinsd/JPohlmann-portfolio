@@ -41,9 +41,7 @@ menu .external {display: none;}
   }
 
   &::before {
-    /* background: red; */
     backdrop-filter: blur(6px);
-    /* mask-image: var(--gradient); */
     mask-image: radial-gradient(var(--gradient),
                                 black 50%,
                                 transparent 95%);
