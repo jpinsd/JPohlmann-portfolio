@@ -30,13 +30,13 @@ menu .external {display: none;}
     width:  min(100vw, var(--w));
     height: min(100vw, var(--h));
     pointer-events: none;
-    background: radial-gradient(var(--gradient),
-                                rgb(from var(--b) r g b / .76) 20%,
-                                rgb(from var(--b) r g b / .01) 95%);
   }
 
   &::after {
-    background: var(--gradient);
+    /* background: var(--gradient); */
+    background: radial-gradient(var(--gradient),
+                                rgb(from var(--b) r g b / .9) 20%,
+                                rgb(from var(--b) r g b / .01) 95%);
     z-index: -1;
   }
 
@@ -44,7 +44,7 @@ menu .external {display: none;}
     backdrop-filter: blur(6px);
     mask-image: radial-gradient(var(--gradient),
                                 black 50%,
-                                transparent 95%);
+                                transparent 90%);
   }
 
   [type="radio"] {
