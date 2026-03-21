@@ -15,11 +15,14 @@ menu .external {display: none;}
   }
 
   /* contrasting shadow */
-  &::before {
+  &::before,
+  &::after {
     --w: 300px;
     --h: 150px;
     --b: var(--canvas);
+    --gradient: ellipse calc(var(--w) * .8) calc(var(--h) * .8) at 80% 10%;
     /* --b: red; */
+
     content: '';
     position: fixed;
     top: 0;
@@ -27,9 +30,21 @@ menu .external {display: none;}
     width:  min(100vw, var(--w));
     height: min(100vw, var(--h));
     pointer-events: none;
-    background: radial-gradient(ellipse calc(var(--w) * .8) calc(var(--h) * .8) at 80% 10%,
+    background: radial-gradient(var(--gradient),
                                 rgb(from var(--b) r g b / .76) 20%,
                                 rgb(from var(--b) r g b / .01) 95%);
+  }
+
+  &::after {
+    background: var(--gradient);
+    z-index: -1;
+  }
+
+  &::before {
+    backdrop-filter: blur(6px);
+    mask-image: radial-gradient(var(--gradient),
+                                black 50%,
+                                transparent 95%);
   }
 
   [type="radio"] {
@@ -220,6 +235,7 @@ menu .external {display: none;}
   }
 
   .title {
+    font-size: var(--r-l);
     color: var(--text-color-dark);
     font-weight: var(--font-strong);
     color: var(--secondary);
@@ -228,7 +244,7 @@ menu .external {display: none;}
 
   .job-details {
     /* width: min(100%, 40ch); */
-    font-size: 1rem;
+    /* font-size: 1rem; */
     grid-area: job-details;
   }
 
@@ -249,8 +265,29 @@ menu .external {display: none;}
   }
 }
 
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--r-m);
+  font-size: 1rem;
+
+  .project {
+    border-radius: var(--s);
+    border: 1px solid var(--border);
+    padding: 1rem;
+    background-color: var(--project-bkg);
+  }
+  summary {
+    font-size: var(--r-s);
+  }
+}
+
+
 @keyframes slide-in {
   to {transform: translateX(0); opacity: 1}
+}
+@keyframes slide-up {
+  to {transform: translateY(0); opacity: 1}
 }
 
 @keyframes appear {
@@ -286,26 +323,28 @@ menu .external {display: none;}
       animation-range: 43% 60%;
     }
 
+    .projects {padding-bottom: 300px}
+    .project {
+      --idx: calc(sibling-index());
 
+      opacity: .25;
+      transform: translateY(100px);
+      animation: slide-up linear forwards;
+      animation-timeline: view();
+      animation-range: 0% 30%;
+      animation-range: entry-crossing calc(var(--idx) * 12%) cover calc(var(--idx) * 5% + 2%);
+      /*
+        this is kind of a hack.
+        It works fine for just a couple items,
+        but anything more than 2 rows, and it falls apart
+                --Jp
+      */
+
+    }
   }
 }
 
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: var(--r-m);
-  font-size: 1rem;
 
-  .project {
-    border-radius: var(--s);
-    border: 1px solid var(--border);
-    padding: 1rem;
-    background-color: var(--project-bkg);
-  }
-  summary {
-    font-size: var(--r-s);
-  }
-}
 
 /* details {
   --d: 0s;
@@ -371,15 +410,15 @@ details[open] summary::before {
   rotate: 90deg;
 }
 
-
-
+#philosophy,
 #achievements {
-  --bkg: rgb( from var(--card-accent) r g b / .3);
+  /* --bkg: rgb( from var(--card-accent) r g b / .3); */
   --bkg: var(--callout-bkg);
   --a: 3.5deg;
   --n: 100vw;
   --nn: calc(var(--n) * -1);
 
+  border: 1px solid var(--bkg);
   border-image: linear-gradient(var(--bkg) 0 0) fill 0 / / var(--n);
   clip-path: polygon(
               var(--nn) calc(tan(var(--a)) * var(--n)),
@@ -388,16 +427,121 @@ details[open] summary::before {
               calc(100% - var(--n)) calc(100% + tan(var(--a)) * var(--n))
             );
   margin-block-start: 0;
-  padding-block-start: 2rem;
+  padding-block: 2rem;
 }
+
+#philosophy {
+  min-height: 45vh;
+}
+
+#achievements {
+  --a: -3.5deg;
+}
+
+#philosophy {
+  /* overflow: clip; */
+  display: grid;
+  grid-template: 1fr / 1fr;
+
+  &:hover {
+    --playstate: paused;
+  }
+}
+
+@keyframes slide-through {
+  0%, 100% {opacity: 0; left: 100%}
+  12%,50%  {opacity: 1; left: 0}
+  62%, 99.99% {opacity: 0; left: -100%}
+}
+
+.personal-quotes {
+  --t: 16s;
+  /* --easing: linear(0, 0.223 11.7%, 0.392 18.4%, 0.619 24.8%, 0.999 33.3%, 0.748 40%, 0.691 42.7%, 0.672 45.3%, 0.69 47.8%, 0.743 50.4%, 0.999 57.7%, 0.883 61.8%, 0.856 63.6%, 0.848 65.3%, 0.855 67%, 0.879 68.8%, 0.999 74.5%, 0.953 77.5%, 0.94 80.2%, 0.95 82.7%, 1 88.2%, 0.987 91.9%, 1); */
+  --easing: linear(0, 0.041 1.1%, 0.175 2.4%, 0.867 6.7%, 1.104 8.5%, 1.247 10.2%, 1.289 11.1%, 1.309 12%, 1.305 13.2%, 1.267 14.6%, 1.039 19.2%, 0.963 21.1%, 0.922 22.7%, 0.904 24.4%, 0.905 25.7%, 0.918 27.1%, 1.011 33.5%, 1.03 36.8%, 0.991 49.1%, 1.003 61.5%, 1);
+  position: relative;
+  opacity: 1;
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  place-self: center;
+  margin: 0;
+  padding-inline: calc(var(--padding) * 4);
+  text-wrap: pretty;
+
+  animation: slide-through var(--t) infinite var(--easing);
+  animation-play-state: var(--playstate);
+
+  &:nth-child(1) {
+    animation-delay: calc((var(--t) / 2) * -1);
+  }
+
+  & figcaption {
+    padding-inline-end: calc(var(--padding) * 4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #philosophy {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .personal-quotes {
+    animation: none;
+  }
+}
+
+
+.popover-wrapper {
+  &.-examples {
+    padding-block-start: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 0 1rem;
+
+    > * {
+      grid-column: 2;
+      margin-block: 0 1rem;
+    }
+
+    p:first-of-type {
+      grid-column: 1 / -1;
+      font-size: 1.1em;
+    }
+
+    > .example-image {
+      grid-column: 1;
+      grid-row: 2 / span 16; /* this feels hacky to me */
+
+      img {
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+}
+
+
+.-bigImage {
+  display: block;
+  border: 2px solid transparent;
+  text-decoration: none;
+
+  &:hover {
+    border-color: var(--primary-hover);
+    box-shadow: 0 0 .875em rgb(from var(--primary-hover) r g b / .75);
+  }
+}
+
 
 /* patent office links */
 [href^="https://image-ppubs"] {
   display: inline-flex;
   justify-content: center;
+  align-items: center;
   font-size: .75em;
   margin-inline: .125em;
-  width: 1.5em;
+  width: 1.75em;
   aspect-ratio: 1;
   border: 2px solid transparent;
   background: var(--canvas);
@@ -405,6 +549,8 @@ details[open] summary::before {
   font-weight: normal;
   translate: 0 -.75em;
   transition: var(--tx-m);
+
+  border-radius:3em;
 
   &:hover {
     border-color: var(--base-500);
