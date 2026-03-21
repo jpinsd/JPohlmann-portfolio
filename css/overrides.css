@@ -15,11 +15,14 @@ menu .external {display: none;}
   }
 
   /* contrasting shadow */
-  &::before {
+  &::before,
+  &::after {
     --w: 300px;
     --h: 150px;
     --b: var(--canvas);
+    --gradient: ellipse calc(var(--w) * .8) calc(var(--h) * .8) at 80% 10%;
     /* --b: red; */
+
     content: '';
     position: fixed;
     top: 0;
@@ -27,9 +30,21 @@ menu .external {display: none;}
     width:  min(100vw, var(--w));
     height: min(100vw, var(--h));
     pointer-events: none;
-    background: radial-gradient(ellipse calc(var(--w) * .8) calc(var(--h) * .8) at 80% 10%,
+    background: radial-gradient(var(--gradient),
                                 rgb(from var(--b) r g b / .76) 20%,
                                 rgb(from var(--b) r g b / .01) 95%);
+  }
+
+  &::after {
+    background: var(--gradient);
+    z-index: -1;
+  }
+
+  &::before {
+    backdrop-filter: blur(6px);
+    mask-image: radial-gradient(var(--gradient),
+                                black 50%,
+                                transparent 95%);
   }
 
   [type="radio"] {
@@ -477,6 +492,46 @@ details[open] summary::before {
 }
 
 
+.popover-wrapper {
+  &.-examples {
+    padding-block-start: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 0 1rem;
+
+    > * {
+      grid-column: 2;
+      margin-block: 0 1rem;
+    }
+
+    p:first-of-type {
+      grid-column: 1 / -1;
+      font-size: 1.1em;
+    }
+
+    > .example-image {
+      grid-column: 1;
+      grid-row: 2 / span 16; /* this feels hacky to me */
+
+      img {
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+}
+
+
+.-bigImage {
+  display: block;
+  border: 2px solid transparent;
+  text-decoration: none;
+
+  &:hover {
+    border-color: var(--primary-hover);
+    box-shadow: 0 0 .875em rgb(from var(--primary-hover) r g b / .75);
+  }
+}
 
 
 /* patent office links */

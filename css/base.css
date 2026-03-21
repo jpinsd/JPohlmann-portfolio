@@ -137,6 +137,14 @@ dd {
   margin-inline-start: 0;
 }
 
+mark {
+  background: rgb(from var(--primary) r g b / .15);
+  border: 1px solid var(--primary);
+  color: var(--base);
+  font-weight: bold;
+  padding-inline: .25em;
+}
+
 nav {
   position: fixed;
   top: 0;
@@ -181,6 +189,29 @@ button[popovertarget] {
   background-color: transparent;
   border: none;
   cursor: pointer;
+
+  &.-close {
+    background: Canvas;
+    color: var(--text-color);
+
+    text-decoration: none;
+    font-size: 2rem;
+
+    border: 2.5px solid rgb(from var(--card-accent) r g b / .5);
+    border-radius: 50%;
+    width: 1.5em;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: end;
+    translate: 1.5rem 1.5rem;
+
+    &:hover {
+      color: CanvasText;
+      border-color: var(--primary);
+    }
+  }
 }
 
 ::backdrop {
@@ -191,24 +222,39 @@ button[popovertarget] {
 }
 
 [popover] {
+
+  opacity: 0;
+  scale: 0;
+  /* transform: scaleY(0); */
+  transition: all var(--tx-m) allow-discrete;
+
+  padding: 1.5rem;
+
+  border: 1px solid transparent;
+  background: transparent;
+
+}
+
+.popover-wrapper {
   max-width: min(var(--content-width) - 4rem, 100vw - 4rem);
   max-height: calc(100dvh - 4rem);
   overflow-y: auto;
-  opacity: 0;
-  transform: scale(0);
-  transition: all var(--tx-m) allow-discrete;
-  font-size: clamp(1rem, 2.25vw, 1.35rem);
 
+  font-size: clamp(1rem, 2.25vw, 1.2rem);
   padding-inline: 1rem;
   border-radius: 1rem;
-  border-color: rgb(from var(--card-accent) r g b / .5);
+  border: 2.5px solid rgb(from var(--card-accent) r g b / .5);
+  /* border:2px solid red; */
   background-color: rgb(from Canvas r g b / .75);
   box-shadow: .25rem .325rem 1rem rgba(0,0,0, .5);
 }
 
 [popover]:popover-open {
   opacity: 1;
-  transform: scale(1);
+  scale: 1;
+  /* transform: scaleY(1); */
+  display: flex;
+  flex-direction: column;
 }
 
 [popover]:popover-open::backdrop {
@@ -218,7 +264,8 @@ button[popovertarget] {
 @starting-style {
   [popover]:popover-open {
     opacity: 0;
-    transform: scale(0);
+    scale: 0;
+    /* transform: scaleY(0); */
   }
 
   [popover]:popover-open::backdrop {
