@@ -512,10 +512,19 @@ details[open] summary::before {
     > .example-image {
       grid-column: 1;
       grid-row: 2 / span 16; /* this feels hacky to me */
+      margin: 0;
+      border-right: 1px solid var(--border);
+      padding-right: 1rem;
 
       img {
         width: 100%;
         display: block;
+      }
+      figcaption {
+        font-size: .765em;
+        text-align: center;
+        font-style: italic;
+        margin-block-end: 2rem;
       }
     }
   }
