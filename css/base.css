@@ -191,13 +191,16 @@ button[popovertarget] {
   cursor: pointer;
 
   &.-close {
+    --border: rgb(from var(--card-accent) r g b / .5);
     background: Canvas;
     color: var(--text-color);
 
     text-decoration: none;
     font-size: 2rem;
 
-    border: 2.5px solid rgb(from var(--card-accent) r g b / .5);
+    border: 2.5px solid var(--border);
+    border-bottom-color: transparent;
+    rotate: 45deg;
     border-radius: 50%;
     width: 1.5em;
     aspect-ratio: 1;
@@ -205,11 +208,16 @@ button[popovertarget] {
     justify-content: center;
     align-items: center;
     align-self: end;
-    translate: 1.5rem 1.5rem;
+    translate: 1.35rem 1.65rem;
 
     &:hover {
       color: CanvasText;
-      border-color: var(--primary);
+      --border: var(--primary);
+    }
+
+    b {
+      rotate: -45deg;
+      font-weight: normal;
     }
   }
 }
@@ -228,7 +236,7 @@ button[popovertarget] {
   /* transform: scaleY(0); */
   transition: all var(--tx-m) allow-discrete;
 
-  padding: 1.5rem;
+  padding: 2.5rem;
 
   border: 1px solid transparent;
   background: transparent;
