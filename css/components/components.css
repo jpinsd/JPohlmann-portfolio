@@ -32,7 +32,8 @@
   block-size: 2em;
   color: currentcolor;
   scale: 1;
-  transition: all var(--tx-s) var(--t);
+  transition: scale var(--tx-s) var(--t),
+              color var(--tx-ss) linear;
 
   &:hover {
     scale: 1.2;
