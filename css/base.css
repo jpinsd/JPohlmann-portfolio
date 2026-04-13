@@ -82,18 +82,46 @@ strong {
   color: var(--text-color-dark);
 }
 
+@property --loc-hover-gradient {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 100%;
+}
+
 :where(a, a:visited, [popovertarget]) {
-  color: var(--link-color);
+  --loc-hover-gradient: 100%;
+  --t: var(--tx-ss);
+
   text-decoration: underline;
-  text-underline-offset: .25em;
+  text-underline-offset: .275em;
   text-decoration-color: var(--link-decoration);
   font-weight: var(--font-strong);
+
+  /* slide to right hover effect */
+  background-image: linear-gradient(to left,
+                  var(--link-color) var(--loc-hover-gradient),
+                  var(--link-decoration) calc(var(--loc-hover-gradient) + 100%));
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  transition: --loc-hover-gradient var(--t) linear,
+             text-decoration-color var(--t) linear;
 }
+
 :where(a:hover, [popovertarget]:hover) {
-  --link-color: var(--primary-hover);
-  --link-decoration: var(--primary-hover);
-  --link-decoration: transparent;
+  --loc-hover-gradient: 0%;
+  /* text-decoration-color: transparent; */
+
+  /* I can't get the underline to change color
+      on regular links, unless it's display: inline-flex.
+      But then the link won't break across lines.
+      So this is my compromise until I can
+      figure out something clever. --Jp  */
 }
+
 
 aside {
   background-color: var(--callout-bkg);

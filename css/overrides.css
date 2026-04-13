@@ -7,9 +7,8 @@ menu .external {display: none;}
   padding-block-end: .5em;
   /* border-bottom: 1px solid var(--border); */
 
-  display: none;
-
   /* quick fix to remove light/dark switches from firefox */
+  display: none;
   @container style(--theme: dark) or style(--theme: light) {
     display: flex;
   }
@@ -549,12 +548,19 @@ details[open] summary::before {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+
   font-size: .75em;
   margin-inline: .125em;
   width: 1.75em;
   aspect-ratio: 1;
+
   border: 2px solid transparent;
   background: var(--canvas);
+
+  /* background-clip: initial; */
+  -webkit-text-fill-color: var(--link-color);
+  color: var(--link-color);
+
   text-decoration: none;
   font-weight: normal;
   translate: 0 -.75em;
