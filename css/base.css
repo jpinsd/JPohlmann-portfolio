@@ -89,6 +89,11 @@ strong {
   text-decoration-color: var(--link-decoration);
   font-weight: var(--font-strong);
 }
+:where(a:hover, [popovertarget]:hover) {
+  --link-color: var(--primary-hover);
+  --link-decoration: var(--primary-hover);
+  --link-decoration: transparent;
+}
 
 aside {
   background-color: var(--callout-bkg);
