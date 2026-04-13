@@ -25,6 +25,7 @@
 
   /* animations and transitions */
   --tx-xs : 0.1s;
+  --tx-ss : 0.175s;
   --tx-s : 0.25s;
   --tx-m : 0.3s;
   --tx-l : 0.5s;
