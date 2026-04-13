@@ -26,10 +26,18 @@
 }
 
 .icon {
+  --t: linear(0, 0.49 7.4%, 0.864 15.3%, 1.005 19.4%, 1.12 23.7%, 1.206 28.1%, 1.267 32.8%, 1.296 36.4%, 1.311 40.2%, 1.313 44.2%, 1.301 48.6%, 1.252 56.9%, 1.105 74.4%, 1.048 82.5%, 1.011 91.1%, 1);
   display: inline-flex;
   aspect-ratio: 1;
   block-size: 2em;
   color: currentcolor;
+  scale: 1;
+  transition: all var(--tx-s) var(--t);
+
+  &:hover {
+    scale: 1.2;
+    color: var(--primary-hover);
+  }
 }
 
 .disclaimer {

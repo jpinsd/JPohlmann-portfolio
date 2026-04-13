@@ -7,9 +7,8 @@ menu .external {display: none;}
   padding-block-end: .5em;
   /* border-bottom: 1px solid var(--border); */
 
-  display: none;
-
   /* quick fix to remove light/dark switches from firefox */
+  display: none;
   @container style(--theme: dark) or style(--theme: light) {
     display: flex;
   }
@@ -104,8 +103,9 @@ menu .external {display: none;}
 .-more {
   display: inline-flex;
   gap: .5em;
+  padding: 0;
 
-  &::before {
+  &::after {
     content: '';
     display: inline-block;
     aspect-ratio: 1;
@@ -331,7 +331,7 @@ menu .external {display: none;}
       transform: translateY(100px);
       animation: slide-up linear forwards;
       animation-timeline: view();
-      animation-range: 0% 30%;
+      animation-range: 10% 40%;
       animation-range: entry-crossing calc(var(--idx) * 12%) cover calc(var(--idx) * 5% + 2%);
       /*
         this is kind of a hack.
@@ -548,12 +548,19 @@ details[open] summary::before {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+
   font-size: .75em;
   margin-inline: .125em;
   width: 1.75em;
   aspect-ratio: 1;
+
   border: 2px solid transparent;
   background: var(--canvas);
+
+  /* background-clip: initial; */
+  -webkit-text-fill-color: var(--link-color);
+  color: var(--link-color);
+
   text-decoration: none;
   font-weight: normal;
   translate: 0 -.75em;
