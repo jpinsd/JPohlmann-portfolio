@@ -227,6 +227,7 @@ button[popovertarget] {
     --border: rgb(from var(--card-accent) r g b / .5);
     background: Canvas;
     color: var(--text-color);
+    -webkit-text-fill-color: initial;
 
     text-decoration: none;
     font-size: 2rem;
