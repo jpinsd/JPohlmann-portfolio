@@ -374,6 +374,42 @@ details div.detail-wrapper {
   grid-template-rows: 0fr;
   overflow: clip;
   transition: var(--tx-m);
+
+  &:has(input.legibility) {
+    --human: 1;
+    --linkedin: 0;
+  }
+
+  &:has(input.legibility:checked) {
+    --human: 0;
+    --linkedin: 1;
+  }
+
+  :where(.-human, .-linkedin) {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    transition: opacity  var(--tx-m);
+  }
+
+  .-human {
+    opacity: var(--human);
+  }
+
+  .-linkedin {
+    opacity: var(--linkedin);
+
+    li {
+      list-style-type: none;
+      display: flex;
+      gap: .5rem;
+
+      &::before{
+        content: attr(data-marker) " ";
+        /* margin-left: -2rem; */
+      }
+    }
+
+  }
 }
 
 details div.detail-wrapper > * {
@@ -541,6 +577,83 @@ details[open] summary::before {
     box-shadow: 0 0 .875em rgb(from var(--primary-hover) r g b / .75);
   }
 }
+
+
+.switch {
+  --l: 2px;
+  --w: 1.5em;
+  --bg: var(--text-color);
+
+  display: flex;
+  gap: .5em;
+  font-size: .8em;
+
+  &:has(input.legibility) {
+    justify-content: end;
+    margin-block-end: .5rem;
+  }
+
+  [type="checkbox"] {
+    display: none;
+
+    &:checked ~ label{
+      --l: calc(100% - var(--w) + 4px);
+      --bg: var(--primary);
+    }
+  }
+
+  label {
+    span {display: none}
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+
+    width: 2.5em;
+    height: 1.5em;
+    border-radius: 1.5em;
+    border: 1px solid var(--bg);
+
+    &::before {
+      content: '';
+      width: calc(var(--w) - 6px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--bg);
+      position: absolute;
+      left: var(--l);
+      margin-right: 1em;
+      transition: all var(--tx-s);
+    }
+  }
+
+  :where(.human, .linkedin) {
+    display: inline-flex;
+    width: var(--w);
+    aspect-ratio: 1;
+    justify-content: center;
+    align-items: center;
+
+    &::before {
+      --color: var(--text-color);
+      content: '';
+      width: 1.5em;
+      aspect-ratio: 1;
+      mask-image: var(--i);
+      mask-repeat: no-repeat;
+      background-color: var(--color);
+    }
+  }
+
+  .human::before {
+    --i: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M320 312C386.3 312 440 258.3 440 192C440 125.7 386.3 72 320 72C253.7 72 200 125.7 200 192C200 258.3 253.7 312 320 312zM290.3 368C191.8 368 112 447.8 112 546.3C112 562.7 125.3 576 141.7 576L498.3 576C514.7 576 528 562.7 528 546.3C528 447.8 448.2 368 349.7 368L290.3 368z"/></svg>');
+
+  }
+  .linkedin::before {
+    --color: var(--primary);
+    --i: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M160 96C124.7 96 96 124.7 96 160L96 480C96 515.3 124.7 544 160 544L480 544C515.3 544 544 515.3 544 480L544 160C544 124.7 515.3 96 480 96L160 96zM165 266.2L231.5 266.2L231.5 480L165 480L165 266.2zM236.7 198.5C236.7 219.8 219.5 237 198.2 237C176.9 237 159.7 219.8 159.7 198.5C159.7 177.2 176.9 160 198.2 160C219.5 160 236.7 177.2 236.7 198.5zM413.9 480L413.9 376C413.9 351.2 413.4 319.3 379.4 319.3C344.8 319.3 339.5 346.3 339.5 374.2L339.5 480L273.1 480L273.1 266.2L336.8 266.2L336.8 295.4L337.7 295.4C346.6 278.6 368.3 260.9 400.6 260.9C467.8 260.9 480.3 305.2 480.3 362.8L480.3 480L413.9 480z" fill="white" alt="contact me on LinkedIN" /></svg>');
+  }
+}
+
 
 
 /* patent office links */
