@@ -284,6 +284,7 @@ menu .external {display: none;}
     grid-column: 1 / -1;
     transition: opacity  var(--tx-m);
     padding-inline-start: 0;
+    pointer-events: none;
 
     li {
       list-style-type: none;
@@ -299,10 +300,18 @@ menu .external {display: none;}
 
   .-human {
     opacity: var(--human);
+
+    @container style(--human: 1) {
+      pointer-events: all;
+    }
   }
 
   .-linkedin {
     opacity: var(--linkedin);
+
+    @container style(--linkedin: 1) {
+      pointer-events: all;
+    }
 
     li::before{
       content: attr(data-marker);
