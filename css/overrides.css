@@ -648,7 +648,9 @@ details[open] summary::before {
       --bkg: var(--neutral);
 
       color: var(--c);
-      display: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: end;
       position: absolute;
       right: calc(100% + 3em);
       width: max-content;
@@ -658,6 +660,12 @@ details[open] summary::before {
       border-radius: .5em;
       filter: drop-shadow(0 0 .5em var(--shadow-color));
       z-index: 2;
+      pointer-events: none;
+
+      transform: translateX(-1rem);
+      opacity: 0;
+      transition: var(--tx-s) ease;
+      transition-delay: var(--tx-s);
 
       &::before,
       &::after {
@@ -665,13 +673,12 @@ details[open] summary::before {
         width: 0;
         height: 0;
         position: absolute;
-        right: calc(-1.5em + 1px);
-        top: calc(50% - .75em);
       }
 
       &::before {
         border: .75em solid transparent;
         border-left-color: var(--bkg);
+        right: calc(-1.5em + 1px);
         z-index: 2;
       }
 
@@ -679,13 +686,15 @@ details[open] summary::before {
         border: calc(.75em + 1px) solid transparent;
         border-left-color: var(--c);
         right: calc(-1.5em - 1.5px);
-        top: calc(50% - .75em - 1px);
         z-index: -1;
       }
     }
 
     &:hover span {
-      display: inline-flex;
+      transform: translateX(0);
+      opacity: 1;
+
+      transition-delay: var(--tx-x);
     }
   }
 
