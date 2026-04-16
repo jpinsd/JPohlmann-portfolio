@@ -18,9 +18,15 @@ body {
   --canvas: #221a29;
 
   --primary: #0dc1e7;
-  --secondary: hsl(from var(--primary) calc(h + 15) calc(s - 15) calc(l + 5));
+  /*  hsl colors. trying out OKLCH for now
+   --secondary: hsl(from var(--primary) calc(h + 15) calc(s - 15) calc(l + 5));
   --accent1  : hsl(from var(--primary) calc(h + var(--accent-angle)) calc(s - 15) calc(l - 5));
-  --accent2  : hsl(from var(--primary) calc(h - var(--accent-angle)) calc(s - 15) calc(l - 5));
+  --accent2  : hsl(from var(--primary) calc(h - var(--accent-angle)) calc(s - 15) calc(l - 15)); */
+
+
+  --secondary: oklch(from var(--primary) calc(l - .05) calc(c + .01) calc(h + 10));
+  --accent1  : oklch(from var(--primary) calc(l - .2) calc(c + .1) calc(h + var(--accent-angle)) );
+  --accent2  : oklch(from var(--primary) calc(l - .2) calc(c + .1) calc(h - var(--accent-angle)) );
 
 
 
@@ -33,15 +39,9 @@ body {
 
   /* loght mode only color changes */
   @container style(--theme: light) {
-
-    /* --base: #ffffff;
-    --canvas: #221a29;
-    --secondary: hsl(from var(--primary) calc(h + 15) calc(s - 15) calc(l + 5)); */
-
     --base: #000000;
     --canvas: #f0fcff;
-    --secondary: hsl(from var(--primary) calc(h + 15) calc(s - 15) calc(l - 15));
-
+    --secondary: oklch(from var(--primary) calc(l - .15) calc(c + .01) calc(h + 10));
 
 
 

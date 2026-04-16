@@ -246,7 +246,6 @@ menu .external {display: none;}
 
   .title {
     font-size: var(--r-l);
-    color: var(--text-color-dark);
     font-weight: var(--font-strong);
     color: var(--secondary);
     grid-area: title;
@@ -621,10 +620,10 @@ details[open] summary::before {
   }
 
   label {
-    span {display: none}
     position: relative;
     display: inline-flex;
     align-items: center;
+    z-index: 10;
 
     width: 2.5em;
     height: 1.5em;
@@ -641,6 +640,50 @@ details[open] summary::before {
       left: var(--l);
       margin-right: 1em;
       transition: all var(--tx-s);
+    }
+
+    span {
+      --c: CanvasText;
+      color: var(--c);
+      display: none;
+      position: absolute;
+      bottom: -3.5em;
+      right: -1em;
+      width: max-content;
+      background: var(--accent2);
+      padding: .5em;
+      border: 1px solid var(--c);
+      border-radius: .5em;
+      filter: drop-shadow(0 0 .5em var(--shadow-color));
+      z-index: 2;
+
+      &::before,
+      &::after {
+        content:'';
+        width: 0;
+        height: 0;
+        position: absolute;
+        right: 1rem;
+        top: calc(-1.5em + 1px);
+      }
+
+      &::before {
+        border: .75em solid transparent;
+        border-bottom-color: var(--accent2);
+        z-index: 2;
+      }
+
+      &::after {
+        border: calc(.75em + 1px) solid transparent;
+        border-bottom-color: var(--c);
+        top: calc(-1.5em - 2px);
+        right: calc(1rem - 1px);
+        z-index: -1;
+      }
+    }
+
+    &:hover span {
+      display: inline-flex;
     }
   }
 
