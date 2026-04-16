@@ -24,11 +24,10 @@ body {
   --accent2  : hsl(from var(--primary) calc(h - var(--accent-angle)) calc(s - 15) calc(l - 15)); */
 
 
-  --secondary: oklch(from var(--primary) calc(l - .05) calc(c + .01) calc(h + 10));
-  --accent1  : oklch(from var(--primary) calc(l - .2) calc(c + .1) calc(h + var(--accent-angle)) );
-  --accent2  : oklch(from var(--primary) calc(l - .2) calc(c + .1) calc(h - var(--accent-angle)) );
+  --secondary: oklch(from var(--primary) calc(l - .1) calc(c + .05) calc(h + 10));
+  --accent1  : oklch(from var(--primary) calc(l - .2) calc(c + .15) calc(h + var(--accent-angle)) );
+  --accent2  : oklch(from var(--primary) calc(l - .2) calc(c + .15) calc(h - var(--accent-angle)) );
   --neutral  : oklch(from var(--primary) calc(l - .2) .03 h);
-
 
 
   /* override calculated colors with static */
@@ -42,7 +41,7 @@ body {
   @container style(--theme: light) {
     --base: #000000;
     --canvas: #f0fcff;
-    --secondary: oklch(from var(--primary) calc(l - .15) calc(c + .01) calc(h + 10));
+    --secondary: oklch(from var(--primary) calc(l - .2) calc(c + .05) calc(h + 10));
 
 
 
