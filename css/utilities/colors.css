@@ -27,6 +27,7 @@ body {
   --secondary: oklch(from var(--primary) calc(l - .05) calc(c + .01) calc(h + 10));
   --accent1  : oklch(from var(--primary) calc(l - .2) calc(c + .1) calc(h + var(--accent-angle)) );
   --accent2  : oklch(from var(--primary) calc(l - .2) calc(c + .1) calc(h - var(--accent-angle)) );
+  --neutral  : oklch(from var(--primary) calc(l - .2) .03 h);
 
 
 

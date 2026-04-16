@@ -607,7 +607,8 @@ details[open] summary::before {
 
   &:has(input.legibility) {
     justify-content: end;
-    margin-block-end: .5rem;
+    margin-block-end: var(--m);
+    padding-block-start: var(--xxxl);
   }
 
   [type="checkbox"] {
@@ -643,14 +644,15 @@ details[open] summary::before {
     }
 
     span {
-      --c: CanvasText;
+      --c: rgb(from white r g b / .8);
+      --bkg: var(--neutral);
+
       color: var(--c);
       display: none;
       position: absolute;
-      bottom: -3.5em;
-      right: -1em;
+      right: calc(100% + 3em);
       width: max-content;
-      background: var(--accent2);
+      background: var(--bkg);
       padding: .5em;
       border: 1px solid var(--c);
       border-radius: .5em;
@@ -663,21 +665,21 @@ details[open] summary::before {
         width: 0;
         height: 0;
         position: absolute;
-        right: 1rem;
-        top: calc(-1.5em + 1px);
+        right: calc(-1.5em + 1px);
+        top: calc(50% - .75em);
       }
 
       &::before {
         border: .75em solid transparent;
-        border-bottom-color: var(--accent2);
+        border-left-color: var(--bkg);
         z-index: 2;
       }
 
       &::after {
         border: calc(.75em + 1px) solid transparent;
-        border-bottom-color: var(--c);
-        top: calc(-1.5em - 2px);
-        right: calc(1rem - 1px);
+        border-left-color: var(--c);
+        right: calc(-1.5em - 1.5px);
+        top: calc(50% - .75em - 1px);
         z-index: -1;
       }
     }
