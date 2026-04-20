@@ -252,14 +252,14 @@ menu .external {display: none;}
   }
 
   .job-details {
-    /* width: min(100%, 40ch); */
-    /* font-size: 1rem; */
     grid-area: job-details;
 
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr;
+    grid-template-areas: "content";
 
+    position: relative;
   }
 
   details {
@@ -279,12 +279,11 @@ menu .external {display: none;}
   }
 
   :where(.-human, .-linkedin) {
-    grid-row: 2;
-    grid-column: 1 / -1;
     transition: opacity  var(--tx-m);
     padding-inline-start: 0;
     pointer-events: none;
 
+    grid-area: content;
     li {
       list-style-type: none;
       display: flex;
@@ -463,6 +462,14 @@ details[open] summary::before {
   rotate: 90deg;
 }
 
+.detail-wrapper-content {
+  overflow: clip;
+
+  display: grid;
+  grid-template-areas: "switch" "content";
+  grid-template-rows: auto 1fr;
+}
+
 #philosophy,
 #achievements {
   /* --bkg: rgb( from var(--card-accent) r g b / .3); */
@@ -604,11 +611,13 @@ details[open] summary::before {
   display: flex;
   gap: .5em;
   font-size: .8em;
+  height: 3em;
+
+  overflow: clip;
 
   &:has(input.legibility) {
     justify-content: end;
-    margin-block-end: var(--m);
-    padding-block-start: var(--xxxl);
+    align-items: center;
   }
 
   [type="checkbox"] {
@@ -691,10 +700,12 @@ details[open] summary::before {
     }
 
     &:hover span {
-      transform: translateX(0);
-      opacity: 1;
+      @media(hover: hover) {
+        transform: translateX(0);
+        opacity: 1;
 
-      transition-delay: var(--tx-x);
+        transition-delay: var(--tx-x);
+      }
     }
   }
 
@@ -704,6 +715,7 @@ details[open] summary::before {
     aspect-ratio: 1;
     justify-content: center;
     align-items: center;
+    overflow: clip;
 
     &::before {
       --color: var(--text-color);
