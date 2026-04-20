@@ -1,27 +1,35 @@
 /*
-  CTA, accent-1 and accent-2 colors are calculated from Primary.
+  secondary, accent-1 and accent-2 colors are calculated from Primary.
 
-- CTA is complimentary, and by default both accent colors are analogous by 12.5° on either side.
+- by default both accent colors are analogous by 12.5° on either side of Primary.
 - Base color is used to calculate the text and the color ramp for surface colors.
-    Default base color is browser CanvasText
-- Base, CTA, and both accents can be hard coded instead of calculated,
-    and all colors based on them will update.
-- Colors can also be overridden for dark mode.
+      Default base color is browser CanvasText
+- Base, secondary, and both accents can be hard coded instead of calculated,
+      and all colors based off of them will update.
+- Colors can also be overridden for light mode.
 
 */
 
 body {
   /* utils */
-  --accent-angle: 105;
+  --accent-angle: 105; /* changed from my usual 12.5 for more drastic contrast */
 
-  --base: #ffffff;
+  --base: CanvasText;
   --canvas: #221a29;
 
   --primary: #0dc1e7;
+
+  /*  hsl versions */
+  /*
   --secondary: hsl(from var(--primary) calc(h + 15) calc(s - 15) calc(l + 5));
   --accent1  : hsl(from var(--primary) calc(h + var(--accent-angle)) calc(s - 15) calc(l - 5));
-  --accent2  : hsl(from var(--primary) calc(h - var(--accent-angle)) calc(s - 15) calc(l - 5));
+  --accent2  : hsl(from var(--primary) calc(h - var(--accent-angle)) calc(s - 15) calc(l - 15));
+  */
 
+  --secondary: oklch(from var(--primary) calc(l - .1) calc(c + .05) calc(h + 10));
+  --accent1  : oklch(from var(--primary) calc(l - .2) calc(c + .15) calc(h + var(--accent-angle)) );
+  --accent2  : oklch(from var(--primary) calc(l - .2) calc(c + .15) calc(h - var(--accent-angle)) );
+  --neutral  : oklch(from var(--primary) calc(l - .2) .03 h);
 
 
   /* override calculated colors with static */
@@ -33,21 +41,8 @@ body {
 
   /* loght mode only color changes */
   @container style(--theme: light) {
-
-    /* --base: #ffffff;
-    --canvas: #221a29;
-    --secondary: hsl(from var(--primary) calc(h + 15) calc(s - 15) calc(l + 5)); */
-
-    --base: #000000;
     --canvas: #f0fcff;
-    --secondary: hsl(from var(--primary) calc(h + 15) calc(s - 15) calc(l - 15));
-
-
-
-
+    --secondary: oklch(from var(--primary) calc(l - .2) calc(c + .05) calc(h + 10));
   }
-
 }
-
-
 

@@ -209,7 +209,7 @@ details {
 summary {
   cursor: pointer;
   color: var(--primary);
-  margin-block-end: var(--r-xl);
+  margin-block-end: var(--r-xxs);
 }
 
 /* popovers */
