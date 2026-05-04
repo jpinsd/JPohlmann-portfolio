@@ -289,6 +289,10 @@ menu .external {display: none;}
       display: flex;
       gap: .5rem;
 
+      > * {
+        margin-block: 0
+      }
+
       &::before{
         content: '✦';
         color: var(--secondary);
