@@ -96,6 +96,7 @@ strong {
   text-underline-offset: .275em;
   text-decoration-color: var(--link-decoration);
   font-weight: var(--font-strong);
+  pointer-events: all;
 
   /* slide to right hover effect */
   background-image: linear-gradient(to left,
