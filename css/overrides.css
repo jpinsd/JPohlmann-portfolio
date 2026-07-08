@@ -494,10 +494,6 @@ details[open] summary::before {
   padding-block: 2rem;
 }
 
-#philosophy {
-  min-height: 45vh;
-}
-
 #achievements {
   --a: -3.5deg;
 }
@@ -506,6 +502,7 @@ details[open] summary::before {
   /* overflow: clip; */
   display: grid;
   grid-template: 1fr / 1fr;
+  min-height: 45vh;
 
   &:hover {
     --playstate: paused;
