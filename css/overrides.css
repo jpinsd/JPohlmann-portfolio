@@ -1,104 +1,272 @@
-/* hiding for now */
-menu .external {display: none;}
+/* hover or tap */
+:root {
+  --icons: 3rem;
+  --tap: false;
 
-.mode {
-  justify-content: end;
-  gap: .5rem;
-  padding-block-end: .5em;
-  /* border-bottom: 1px solid var(--border); */
+  --nav-track-size: 0fr;
+  --nav-opacity: 0;
+  --nav-transition: var(--tx-l);
+  --nav-blur: 0px;
+  /* --nav-width: auto; */
+  /* --nav-links-dir: row; */
 
-  /* quick fix to remove light/dark switches from firefox */
-  display: none;
-  @container style(--theme: dark) or style(--theme: light) {
-    display: flex;
+
+  @media (pointer: coarse) {
+    --tap: true;
   }
+}
+
+
+body {
+  container-type: inline-size;
+
+
+  @container style(--tap: false) {
+    &:has(nav:hover) {
+    --nav-track-size: 1fr;
+    --nav-opacity: 1;
+    --nav-blur: 6px;
+    }
+  }
+
+  @container style(--tap: true) {
+    &:has(#nav-trigger:checked) {
+    --nav-track-size: 1fr;
+    --nav-opacity: 1;
+    --nav-blur: 6px;
+    /* --nav-width: 70cqi; */
+    /* --nav-links-dir: column; */
+    }
+  }
+}
+
+
+nav {
+
+  /* border: 1px solid red; */
+  /* background: #052f; */
+
+  --w: 100%;
+  --h: 100%;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+
+
+
+  #nav-trigger {display: none}
 
   /* contrasting shadow */
-  &::before,
-  &::after {
-    --w: 300px;
-    --h: 150px;
-    --b: var(--canvas);
-    --gradient: ellipse calc(var(--w) * .8) calc(var(--h) * .8) at 80% 10%;
-    /* --b: red; */
+    &::before,
+    &::after {
+      --b: var(--canvas);
+      --gradient: ellipse calc(var(--w) * .8) calc(var(--h) * .8) at 80% 10%;
 
-    content: '';
-    position: fixed;
-    top: 0;
-    right: 0;
-    width:  min(100vw, var(--w));
-    height: min(100vw, var(--h));
-    pointer-events: none;
-  }
+      position: absolute;
+      top: 0;
+      right: 0;
 
-  &::after {
-    /* background: var(--gradient); */
-    background: radial-gradient(var(--gradient),
-                                rgb(from var(--b) r g b / .9) 20%,
-                                rgb(from var(--b) r g b / .01) 95%);
-    z-index: -1;
-  }
+      content: '';
+      width:  min(100vw, var(--w));
+      /* width: calc(100% + 100px); */
+      height: var(--h);
+      pointer-events: none;
 
-  &::before {
-    backdrop-filter: blur(6px);
-    mask-image: radial-gradient(var(--gradient),
-                                black 50%,
-                                transparent 90%);
-  }
+      /* border:1px solid yellow; */
+      scale: 2.5;
+      opacity: var(--nav-opacity);
+    }
 
-  [type="radio"] {
-    display: none;
-  }
+    &::after {
+      /* background: var(--gradient); */
+      background: radial-gradient(var(--gradient),
+                                  rgb(from var(--b) r g b / .9) 50%,
+                                  rgb(from var(--b) r g b / .01) 95%);
+      z-index: -1;
 
-  [type="radio"] + label {
-    color: var(--text-color-light);
-    width: 3em;
-    height: 3em;
-    padding: .5em;
-    font-size: 12px;
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border-radius: 2.25em;
-    border: 2px solid transparent;
-    backdrop-filter: blur(5px);
-    background: rgb(from var(--text-color) r g b / .07) padding-box;
-    /* opacity: .875; */
-    transition: var(--tx-m);
 
-    &:hover {
-      /* opacity: 1; */
-      scale: 1.1;
-      background: rgb(from var(--text-color) r g b / .2) padding-box;
     }
 
     &::before {
-      content:'';
-      inset: 0;
-      position: absolute;
-      background: linear-gradient(to bottom right,
-                                  rgba(255,255,255, .65),
-                                  rgba(255,255,255, 0) 40% 70%,
-                                  rgba(255,255,255, .25) 100%) border-box;
-      border-radius: inherit;
-      z-index: -1;
+      backdrop-filter: blur(var(--nav-blur));
+      mask-image: radial-gradient(var(--gradient),
+                                  black 70%,
+                                  transparent 90%);
+      transition: calc(var(--nav-transition) * 4);
+      transition-delay: calc(var(--nav-transition) * 1.1);
+      /* transition-behavior: allow-discrete; */
+    }
 
+}
+
+menu {
+  min-width: var(--icons);
+  min-height: var(--icons);
+
+  display: grid;
+  gap: .5rem;
+  grid-template-columns: 1fr var(--icons);
+  grid-template-rows: var(--icons) 1fr;
+  grid-template-areas:
+    "links trigger"
+    ". mode";
+
+
+
+  .nav-trigger {grid-area: trigger}
+  .nav-links   {grid-area: links; }
+  .mode        {grid-area: mode}
+
+
+  .nav-trigger {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+
+    z-index: 10;
+
+    svg {
+      width: calc(var(--icons) * .5);  /* ugh. magic number. change this */
+    }
+
+  }
+
+
+  .nav-links {
+    --flex-dir: row;
+    display: grid;
+    grid-template-rows: var(--nav-track-size);
+    grid-template-columns: var(--nav-track-size);
+    overflow: clip;
+
+    align-self: center;
+
+    @container (width < 600px) {
+      --flex-dir: column;
+      /* background: deepskyblue; */
+      align-self: start;
+    }
+
+    transition: var(--nav-transition);
+    /* transition-delay: calc(var(--nav-transition) * .5); */
+    z-index: 1;
+
+    .links-wrapper {
+      display: flex;
+      /* flex-direction: var(--nav-links-dir); */
+      flex-direction: var(--flex-dir);
+      flex-wrap: nowrap;
+      gap: .5rem;
+      min-width: 0;
+      /* width: var(--nav-width); */
+
+      opacity: var(--nav-opacity);
+      transition: var(--nav-transition);
+      /* transition-delay: calc(var(--nav-transition) * .5); */
+    }
+
+    a {
+      flex: 0 0 auto;
+      width: max-content;
+      line-height: calc(var(--icons) * .5);
+
+      @container (width < 600px) {
+        padding-inline: var(--icons);
+        line-height: var(--icons);
+      }
+
+      }
+    }
+
+  }
+
+
+
+  .mode {
+    gap: .5rem;
+    padding-block-end: .5em;
+
+
+    /* quick fix to remove light/dark switches from firefox */
+    display: none;
+    @container style(--theme: dark) or style(--theme: light) {
+      display: grid;
+      grid-template-rows: var(--nav-track-size);
+      grid-template-columns: var(--nav-track-size);
+
+      transition: var(--nav-transition);
+      opacity: var(--nav-opacity);
+      overflow: clip;
+
+    }
+
+    .mode-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-self: end;
+      min-height: 0;
+      transition: var(--nav-transition);
+      gap: .5rem;
+    }
+
+
+    [type="radio"] {
+      display: none;
+    }
+
+    [type="radio"] + label {
+      color: var(--text-color-light);
+      /* width: 3em;
+      height: 3em; */
+      padding: .5em;
+      font-size: 12px;
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      border-radius: calc(var(--icons) * 2);
       border: 2px solid transparent;
+      backdrop-filter: blur(5px);
+      background: rgb(from var(--text-color) r g b / .07) padding-box;
+      /* opacity: .875; */
+      transition: var(--tx-m);
 
-      filter: blur(2px);
+      &:hover {
+        /* opacity: 1; */
+        scale: 1.1;
+        background: rgb(from var(--text-color) r g b / .2) padding-box;
+      }
 
-      mask: linear-gradient(black 0 0) border-box,
-            linear-gradient(black 0 0) padding-box;
-      mask-composite: subtract;
+      &::before {
+        content:'';
+        inset: 0;
+        position: absolute;
+        background: linear-gradient(to bottom right,
+                                    rgba(255,255,255, .65),
+                                    rgba(255,255,255, 0) 40% 70%,
+                                    rgba(255,255,255, .25) 100%) border-box;
+        border-radius: inherit;
+        z-index: -1;
+
+        border: 2px solid transparent;
+
+        filter: blur(2px);
+
+        mask: linear-gradient(black 0 0) border-box,
+              linear-gradient(black 0 0) padding-box;
+        mask-composite: subtract;
+      }
+    }
+
+    [type='radio']:checked + label {
+      /* border-color: rgb(from var(--text-color) r g b / 40%) */
+      background: rgb(from var(--primary) r g b / .2) padding-box
     }
   }
-
-  [type='radio']:checked + label {
-    /* border-color: rgb(from var(--text-color) r g b / 40%) */
-    background: rgb(from var(--primary) r g b / .2) padding-box
-  }
 }
+
+
 
 .-more {
   display: inline-flex;

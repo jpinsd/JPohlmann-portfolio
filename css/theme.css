@@ -115,11 +115,11 @@ body {
   }
 
   /* crazy neon effect */
-  /*
-  @container style(--theme: dark) {
+
+  /* @container style(--theme: dark) {
     --card-shadow: 0 0 3.5rem hsl(from var(--accent1) calc(h - 180) 120% 395% / .9)
-  }
-  */
+  } */
+
 
 }
 
