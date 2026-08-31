@@ -4,9 +4,11 @@
   --tap: false;
 
   --nav-track-size: 0fr;
-  --nav-opacity: 0;
+  --nav-opacity: .5;
   --nav-transition: var(--tx-l);
   --nav-blur: 0px;
+  --nav-blur: 3px;
+  --scale: 2.5;
   /* --nav-width: auto; */
   /* --nav-links-dir: row; */
 
@@ -16,6 +18,15 @@
   }
 }
 
+/*
+
+              How do i stop the page scrolling
+              underneath the top part of iOS?
+              what the hell is that even called?
+              where the dynamic island is.
+              wtf is this so stupid
+
+*/
 
 body {
   container-type: inline-size;
@@ -34,12 +45,12 @@ body {
     --nav-track-size: 1fr;
     --nav-opacity: 1;
     --nav-blur: 6px;
+    --scale: 5;
     /* --nav-width: 70cqi; */
     /* --nav-links-dir: column; */
     }
   }
 }
-
 
 nav {
 
@@ -61,11 +72,13 @@ nav {
     &::before,
     &::after {
       --b: var(--canvas);
+      /* --b: lawngreen; */
       --gradient: ellipse calc(var(--w) * .8) calc(var(--h) * .8) at 80% 10%;
+      /* --gradient: circle at top right; */
 
       position: absolute;
-      top: 0;
-      right: 0;
+      top: 1rem;
+      right: 2rem;
 
       content: '';
       width:  min(100vw, var(--w));
@@ -74,7 +87,8 @@ nav {
       pointer-events: none;
 
       /* border:1px solid yellow; */
-      scale: 2.5;
+      --scale: 1.5;
+      scale: var(--scale);
       opacity: var(--nav-opacity);
     }
 
@@ -82,7 +96,8 @@ nav {
       /* background: var(--gradient); */
       background: radial-gradient(var(--gradient),
                                   rgb(from var(--b) r g b / .9) 50%,
-                                  rgb(from var(--b) r g b / .01) 95%);
+                                  rgb(from var(--b) r g b / .01) 65%),
+                                  transparent 96%;
       z-index: -1;
 
 

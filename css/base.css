@@ -42,6 +42,7 @@ body {
   background: var(--canvas);
   color: var(--text-color);
   overflow-x: clip;
+
 }
 
 main {
