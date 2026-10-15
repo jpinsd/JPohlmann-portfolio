@@ -1,6 +1,6 @@
 /* hover or tap */
 :root {
-  --icons: 3rem;
+  --icons: 2.5rem;
   --tap: false;
 
   --nav-track-size: 0fr;
@@ -18,15 +18,12 @@
   }
 }
 
-/*
+@property --angle {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 135deg;
 
-              How do i stop the page scrolling
-              underneath the top part of iOS?
-              what the hell is that even called?
-              where the dynamic island is.
-              wtf is this so stupid
-
-*/
+}
 
 body {
   container-type: inline-size;
@@ -71,49 +68,49 @@ nav {
   /* contrasting shadow */
     &::before,
     &::after {
-      --b: var(--canvas);
+      /* --b: var(--canvas); */
       /* --b: lawngreen; */
-      --gradient: ellipse calc(var(--w) * .8) calc(var(--h) * .8) at 80% 10%;
+      /* --gradient: ellipse calc(var(--w) * .8) calc(var(--h) * .8) at 80% 10%; */
       /* --gradient: circle at top right; */
 
-      position: absolute;
+      /* position: absolute;
       top: 1rem;
-      right: 2rem;
+      right: 2rem; */
 
-      content: '';
-      width:  min(100vw, var(--w));
+      /* content: ''; */
+      /* width:  min(100vw, var(--w)); */
       /* width: calc(100% + 100px); */
-      height: var(--h);
-      pointer-events: none;
+      /* height: var(--h);
+      pointer-events: none; */
 
       /* border:1px solid yellow; */
-      --scale: 1.5;
+      /* --scale: 1.5;
       scale: var(--scale);
-      opacity: var(--nav-opacity);
+      opacity: var(--nav-opacity); */
     }
 
     &::after {
       /* background: var(--gradient); */
-      background: radial-gradient(var(--gradient),
+      /* background: radial-gradient(var(--gradient),
                                   rgb(from var(--b) r g b / .9) 50%,
                                   rgb(from var(--b) r g b / .01) 65%),
                                   transparent 96%;
-      z-index: -1;
+      z-index: -1; */
 
 
     }
 
     &::before {
-      backdrop-filter: blur(var(--nav-blur));
+      /* backdrop-filter: blur(var(--nav-blur));
       mask-image: radial-gradient(var(--gradient),
                                   black 70%,
                                   transparent 90%);
       transition: calc(var(--nav-transition) * 4);
-      transition-delay: calc(var(--nav-transition) * 1.1);
+      transition-delay: calc(var(--nav-transition) * 1.1); */
       /* transition-behavior: allow-discrete; */
     }
 
-}
+
 
 menu {
   min-width: var(--icons);
@@ -138,11 +135,27 @@ menu {
     display: flex;
     justify-content: center;
     cursor: pointer;
-
+    position: relative;
     z-index: 10;
 
     svg {
       width: calc(var(--icons) * .5);  /* ugh. magic number. change this */
+    }
+
+    &::before {
+      --size: calc(var(--icons) * 2);
+      content: '';
+      display: block;
+      width: var(--size);
+      aspect-ratio: 1;
+      position: absolute;
+      top: calc((var(--size) * -.5) + (var(--icons) * .5));
+      z-index: -1;
+
+      backdrop-filter: blur(6px);
+      background: radial-gradient(circle at center, rgb(from var(--canvas) r g b / .5), transparent 75%);
+      /* background: radial-gradient(circle at center, red, transparent 75%); */
+      mask-image: radial-gradient(circle at center, black 50%, transparent 95%);
     }
 
   }
@@ -172,31 +185,84 @@ menu {
       /* flex-direction: var(--nav-links-dir); */
       flex-direction: var(--flex-dir);
       flex-wrap: nowrap;
-      gap: .5rem;
+      gap: 1.5rem;
       min-width: 0;
-      /* width: var(--nav-width); */
 
-      opacity: var(--nav-opacity);
+      /* opacity: var(--nav-opacity); */
+      opacity: 1;
       transition: var(--nav-transition);
       /* transition-delay: calc(var(--nav-transition) * .5); */
     }
 
-    a {
+    .nav-link {
+      --angle: 135deg;
+      --c: var(--primary);
+      --border-width: 2px;
+
       flex: 0 0 auto;
       width: max-content;
-      line-height: calc(var(--icons) * .5);
+      font-weight: var(--font-strong);
+      text-decoration: none;
+
+      /* border: 1px solid white; */
+
+      padding: 1em 1.5em;
+      border-radius: .625em;
+      background: rgb(from var(--canvas) r g b / .25);
+      backdrop-filter: blur(10px);
+      color: var(--text-color);
+
+      transition: var(--tx-m);
+      position: relative;
+
+     &:hover {
+       --angle: 45deg;
+       --c: var(--callout-bkg);
+       --border-width: 3px;
+
+       /* @container style(--tap: false) { */
+         color: var(--base);
+         background: rgb(from var(--c) r g b / .15 );
+       /* } */
+     }
+
+      &::before {
+        content:'';
+        inset: 0;
+        position: absolute;
+        background: linear-gradient(var(--angle),
+                                    rgb(from var(--c) r g b / .65),
+                                    rgb(from var(--c) r g b / 0) 40% 70%,
+                                    rgb(from var(--c) r g b / .25) 100%) border-box;
+        border-radius: inherit;
+        z-index: -1;
+
+        border: var(--border-width) solid transparent;
+
+        /* filter: blur(2px); */
+
+        mask: linear-gradient(black 0 0) border-box,
+              linear-gradient(black 0 0) padding-box;
+        mask-composite: subtract;
+
+
+      }
+
+
+
+      &:last-of-type {
+        margin-right: calc(var(--icons) * .5);
+      }
 
       @container (width < 600px) {
         padding-inline: var(--icons);
         line-height: var(--icons);
       }
-
-      }
     }
-
   }
+} /*menu */
 
-
+}
 
   .mode {
     gap: .5rem;
@@ -231,7 +297,7 @@ menu {
     }
 
     [type="radio"] + label {
-      color: var(--text-color-light);
+      color: var(--text-color-med);
       /* width: 3em;
       height: 3em; */
       padding: .5em;
@@ -247,8 +313,10 @@ menu {
       /* opacity: .875; */
       transition: var(--tx-m);
 
+      --angle: 135deg;
       &:hover {
         /* opacity: 1; */
+        --angle: 235deg;
         scale: 1.1;
         background: rgb(from var(--text-color) r g b / .2) padding-box;
       }
@@ -257,7 +325,7 @@ menu {
         content:'';
         inset: 0;
         position: absolute;
-        background: linear-gradient(to bottom right,
+        background: linear-gradient(var(--angle),
                                     rgba(255,255,255, .65),
                                     rgba(255,255,255, 0) 40% 70%,
                                     rgba(255,255,255, .25) 100%) border-box;
@@ -276,7 +344,7 @@ menu {
 
     [type='radio']:checked + label {
       /* border-color: rgb(from var(--text-color) r g b / 40%) */
-      background: rgb(from var(--primary) r g b / .2) padding-box
+      background: rgb(from var(--callout-bkg) r g b / .2) padding-box
     }
   }
 }

@@ -89,7 +89,7 @@ strong {
   initial-value: 100%;
 }
 
-:where(a, a:visited, [popovertarget]) {
+:where(a, a:visited, [popovertarget]):not(.nav-link) {
   --loc-hover-gradient: 100%;
   --t: var(--tx-ss);
 
