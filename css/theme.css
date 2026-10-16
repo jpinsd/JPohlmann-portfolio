@@ -93,6 +93,7 @@ body {
 
   --logo-color: CanvasText;
   --logo-shadow: drop-shadow(.175em .325em 2em rgb(from var(--accent1) r g b / .6));
+  --logo-shadow-small: drop-shadow(0 0 .5em var(--accent1));
 
   @media (prefers-contrast: more) {
     --text-color      : var(--base-999);
@@ -109,7 +110,9 @@ body {
   --project-bkg: rgba(255, 255, 255, .75);
   --callout-bkg: rgb(from var(--primary) r g b / .2);
 
-  --logo-shadow: drop-shadow(.175em .325em .55em rgb(from var(--base) r g b / .225));
+  --logo-shadow: drop-shadow(.175em .325em .55em var(--base-250));
+  --logo-shadow-small: drop-shadow(0 0 .25em var(--base-300));
+
   --backdrop-color: rgb(from var(--canvas) r g b / .7);
 
   }

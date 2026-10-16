@@ -25,6 +25,10 @@
 
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   container-type: inline-size;
 
@@ -208,11 +212,11 @@ menu {
 
       padding: 1em 1.5em;
       border-radius: .625em;
-      background: rgb(from var(--canvas) r g b / .25);
+      background: rgb(from Canvas r g b / .3);
       backdrop-filter: blur(10px);
       color: var(--text-color);
 
-      transition: var(--tx-m);
+      transition: var(--tx-l);
       position: relative;
 
      &:hover {
@@ -222,7 +226,7 @@ menu {
 
        /* @container style(--tap: false) { */
          color: var(--base);
-         background: rgb(from var(--c) r g b / .15 );
+         background: rgb(from var(--c) r g b / .075 );
        /* } */
      }
 
@@ -244,6 +248,8 @@ menu {
         mask: linear-gradient(black 0 0) border-box,
               linear-gradient(black 0 0) padding-box;
         mask-composite: subtract;
+
+        /* box-shadow: 0 0 6px red; */
 
 
       }
@@ -1022,4 +1028,53 @@ details[open] summary::before {
   }
 }
 
+/*
+
+____ ____ ____ ____    ____ ___ _  _ ___  _   _
+|    |__| [__  |___ __ [__   |  |  | |  \  \_/
+|___ |  | ___] |___    ___]  |  |__| |__/   |
+
+
+*/
+
+
+.case-study {
+  --pad: 6em;
+  --w: 2em;
+  margin-block: var(--pad);
+  position: relative;
+
+  > :not(h1, h2){
+    width: min(100%, 50ch);
+    margin-inline: auto;
+  }
+
+  &::after {
+    content: url("../img/logo-2025-web-square.svg");
+    display: block;
+    height: var(--w);
+    aspect-ratio: 1;
+    position: relative;
+    left: calc(50% - (var(--w) / 2));
+    margin-block-start: var(--pad);
+    filter: var(--logo-shadow-small);
+  }
+
+  &::before {
+    --m: calc((var(--w) / 2) + 3px);
+    --h: 10px;
+    content:'';
+    display: block;
+    height: var(--h);
+    width: calc(var(--w) * 6);
+    position: absolute;
+    bottom: calc((var(--w) / 2) - (var(--h) / 2));
+    left: calc(50% - (var(--w) * 3));
+    background: radial-gradient(var(--base-200), transparent 60%);
+    mask: radial-gradient(circle at center, transparent var(--m), black calc(var(--m) + 6px));
+
+    /* mask-composite: subtract; */
+  }
+
+}
 
