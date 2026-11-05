@@ -120,6 +120,9 @@ menu {
   min-width: var(--icons);
   min-height: var(--icons);
 
+  padding: 1rem 2rem 0 0;
+
+
   display: grid;
   gap: .5rem;
   grid-template-columns: 1fr var(--icons);
