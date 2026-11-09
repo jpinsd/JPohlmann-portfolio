@@ -74,73 +74,77 @@
  -->
 
   <article class='case-study' id="case-study_studs">
-  <h1><span>STUDS:</span> Building a Design System People Actually Wanted to Use</h1>
+  <header>
+    <h1><span>STUDS:</span> Building a Design System People Actually Wanted to Use</h1>
+  </header>
 
-  <h2>Overview</h2>
-  <p>When most people hear the term <em>design system</em>, they think of component libraries, style guides, design tokens, or documentation.</p>
-  <p>STUDS certainly included all of those things. But that isn't why it existed.</p>
-  <p>At its core, <strong>STUDS was an effort to help a seventy-year-old company present a more consistent experience across dozens of independent software applications</strong>. It became a shared language between designers and developers, a foundation for accessibility, and ultimately an exercise in organizational change as much as front-end architecture.</p>
-  <p><strong>My role was to help bridge the gap between design and engineering by translating design decisions into practical implementation while ensuring the system remained flexible enough for teams with very different technologies and workflows.</strong></p>
+  <div class='article-content'>
+    <h2>Overview</h2>
+    <p>When most people hear the term <em>design system</em>, they think of component libraries, style guides, design tokens, or documentation.</p>
+    <p>STUDS certainly included all of those things. But that isn't why it existed.</p>
+    <p>At its core, <strong>STUDS was an effort to help a seventy-year-old company present a more consistent experience across dozens of independent software applications</strong>. It became a shared language between designers and developers, a foundation for accessibility, and ultimately an exercise in organizational change as much as front-end architecture.</p>
+    <p><strong>My role was to help bridge the gap between design and engineering by translating design decisions into practical implementation while ensuring the system remained flexible enough for teams with very different technologies and workflows.</strong></p>
 
-  <h2>The Challenge</h2>
-  <p>Simpson Strong-Tie is known worldwide for manufacturing structural connectors, fasteners, anchors, and building products. Over decades, the company also developed a broad portfolio of software used by architects, structural engineers, contractors, builders, and homeowners.</p>
-  <p>Like many mature organizations, those applications evolved independently. Different products were built by different teams, different technologies were adopted over time. Some applications were native desktop software, others were built using C#, React, Angular, or other web technologies.</p>
-  <p>Each solved its own business problem well, but collectively <strong>they looked and felt like software from different companies.</strong></p>
-  <p>At the same time, expectations around software were changing. Users no longer expected applications to exist only on desktop Windows computers. Tablets were becoming common on construction sites, and responsive web applications were increasingly replacing traditional desktop software.</p>
-  <p>The company recognized that modernizing individual products wasn't enough. The experience itself needed to become more consistent.</p>
+    <h2>The Challenge</h2>
+    <p>Simpson Strong-Tie is known worldwide for manufacturing structural connectors, fasteners, anchors, and building products. Over decades, the company also developed a broad portfolio of software used by architects, structural engineers, contractors, builders, and homeowners.</p>
+    <p>Like many mature organizations, those applications evolved independently. Different products were built by different teams, different technologies were adopted over time. Some applications were native desktop software, others were built using C#, React, Angular, or other web technologies.</p>
+    <p>Each solved its own business problem well, but collectively <strong>they looked and felt like software from different companies.</strong></p>
+    <p>At the same time, expectations around software were changing. Users no longer expected applications to exist only on desktop Windows computers. Tablets were becoming common on construction sites, and responsive web applications were increasingly replacing traditional desktop software.</p>
+    <p>The company recognized that modernizing individual products wasn't enough. The experience itself needed to become more consistent.</p>
 
-  <h2>Building a Shared Language</h2>
-  <p>One of the first realizations while creating STUDS was that <strong>consistency doesn't begin with components, it begins with conversation.</strong></p>
-  <p>Before writing a single component, designers, developers, and stakeholders spent considerable time agreeing on how software should look, behave, and communicate: typography, spacing, corner radius, color, interaction patterns, accessibility, and responsive behavior.</p>
-  <p><strong>Those conversations became the real foundation of the design system.</strong></p>
-  <p>Instead of treating design and development as separate disciplines, STUDS intentionally created a common vocabulary between them.</p>
-  <p>Design tokens inside Figma matched the CSS variables and design tokens used by developers. When a designer specified a color or spacing value, developers could immediately recognize the corresponding implementation without translating between different naming systems.</p>
-  <p>That shared language reduced ambiguity, improved communication, and made implementation significantly more predictable.</p>
+    <h2>Building a Shared Language</h2>
+    <p>One of the first realizations while creating STUDS was that <strong>consistency doesn't begin with components, it begins with conversation.</strong></p>
+    <p>Before writing a single component, designers, developers, and stakeholders spent considerable time agreeing on how software should look, behave, and communicate: typography, spacing, corner radius, color, interaction patterns, accessibility, and responsive behavior.</p>
+    <p><strong>Those conversations became the real foundation of the design system.</strong></p>
+    <p>Instead of treating design and development as separate disciplines, STUDS intentionally created a common vocabulary between them.</p>
+    <p>Design tokens inside Figma matched the CSS variables and design tokens used by developers. When a designer specified a color or spacing value, developers could immediately recognize the corresponding implementation without translating between different naming systems.</p>
+    <p>That shared language reduced ambiguity, improved communication, and made implementation significantly more predictable.</p>
 
-  <h2>Simplicity Takes Work</h2>
-  <p>One of the earliest discussions centered around color. Initially, the design system included multiple primary color palettes, each representing a family of related applications. Applications intended for architects used one visual identity. Software designed for structural engineers used another. Consumer-facing applications for builders and homeowners introduced additional palettes. The intention was to help users recognize which family of applications they were working with.</p>
-  <p>The idea was thoughtful, but over time we questioned whether those distinctions actually helped users accomplish their work. For many people, <strong>the color differences didn't communicate meaningful information</strong>. Instead, they introduced another visual system that users first had to learn before it became useful.</p>
-  <p>As the design system matured, we simplified the palette and centered it around the company's primary brand colors.</p>
-  <p>That wasn't simply a branding decision, it was a usability decision. Like many aspects of STUDS, the goal wasn't to add more visual language, it was to <strong>remove unnecessary complexity</strong>.</p>
+    <h2>Simplicity Takes Work</h2>
+    <p>One of the earliest discussions centered around color. Initially, the design system included multiple primary color palettes, each representing a family of related applications. Applications intended for architects used one visual identity. Software designed for structural engineers used another. Consumer-facing applications for builders and homeowners introduced additional palettes. The intention was to help users recognize which family of applications they were working with.</p>
+    <p>The idea was thoughtful, but over time we questioned whether those distinctions actually helped users accomplish their work. For many people, <strong>the color differences didn't communicate meaningful information</strong>. Instead, they introduced another visual system that users first had to learn before it became useful.</p>
+    <p>As the design system matured, we simplified the palette and centered it around the company's primary brand colors.</p>
+    <p>That wasn't simply a branding decision, it was a usability decision. Like many aspects of STUDS, the goal wasn't to add more visual language, it was to <strong>remove unnecessary complexity</strong>.</p>
 
-  <h2>Designing for Behavior</h2>
-  <p>Another important discussion centered around responsive design. Many design tools naturally encourage designers to think in terms of desktop, tablet, and mobile layouts.</p>
-  <p>My experience had taught me to approach responsive design differently.</p>
-  <p>Rather than asking how a page should change at specific breakpoints, I preferred asking how each individual component should behave as available space changed. At the time, technologies like CSS Container Queries didn't yet exist as a browser baseline, making that vision difficult to implement directly.</p>
-  <p>Even so, the conversation shifted. Instead of designing pages, <strong>we designed behaviors</strong>. This way of thinking influenced many later decisions within STUDS and eventually became one of the ideas that shaped my own front-end methodology.</p>
+    <h2>Designing for Behavior</h2>
+    <p>Another important discussion centered around responsive design. Many design tools naturally encourage designers to think in terms of desktop, tablet, and mobile layouts.</p>
+    <p>My experience had taught me to approach responsive design differently.</p>
+    <p>Rather than asking how a page should change at specific breakpoints, I preferred asking how each individual component should behave as available space changed. At the time, technologies like CSS Container Queries didn't yet exist as a browser baseline, making that vision difficult to implement directly.</p>
+    <p>Even so, the conversation shifted. Instead of designing pages, <strong>we designed behaviors</strong>. This way of thinking influenced many later decisions within STUDS and eventually became one of the ideas that shaped my own front-end methodology.</p>
 
-  <h2>One Design System, Multiple Paths</h2>
-  <p>One of the assumptions we made early in the project was that developers would consume STUDS through CSS. That seemed natural to me because CSS has always been one of my strongest technical disciplines.</p>
-  <p>What surprised me was discovering how many application developers rarely wanted to write CSS directly. Many preferred working entirely through framework components, while others were already heavily invested in Telerik's component library.</p>
-  <p>Rather than asking every team to change how they worked, <strong>we adapted the design system to fit their existing workflows</strong>.</p>
-  <p>Teams comfortable writing CSS could simply include the standalone STUDS stylesheet, gaining access to shared colors, typography, spacing, tokens, themes, and component styling.</p>
-  <p>Teams building applications with supported frameworks could instead use component libraries that embedded STUDS automatically, allowing them to build interfaces without writing CSS themselves.</p>
-  <p>Finally, for teams already committed to Telerik, I translated the design language into a Telerik theme that could be integrated directly into their existing applications.</p>
-  <p>The underlying design language remained identical, only the implementation changed. That became one of the most important lessons from the project.</p>
-  <blockquote>
-    <p><strong>Consistency should be the goal. Implementation can take many paths.</strong></p>
-  </blockquote>
-  <p>The success of a design system isn't measured by whether everyone writes code the same way, it's measured by whether users experience software that feels coherent, regardless of how it was built.</p>
+    <h2>One Design System, Multiple Paths</h2>
+    <p>One of the assumptions we made early in the project was that developers would consume STUDS through CSS. That seemed natural to me because CSS has always been one of my strongest technical disciplines.</p>
+    <p>What surprised me was discovering how many application developers rarely wanted to write CSS directly. Many preferred working entirely through framework components, while others were already heavily invested in Telerik's component library.</p>
+    <p>Rather than asking every team to change how they worked, <strong>we adapted the design system to fit their existing workflows</strong>.</p>
+    <p>Teams comfortable writing CSS could simply include the standalone STUDS stylesheet, gaining access to shared colors, typography, spacing, tokens, themes, and component styling.</p>
+    <p>Teams building applications with supported frameworks could instead use component libraries that embedded STUDS automatically, allowing them to build interfaces without writing CSS themselves.</p>
+    <p>Finally, for teams already committed to Telerik, I translated the design language into a Telerik theme that could be integrated directly into their existing applications.</p>
+    <p>The underlying design language remained identical, only the implementation changed. That became one of the most important lessons from the project.</p>
+    <blockquote>
+      <p><strong>Consistency should be the goal. Implementation can take many paths.</strong></p>
+    </blockquote>
+    <p>The success of a design system isn't measured by whether everyone writes code the same way, it's measured by whether users experience software that feels coherent, regardless of how it was built.</p>
 
-  <h2>Accessibility as a Foundation</h2>
-  <p>Accessibility was never treated as an optional enhancement, it was part of the system from the very beginning.</p>
-  <p>Instead of restricting designers to a limited set of &quot;accessible colors,&quot; STUDS provided accessible alternatives through design tokens, themes, and modern CSS.</p>
-  <p><strong>A designer could work naturally</strong> using the design language they needed while <strong>the system automatically supported higher-contrast themes</strong> for users who requested them through their operating system or browser preferences.</p>
-  <p>The same philosophy extended beyond color.</p>
-  <p>Spacing, typography, motion preferences, and scalable sizing were all incorporated into the system itself rather than handled as individual exceptions.</p>
-  <p>The goal wasn't to bolt accessibility onto existing components, it was to <strong>make accessibility part of the architecture.</strong></p>
+    <h2>Accessibility as a Foundation</h2>
+    <p>Accessibility was never treated as an optional enhancement, it was part of the system from the very beginning.</p>
+    <p>Instead of restricting designers to a limited set of &quot;accessible colors,&quot; STUDS provided accessible alternatives through design tokens, themes, and modern CSS.</p>
+    <p><strong>A designer could work naturally</strong> using the design language they needed while <strong>the system automatically supported higher-contrast themes</strong> for users who requested them through their operating system or browser preferences.</p>
+    <p>The same philosophy extended beyond color.</p>
+    <p>Spacing, typography, motion preferences, and scalable sizing were all incorporated into the system itself rather than handled as individual exceptions.</p>
+    <p>The goal wasn't to bolt accessibility onto existing components, it was to <strong>make accessibility part of the architecture.</strong></p>
 
-  <h2>Lessons Learned</h2>
-  <p>Looking back, the most valuable part of STUDS wasn't the component library, it wasn't the design tokens, and it wasn't even the documentation. The greatest success was <strong>creating shared understanding</strong>.</p>
-  <p>Designers and developers began speaking the same language. Implementation decisions became easier because the underlying design decisions had already been discussed. Different teams continued using different technologies, yet <strong>users experienced a more consistent product</strong>.</p>
-  <p>Perhaps the biggest lesson I took away was that <strong>successful architecture isn't about enforcing one implementation</strong>, but it is about creating shared principles that <strong>allow many implementations to arrive at the same destination</strong>.</p>
-  <p>STUDS reinforced something I've come to believe throughout my career:</p>
-  <ul>
-    <li>Technology changes.</li>
-    <li>Frameworks change.</li>
-    <li>Design trends change.</li>
-  </ul>
-  <p>But reducing unnecessary complexity while helping people work together more effectively… that never goes out of style.</p>
+    <h2>Lessons Learned</h2>
+    <p>Looking back, the most valuable part of STUDS wasn't the component library, it wasn't the design tokens, and it wasn't even the documentation. The greatest success was <strong>creating shared understanding</strong>.</p>
+    <p>Designers and developers began speaking the same language. Implementation decisions became easier because the underlying design decisions had already been discussed. Different teams continued using different technologies, yet <strong>users experienced a more consistent product</strong>.</p>
+    <p>Perhaps the biggest lesson I took away was that <strong>successful architecture isn't about enforcing one implementation</strong>, but it is about creating shared principles that <strong>allow many implementations to arrive at the same destination</strong>.</p>
+    <p>STUDS reinforced something I've come to believe throughout my career:</p>
+    <ul>
+      <li>Technology changes.</li>
+      <li>Frameworks change.</li>
+      <li>Design trends change.</li>
+    </ul>
+    <p>But reducing unnecessary complexity while helping people work together more effectively… that never goes out of style.</p>
+  </div>
 </article>
 
 
@@ -153,47 +157,52 @@
 
 -->
   <article class='case-study' id="case-study_iseq">
-    <h1><span>iSeq 100:</span> Making Complex Science Easier to Use</h1>
-    <h2>The Challenge</h2>
-    <p>When I joined Illumina, much of its software had been designed for highly experienced scientists working with sophisticated sequencing equipment.</p>
-    <p>The iSeq 100 was different.</p>
-    <p>It was a smaller, more approachable sequencing system intended to bring next-generation sequencing into environments that might not have dedicated sequencing experts.</p>
-    <p>That changed the design problem. A lab technician operating an iSeq 100 shouldn't need a PhD in genetics to understand what the software was asking them to do.</p>
-    <p><strong>My job was to help make an extraordinarily complex scientific process feel understandable</strong>.</p>
+    <header>
+      <h1><span>iSeq 100:</span> Making Complex Science Easier to Use</h1>
+    </header>
+    <div class='article-content'>
+      <h2>The Challenge</h2>
+      <p>When I joined Illumina, much of its software had been designed for highly experienced scientists working with sophisticated sequencing equipment.</p>
+      <p>The iSeq 100 was different.</p>
+      <p>It was a smaller, more approachable sequencing system intended to bring next-generation sequencing into environments that might not have dedicated sequencing experts.</p>
+      <p>That changed the design problem. A lab technician operating an iSeq 100 shouldn't need a PhD in genetics to understand what the software was asking them to do.</p>
+      <p><strong>My job was to help make an extraordinarily complex scientific process feel understandable</strong>.</p>
 
-    <h2>Designing the Workflow</h2>
-    <p>I owned the user-facing workflow for the iSeq 100 control software, including the interaction design, interface design, animations, and transitions that guided users through a sequencing run. This required understanding much more than the screen in front of me.</p>
-    <p>The software had to coordinate with physical hardware, backend processes, consumables, system states, and the expectations of people using the instrument.</p>
-    <p><strong>I worked across front-end and backend software teams, hardware engineers, marketing, UX, and other stakeholders to understand those dependencies and translate them into a coherent user experience.</strong></p>
-    <p>In many ways, my role was to connect the dots.</p>
+      <h2>Designing the Workflow</h2>
+      <p>I owned the user-facing workflow for the iSeq 100 control software, including the interaction design, interface design, animations, and transitions that guided users through a sequencing run. This required understanding much more than the screen in front of me.</p>
+      <p>The software had to coordinate with physical hardware, backend processes, consumables, system states, and the expectations of people using the instrument.</p>
+      <p><strong>I worked across front-end and backend software teams, hardware engineers, marketing, UX, and other stakeholders to understand those dependencies and translate them into a coherent user experience.</strong></p>
+      <p>In many ways, my role was to connect the dots.</p>
 
-    <h2>Prototyping the Experience</h2>
-    <p>Rather than relying entirely on static mockups, <strong>I built functional prototypes</strong> that allowed us to experience interactions and workflows before they were committed to production.</p>
-    <p>This mattered because interaction problems can be difficult to see in a sequence of static screens. A workflow might look perfectly reasonable in a design file and still feel confusing once someone actually tries to move through it.</p>
-    <p><strong>Functional prototypes gave us a way to test assumptions</strong>, incorporate findings from user testing, demonstrate animations and transitions, <strong>and identify problems earlier</strong>, when they were still relatively inexpensive to change.</p>
+      <h2>Prototyping the Experience</h2>
+      <p>Rather than relying entirely on static mockups, <strong>I built functional prototypes</strong> that allowed us to experience interactions and workflows before they were committed to production.</p>
+      <p>This mattered because interaction problems can be difficult to see in a sequence of static screens. A workflow might look perfectly reasonable in a design file and still feel confusing once someone actually tries to move through it.</p>
+      <p><strong>Functional prototypes gave us a way to test assumptions</strong>, incorporate findings from user testing, demonstrate animations and transitions, <strong>and identify problems earlier</strong>, when they were still relatively inexpensive to change.</p>
 
-    <h2>Designing for Someone Like Me</h2>
-    <p>One unusual advantage I brought to the project was that I wasn't a geneticist. I had to learn what the terminology meant and why each step existed.</p>
-    <p>Rather than treating that as a weakness, I found it useful.</p>
-    <p>If <em>I</em> couldn't understand an instruction, there was a reasonable chance that someone operating the instrument for the first time might struggle with it too.</p>
-    <p>That made me particularly sensitive to terminology, hierarchy, feedback, and the amount of information we expected users to understand at each step.</p>
-    <p><strong>The goal wasn't to remove the science, it was to reveal only as much complexity as the user needed at that moment.</strong></p>
+      <h2>Designing for Someone Like Me</h2>
+      <p>One unusual advantage I brought to the project was that I wasn't a geneticist. I had to learn what the terminology meant and why each step existed.</p>
+      <p>Rather than treating that as a weakness, I found it useful.</p>
+      <p>If <em>I</em> couldn't understand an instruction, there was a reasonable chance that someone operating the instrument for the first time might struggle with it too.</p>
+      <p>That made me particularly sensitive to terminology, hierarchy, feedback, and the amount of information we expected users to understand at each step.</p>
+      <p><strong>The goal wasn't to remove the science, it was to reveal only as much complexity as the user needed at that moment.</strong></p>
 
-    <h2>Seeing It Become Real</h2>
-    <p><strong>One of the proudest moments of my career was seeing the interface running on the actual production instrument as the iSeq 100 prepared to ship.</strong></p>
-    <p>For months, the experience had existed as sketches, prototypes, design files, discussions, animations, and code. Then suddenly it was part of a physical product.</p>
-    <p>Something we had been working on, debating on, and user testing was <strong>now going into laboratories around the world</strong>.</p>
-    <p>The interaction and interface work I contributed to the iSeq 100 ultimately resulted in <strong>three U.S. design patents</strong> covering aspects of its interface and workflow:</p>
-    <ul>
-      <li>US D873281 S</li>
-      <li>US D895640 S</li>
-      <li>US D932500 S</li>
-    </ul>
-    <p>But the patents aren't what I remember most about the project. I remember the craftsmanship.</p>
-    <p>The iSeq 100 gave me an opportunity to concentrate deeply on one experience, refining interactions, questioning terminology, testing workflows, and <strong>making something technically complex feel progressively simpler</strong>.</p>
-    <p>It remains one of my favorite projects because it demonstrated something I've believed throughout my career:</p>
-    <p><strong>Complexity isn't necessarily the problem. Confusion is.</strong></p>
+      <h2>Seeing It Become Real</h2>
+      <p><strong>One of the proudest moments of my career was seeing the interface running on the actual production instrument as the iSeq 100 prepared to ship.</strong></p>
+      <p>For months, the experience had existed as sketches, prototypes, design files, discussions, animations, and code. Then suddenly it was part of a physical product.</p>
+      <p>Something we had been working on, debating on, and user testing was <strong>now going into laboratories around the world</strong>.</p>
+      <p>The interaction and interface work I contributed to the iSeq 100 ultimately resulted in <strong>three U.S. design patents</strong> covering aspects of its interface and workflow:</p>
 
+      <ul>
+        <li>US D873281 S</li>
+        <li>US D895640 S</li>
+        <li>US D932500 S</li>
+      </ul>
+
+      <p>But the patents aren't what I remember most about the project. I remember the craftsmanship.</p>
+      <p>The iSeq 100 gave me an opportunity to concentrate deeply on one experience, refining interactions, questioning terminology, testing workflows, and <strong>making something technically complex feel progressively simpler</strong>.</p>
+      <p>It remains one of my favorite projects because it demonstrated something I've believed throughout my career:</p>
+      <p><strong>Complexity isn't necessarily the problem. Confusion is.</strong></p>
+    </div>
   </article>
 
 <!--
@@ -203,53 +212,58 @@
 
 -->
   <article class='case-study' id="case-study_puppyspot">
-    <h1><span>PuppySpot:</span> Building a Modular Page Architecture for Composable Content</h1>
-    <h2>The Problem</h2>
-    <p>I joined PuppySpot after a major design overhaul. The new design worked, but it introduced a number of difficult interaction and responsive-layout problems. Pages were being treated largely as fixed compositions, with layouts changing at predefined desktop, tablet, and mobile breakpoints.</p>
-    <p>That approach made each page another design problem.</p>
-    <p>I wanted to make the components themselves solve more of those problems.</p>
+    <header>
+      <h1><span>PuppySpot:</span> Building a Modular Page Architecture for Composable Content</h1>
+    </header>
 
-    <h2>The Solution</h2>
-    <p>Rather than designing every page independently, I began developing <strong>a library of reusable content modules</strong>.</p>
-    <p>A page could be assembled from combinations such as:</p>
-    <ul>
-      <li>Hero A</li>
-      <li>Feature Grid C</li>
-      <li>Testimonials B</li>
-    </ul>
-    <p>Instead of asking designers and developers to repeatedly solve the same layout problems, <strong>each module defined its own structure and responsive behavior</strong>.</p>
-    <p>The page became a composition of known pieces.</p>
+    <div class='article-content'>
+      <h2>The Problem</h2>
+      <p>I joined PuppySpot after a major design overhaul. The new design worked, but it introduced a number of difficult interaction and responsive-layout problems. Pages were being treated largely as fixed compositions, with layouts changing at predefined desktop, tablet, and mobile breakpoints.</p>
+      <p>That approach made each page another design problem.</p>
+      <p>I wanted to make the components themselves solve more of those problems.</p>
 
-    <h2>Ten Modules, Fourteen Layouts, Fourty-Two Responsive Variations</h2>
-    <p>The system eventually contained 10 core modules with multiple variations, producing roughly fourteen usable layout configurations, not including the responsive variations.</p>
-    <p>The important part wasn't the number as much as what those combinations allowed the team to do:</p>
-    <ul>
-      <li><strong>Marketing</strong> could create pages from a vocabulary of established patterns rather than beginning with a blank canvas.</li>
-      <li><strong>Designers</strong> could concentrate on choosing the right composition.</li>
-      <li><strong>Developers</strong> could work with known structures instead of receiving an entirely new layout with every project.</li>
-    </ul>
-    <p>And because <strong>responsive behavior belonged to the modules themselves</strong>, pages became much less dependent on rigid device-specific layouts.</p>
+      <h2>The Solution</h2>
+      <p>Rather than designing every page independently, I began developing <strong>a library of reusable content modules</strong>.</p>
+      <p>A page could be assembled from combinations such as:</p>
+      <ul>
+        <li>Hero A</li>
+        <li>Feature Grid C</li>
+        <li>Testimonials B</li>
+      </ul>
+      <p>Instead of asking designers and developers to repeatedly solve the same layout problems, <strong>each module defined its own structure and responsive behavior</strong>.</p>
+      <p>The page became a composition of known pieces.</p>
 
-    <h2>Reference Implementations</h2>
-    <p>I built the modules as functional HTML, CSS, JavaScript, and jQuery prototypes, not just as visual demonstrations, but as reference implementations.</p>
-    <p>Developers could inspect exactly how the component behaved, how it responded as space changed, and how interactions were intended to work. This reduced the gap between design intent and engineering implementation.</p>
+      <h2>Ten Modules, Fourteen Layouts, Fourty-Two Responsive Variations</h2>
+      <p>The system eventually contained 10 core modules with multiple variations, producing roughly fourteen usable layout configurations, not including the responsive variations.</p>
+      <p>The important part wasn't the number as much as what those combinations allowed the team to do:</p>
+      <ul>
+        <li><strong>Marketing</strong> could create pages from a vocabulary of established patterns rather than beginning with a blank canvas.</li>
+        <li><strong>Designers</strong> could concentrate on choosing the right composition.</li>
+        <li><strong>Developers</strong> could work with known structures instead of receiving an entirely new layout with every project.</li>
+      </ul>
+      <p>And because <strong>responsive behavior belonged to the modules themselves</strong>, pages became much less dependent on rigid device-specific layouts.</p>
 
-    <h2>A Shared Language</h2>
-    <p>One of the unexpected benefits was communication. Instead of saying:</p>
-    <p><em>&quot;Put a large image here, then this kind of text block, followed by the three-column thing we used on that other page...&quot;</em></p>
-    <p>people could say:</p>
-    <p><em>&quot;Hero A, Feature Grid C, Testimonials B.&quot;</em></p>
-    <p>Everyone knew what that meant. The module library had become <strong>a shared vocabulary between design, marketing, stakeholders, and engineering</strong>.</p>
+      <h2>Reference Implementations</h2>
+      <p>I built the modules as functional HTML, CSS, JavaScript, and jQuery prototypes, not just as visual demonstrations, but as reference implementations.</p>
+      <p>Developers could inspect exactly how the component behaved, how it responded as space changed, and how interactions were intended to work. This reduced the gap between design intent and engineering implementation.</p>
 
-    <h2>Guidelines, Not Restrictions</h2>
-    <p>The system wasn't intended to eliminate one-off design. Sometimes a page genuinely needed something unique. Instead, the goal was simply to <strong>stop solving already-solved problems</strong>.</p>
-    <p>Reusable modules provided a strong default while leaving room for deliberately crafted experiences when they were justified.</p>
+      <h2>A Shared Language</h2>
+      <p>One of the unexpected benefits was communication. Instead of saying:</p>
+      <p><em>&quot;Put a large image here, then this kind of text block, followed by the three-column thing we used on that other page...&quot;</em></p>
+      <p>people could say:</p>
+      <p><em>&quot;Hero A, Feature Grid C, Testimonials B.&quot;</em></p>
+      <p>Everyone knew what that meant. The module library had become <strong>a shared vocabulary between design, marketing, stakeholders, and engineering</strong>.</p>
 
-    <h2>What I Learned</h2>
-    <p>This project changed how I thought about responsive design. Responsiveness shouldn't primarily belong to the page, it should belong to the component.</p>
-    <p><strong>A component should understand how to adapt to the space available to it</strong>, regardless of where it appears.</p>
-    <p>Browser technology would eventually make that idea much easier to implement through features such as container queries, but the underlying idea was already there:</p>
-    <p><strong>Build adaptable pieces, then compose the experience from them.</strong></p>
+      <h2>Guidelines, Not Restrictions</h2>
+      <p>The system wasn't intended to eliminate one-off design. Sometimes a page genuinely needed something unique. Instead, the goal was simply to <strong>stop solving already-solved problems</strong>.</p>
+      <p>Reusable modules provided a strong default while leaving room for deliberately crafted experiences when they were justified.</p>
+
+      <h2>What I Learned</h2>
+      <p>This project changed how I thought about responsive design. Responsiveness shouldn't primarily belong to the page, it should belong to the component.</p>
+      <p><strong>A component should understand how to adapt to the space available to it</strong>, regardless of where it appears.</p>
+      <p>Browser technology would eventually make that idea much easier to implement through features such as container queries, but the underlying idea was already there:</p>
+      <p><strong>Build adaptable pieces, then compose the experience from them.</strong></p>
+    </div>
   </article>
 
 <!--
@@ -262,42 +276,49 @@
 -->
 
   <article class='case-study' id="case-study_bdc">
-    <h1><span>Business.com:</span> Bridging Design and Engineering During the Responsive Web Transition</h1>
-    <h2>Modernizing the Front End</h2>
-    <p>When I joined Business.com, I was the primary front-end and UX specialist on a team made up largely of backend engineers.</p>
-    <p>My role eventually covered the entire path from interface concept to production code. I created wireframes, worked through interaction and visual design, and then implemented those designs using PHP, HTML, CSS/Sass, JavaScript, and jQuery.</p>
-    <p>It was a period when the web itself was changing quickly and responsive design was becoming the expectation rather than the exception. CSS tooling was evolving, and websites were moving away from rigid desktop-oriented layouts.</p>
-    <p>Much of my work involved helping Business.com make that transition.</p>
+    <header>
+      <h1><span>Business.com:</span> Bridging Design and Engineering During the Responsive Web Transition</h1>
+    </header>
 
-    <h2>Before Sass</h2>
-    <p>The existing front end had accumulated years of CSS, including an outdated CSS framework. Maintaining it was difficult, and seemingly small visual changes could require hunting through large stylesheets to understand what depended on what.</p>
-    <p>When I started at Business.com, Sass still wasn't robust enough for what we needed, so <strong>I developed a custom solution</strong> using PHP to parse styles, variables, and functions and output CSS. This sustained us for a while, but I kept my eye on the progress of Sass as a tool to use in out build process.</p>
-    <p>Once it became a solid choice, I helped move the front end toward Sass and a more structured approach to reusable styles. The reason was for performance as much as for maintainability of styles.</p>
-    <p>While PHP and other server-side rendering technologies are still preferable, in my mind, to front-end heavy applications, Sass allowed us to compile the CSS before going to production. On our already heavy pages, every little bit helped to decrease load times and increase overall user experience.</p>
+   <div class='article-content'>
+       <h2>Modernizing the Front End</h2>
+      <p>When I joined Business.com, I was the primary front-end and UX specialist on a team made up largely of backend engineers.</p>
+      <p>My role eventually covered the entire path from interface concept to production code. I created wireframes, worked through interaction and visual design, and then implemented those designs using PHP, HTML, CSS/Sass, JavaScript, and jQuery.</p>
+      <p>It was a period when the web itself was changing quickly and responsive design was becoming the expectation rather than the exception. CSS tooling was evolving, and websites were moving away from rigid desktop-oriented layouts.</p>
+      <p>Much of my work involved helping Business.com make that transition.</p>
 
-    <h2>Responsive Design</h2>
-    <p>One of the most important changes was moving away from treating desktop, tablet, and mobile as separate designs. I worked closely with the lead designer, <strong>translating designs into responsive interfaces</strong> and making decisions about what should happen in the spaces between the supplied compositions.</p>
-    <p>Eventually, something interesting happened. The designer stopped creating separate tablet and mobile comps for me.</p>
-    <p>He told my manager he didn't need to. He would give me the desktop design and trusted me to understand how it should adapt. He jokingly referred to what happened between desktop and mobile as <strong>JP doing his &quot;magic.&quot;</strong></p>
-    <p>There wasn't any magic involved. I had simply developed a strong understanding of how layouts should flow and how components should respond as available space changed. That trust remains one of my favorite compliments from my career.</p>
+      <h2>Before Sass</h2>
+      <p>The existing front end had accumulated years of CSS, including an outdated CSS framework. Maintaining it was difficult, and seemingly small visual changes could require hunting through large stylesheets to understand what depended on what.</p>
+      <p>When I started at Business.com, Sass still wasn't robust enough for what we needed, so <strong>I developed a custom solution</strong> using PHP to parse styles, variables, and functions and output CSS. This sustained us for a while, but I kept my eye on the progress of Sass as a tool to use in out build process.</p>
+      <p>Once it became a solid choice, I helped move the front end toward Sass and a more structured approach to reusable styles. The reason was for performance as much as for maintainability of styles.</p>
+      <p>While PHP and other server-side rendering technologies are still preferable, in my mind, to front-end heavy applications, Sass allowed us to compile the CSS before going to production. On our already heavy pages, every little bit helped to decrease load times and increase overall user experience.</p>
 
-    <h2>Translating Design</h2>
-    <p>A large part of my job was translating between disciplines.</p>
-    <ul>
-      <li>Designers shouldn't have to understand every browser limitation to explore an idea.</li>
-      <li>Backend developers shouldn't have to become interaction designers to implement it.</li>
-    </ul>
-    <p><strong>I could work between those worlds</strong>, understanding the design intent, recognizing the technical constraints, and finding an implementation that respected both.</p>
-    <p>That role would become increasingly important throughout the rest of my career.</p>
+      <h2>Responsive Design</h2>
+      <p>One of the most important changes was moving away from treating desktop, tablet, and mobile as separate designs. I worked closely with the lead designer, <strong>translating designs into responsive interfaces</strong> and making decisions about what should happen in the spaces between the supplied compositions.</p>
+      <p>Eventually, something interesting happened. The designer stopped creating separate tablet and mobile comps for me.</p>
+      <p>He told my manager he didn't need to. He would give me the desktop design and trusted me to understand how it should adapt. He jokingly referred to what happened between desktop and mobile as <strong>JP doing his &quot;magic.&quot;</strong></p>
+      <p>There wasn't any magic involved. I had simply developed a strong understanding of how layouts should flow and how components should respond as available space changed. That trust remains one of my favorite compliments from my career.</p>
 
-    <h2>The CSS Guy</h2>
-    <p>Because most of the engineering team specialized in backend development, I naturally became the person people came to when something involved CSS, responsive behavior, or unusual front-end interactions.</p>
-    <p>I enjoyed that position because it wasn't <em>just</em> about fixing styles. It gave me opportunities to explain <em>why</em> something behaved the way it did and to <strong>help other developers</strong> become more comfortable working in the browser.</p>
+      <h2>Translating Design</h2>
+      <p>A large part of my job was translating between disciplines.</p>
+      <ul>
+        <li>Designers shouldn't have to understand every browser limitation to explore an idea.</li>
+        <li>Backend developers shouldn't have to become interaction designers to implement it.</li>
+      </ul>
+      <p><strong>I could work between those worlds</strong>, understanding the design intent, recognizing the technical constraints, and finding an implementation that respected both.</p>
+      <p>That role would become increasingly important throughout the rest of my career.</p>
 
-    <h2>What I Learned</h2>
-    <p>Business.com was where responsive design stopped feeling like a technique and started becoming a way of thinking. The browser isn't a collection of fixed canvases, it's a continuously changing environment.</p>
-    <p>Once I understood that, I stopped thinking primarily about how pages should look at particular widths and started thinking about how interfaces should behave everywhere between them.</p>
-    <p>That idea would follow me into PuppySpot, STUDS, and much of my later work.</p>
+      <h2>The CSS Guy</h2>
+      <p>Because most of the engineering team specialized in backend development, I naturally became the person people came to when something involved CSS, responsive behavior, or unusual front-end interactions.</p>
+      <p>I enjoyed that position because it wasn't <em>just</em> about fixing styles. It gave me opportunities to explain <em>why</em> something behaved the way it did and to <strong>help other developers</strong> become more comfortable working in the browser.</p>
+
+      <h2>What I Learned</h2>
+      <p>Business.com was where responsive design stopped feeling like a technique and started becoming a way of thinking. The browser isn't a collection of fixed canvases, it's a continuously changing environment.</p>
+      <p>Once I understood that, I stopped thinking primarily about how pages should look at particular widths and started thinking about how interfaces should behave everywhere between them.</p>
+      <p>That idea would follow me into PuppySpot, STUDS, and much of my later work.</p>
+    </div>
+
+
   </article>
 
 <!--
@@ -308,37 +329,41 @@
 -->
 
   <article class='case-study' id='case-study_sdsu'>
-    <h1><span>San Diego State University Field Stations Program:</span> Designing Clear Information for High-Stress Situations</h1>
-    <h2>The Context</h2>
-    <p>I worked with the San Diego State University Field Stations Program during a period when my role expanded well beyond web development.</p>
-    <p>The program operated four field stations, each with its own identity and communication needs.</p>
-    <p>I helped create a more unified visual presence across those locations, including websites, logos, brochures, letterhead, photography, and other materials. I also brought the program's web presence into <strong>compliance with Section 508 accessibility</strong> requirements.</p>
-    <p>But one project in particular changed how I thought about information design.</p>
-    <p>Fire safety.</p>
+    <header>
+      <h1><span>San Diego State University Field Stations Program:</span> Designing Clear Information for High-Stress Situations</h1>
+    </header>
 
-    <h2>Designing for an Emergency</h2>
-    <p>Wildfire is a very real concern. Not just for Southern California in general, but also for the biological field stations.</p>
-    <p>The Field Stations Program needed a website that could communicate changing fire conditions, threat levels, evacuation information, and downloadable safety materials.</p>
-    <p>This wasn't a site people would necessarily browse casually. Sometimes, visitors might arrive because something was wrong and they needed to know what to do.</p>
-    <p>That changed the design decisions.</p>
-    <p><strong>During an emergency, people don't need clever navigation</strong>. They don't need decoration. What they <em>do</em> need is to know:</p>
-    <ul>
-      <li>What's happening?</li>
-      <li>How serious is it?</li>
-      <li>What am I supposed to do?</li>
-      <li>Where do I go?</li>
-    </ul>
-    <p>The interface needed to make those answers obvious.</p>
-    <p>The system I created was able to <strong>react on-the-fly to real-time danger levels</strong>. Under low to moderate fire danger levels, a user would get the full website, with planning information, activity booklets for children, and other educational materials.</p>
-    <p>But during a fire emergency, <strong>the site automatically switched</strong> over to an extremely low-data version that could be accessed on cell phones, giving just the needed information such as escape routes, evactuation orders, and emergency services.</p>
+    <div class='article-content'>
+      <h2>The Context</h2>
+      <p>I worked with the San Diego State University Field Stations Program during a period when my role expanded well beyond web development.</p>
+      <p>The program operated four field stations, each with its own identity and communication needs.</p>
+      <p>I helped create a more unified visual presence across those locations, including websites, logos, brochures, letterhead, photography, and other materials. I also brought the program's web presence into <strong>compliance with Section 508 accessibility</strong> requirements.</p>
+      <p>But one project in particular changed how I thought about information design.</p>
+      <p>Fire safety.</p>
 
-    <h2>Clarity Before Decoration</h2>
-    <p>The project reinforced something that would influence much of my later UX work: the more stressful the situation, the less cognitive effort an interface should require.</p>
-    <p>Hierarchy, language, color, and accessibility all matter.</p>
-    <p>Information needs to be understandable quickly, without requiring users to interpret the design before they can interpret the message.</p>
-    <p>That lesson would eventually apply in very different environments later in my career, from scientific instruments to design systems, but the underlying principle remains the same.</p>
-    <p><strong>Good interface design isn't about making information look interesting. It's about making the next decision easier.</strong></p>
+      <h2>Designing for an Emergency</h2>
+      <p>Wildfire is a very real concern. Not just for Southern California in general, but also for the biological field stations.</p>
+      <p>The Field Stations Program needed a website that could communicate changing fire conditions, threat levels, evacuation information, and downloadable safety materials.</p>
+      <p>This wasn't a site people would necessarily browse casually. Sometimes, visitors might arrive because something was wrong and they needed to know what to do.</p>
+      <p>That changed the design decisions.</p>
+      <p><strong>During an emergency, people don't need clever navigation</strong>. They don't need decoration. What they <em>do</em> need is to know:</p>
+      <ul>
+        <li>What's happening?</li>
+        <li>How serious is it?</li>
+        <li>What am I supposed to do?</li>
+        <li>Where do I go?</li>
+      </ul>
+      <p>The interface needed to make those answers obvious.</p>
+      <p>The system I created was able to <strong>react on-the-fly to real-time danger levels</strong>. Under low to moderate fire danger levels, a user would get the full website, with planning information, activity booklets for children, and other educational materials.</p>
+      <p>But during a fire emergency, <strong>the site automatically switched</strong> over to an extremely low-data version that could be accessed on cell phones, giving just the needed information such as escape routes, evactuation orders, and emergency services.</p>
 
+      <h2>Clarity Before Decoration</h2>
+      <p>The project reinforced something that would influence much of my later UX work: the more stressful the situation, the less cognitive effort an interface should require.</p>
+      <p>Hierarchy, language, color, and accessibility all matter.</p>
+      <p>Information needs to be understandable quickly, without requiring users to interpret the design before they can interpret the message.</p>
+      <p>That lesson would eventually apply in very different environments later in my career, from scientific instruments to design systems, but the underlying principle remains the same.</p>
+      <p><strong>Good interface design isn't about making information look interesting. It's about making the next decision easier.</strong></p>
+    </div>
   </article>
 
 <!--
@@ -349,33 +374,38 @@
 -->
 
   <article class='case-study' id='case-study_csuperb'>
-    <h1><span>CSUPERB:</span> Turning a Manual Academic Workflow into Software</h1>
-    <h2>The Problem</h2>
-    <p>The California State University Program for Education and Research in Biotechnology (CSUPERB) managed grant proposals, conference abstracts, peer review, and related academic workflows across the California State University system.</p>
-    <p>Much of that work depended on manual administrative processes: submissions had to be collected, reviewers assigned, materials organized, decisions tracked, and conference information eventually had to be assembled into printed materials.</p>
-    <p>The challenge wasn't simply putting forms online, it was about understanding the entire workflow.</p>
+    <header>
+      <h1><span>CSUPERB:</span> Turning a Manual Academic Workflow into Software</h1>
+    </header>
 
-    <h2>Building the System</h2>
-    <p><strong>I was the sole developer on the project</strong>. I designed and built a web-based system that supported three primary roles:</p>
-    <ul>
-      <li>applicants and submitters</li>
-      <li>reviewers</li>
-      <li>administrators</li>
-    </ul>
-    <p>The system included authentication, database-driven submissions, administrative tools, reviewer workflows, and the underlying logic needed to move information through the process.</p>
-    <p>I handled the database, PHP development, HTML, CSS, authentication, and administration interfaces.</p>
-    <p>Today we'd probably call it a full-stack application. But at the time, I just thought of it as <strong>solving a problem</strong>.</p>
+    <div class='article-content'>
+      <h2>The Problem</h2>
+      <p>The California State University Program for Education and Research in Biotechnology (CSUPERB) managed grant proposals, conference abstracts, peer review, and related academic workflows across the California State University system.</p>
+      <p>Much of that work depended on manual administrative processes: submissions had to be collected, reviewers assigned, materials organized, decisions tracked, and conference information eventually had to be assembled into printed materials.</p>
+      <p>The challenge wasn't simply putting forms online, it was about understanding the entire workflow.</p>
 
-    <h2>Automating the Work Around the Work</h2>
-    <p>One of the most useful parts of the system had little to do with the submission form itself. Once the information was structured in a database, we could reuse it.</p>
-    <p>Data that previously had to be manually collected and reformatted for conference materials could now be generated automatically. A process that had consumed an enormous amount of administrative time could happen in minutes.</p>
-    <p>That was the part I found most satisfying. The best automation isn't necessarily the part users see. Sometimes it's <strong>the workload that simply disappears</strong>.</p>
+      <h2>Building the System</h2>
+      <p><strong>I was the sole developer on the project</strong>. I designed and built a web-based system that supported three primary roles:</p>
+      <ul>
+        <li>applicants and submitters</li>
+        <li>reviewers</li>
+        <li>administrators</li>
+      </ul>
+      <p>The system included authentication, database-driven submissions, administrative tools, reviewer workflows, and the underlying logic needed to move information through the process.</p>
+      <p>I handled the database, PHP development, HTML, CSS, authentication, and administration interfaces.</p>
+      <p>Today we'd probably call it a full-stack application. But at the time, I just thought of it as <strong>solving a problem</strong>.</p>
 
-    <h2>What I Learned</h2>
-    <p>CSUPERB taught me to look beyond the immediate feature I was being asked to build.</p>
-    <p>Putting a submission form online solved one problem. But understanding where that information came from, who needed it next, and what ultimately happened to it revealed opportunities to improve the entire process.</p>
-    <p>That became an important lesson for me: <strong>Don’t just automate the task. Understand the workflow around it</strong>.</p>
-    <p>Sometimes the greatest improvement isn’t making one step faster. It’s recognizing that an entire step no longer needs to exist.</p>
+      <h2>Automating the Work Around the Work</h2>
+      <p>One of the most useful parts of the system had little to do with the submission form itself. Once the information was structured in a database, we could reuse it.</p>
+      <p>Data that previously had to be manually collected and reformatted for conference materials could now be generated automatically. A process that had consumed an enormous amount of administrative time could happen in minutes.</p>
+      <p>That was the part I found most satisfying. The best automation isn't necessarily the part users see. Sometimes it's <strong>the workload that simply disappears</strong>.</p>
+
+      <h2>What I Learned</h2>
+      <p>CSUPERB taught me to look beyond the immediate feature I was being asked to build.</p>
+      <p>Putting a submission form online solved one problem. But understanding where that information came from, who needed it next, and what ultimately happened to it revealed opportunities to improve the entire process.</p>
+      <p>That became an important lesson for me: <strong>Don’t just automate the task. Understand the workflow around it</strong>.</p>
+      <p>Sometimes the greatest improvement isn’t making one step faster. It’s recognizing that an entire step no longer needs to exist.</p>
+    </div>
   </article>
 
 <!--
@@ -387,43 +417,47 @@
 -->
 
   <article class='case-study' id='case-study_prosound'>
-    <h1><span>Professional Sound &amp; Music</span>: Designing Software for a Business That Didn't Fit the Software</h1>
+    <header>
+      <h1><span>Professional Sound &amp; Music</span>: Designing Software for a Business That Didn't Fit the Software</h1>
+    </header>
 
-    <h2>The Problem</h2>
-    <p>Before I worked professionally in web development, I spent years in music retail selling professional audio equipment, synthesizers, and digital recording systems.</p>
-    <p>The store had the same problem many small businesses had at the time: <strong>available software didn't really match how the business worked</strong>.</p>
-    <p>Sales were only part of the operation. We also needed to track inventory, customer information, repairs, equipment histories, and the movement of gear through the shop.</p>
-    <p>So I started building our own tools.</p>
+    <div class='article-content'>
+      <h2>The Problem</h2>
+      <p>Before I worked professionally in web development, I spent years in music retail selling professional audio equipment, synthesizers, and digital recording systems.</p>
+      <p>The store had the same problem many small businesses had at the time: <strong>available software didn't really match how the business worked</strong>.</p>
+      <p>Sales were only part of the operation. We also needed to track inventory, customer information, repairs, equipment histories, and the movement of gear through the shop.</p>
+      <p>So I started building our own tools.</p>
 
-    <h2>Building Around the Workflow</h2>
-    <p>My first version was built in HyperCard on the Macintosh. We then tried a variety of off-the-shelf applications to handle our needs, but none of them really did what we wanted, and they couldn't handle the unique needs of the business. We kept trying to just &quot;make it work&quot;. But again, <strong>the software was getting in the way</strong> and not helping to solve a problem.</p>
-    <p>I then started to build a more capable FileMaker-based system that handled point-of-sale functions along with inventory and repair tracking.</p>
-    <p>The important part wasn't the technology. I understood the workflow because I was part of it. I knew what information the salesperson needed. I knew what the repair department needed. I knew what happened when equipment came back months later and someone needed to understand its history.</p>
-    <p>Instead of changing the business to fit the software, <strong>I changed the software to fit the business.</strong></p>
+      <h2>Building Around the Workflow</h2>
+      <p>My first version was built in HyperCard on the Macintosh. We then tried a variety of off-the-shelf applications to handle our needs, but none of them really did what we wanted, and they couldn't handle the unique needs of the business. We kept trying to just &quot;make it work&quot;. But again, <strong>the software was getting in the way</strong> and not helping to solve a problem.</p>
+      <p>I then started to build a more capable FileMaker-based system that handled point-of-sale functions along with inventory and repair tracking.</p>
+      <p>The important part wasn't the technology. I understood the workflow because I was part of it. I knew what information the salesperson needed. I knew what the repair department needed. I knew what happened when equipment came back months later and someone needed to understand its history.</p>
+      <p>Instead of changing the business to fit the software, <strong>I changed the software to fit the business.</strong></p>
 
-    <h2>What I Learned Before I Knew I Was Learning It</h2>
-    <p>At the time, I didn't call any of this UX. I wasn't thinking about product design or information architecture. I was simply frustrated by inefficient tools and knew enough about computers to try building something better.</p>
-    <p>Looking back, the same pattern appears throughout much of my later career:</p>
-    <ul>
-      <li>Understand how people actually work.</li>
-      <li>Find the unnecessary friction.</li>
-      <li>Build something that removes it.</li>
-    </ul>
-    <p>While the technologies have became much more sophisticated over the years, that pattern never really changed.</p>
+      <h2>What I Learned Before I Knew I Was Learning It</h2>
+      <p>At the time, I didn't call any of this UX. I wasn't thinking about product design or information architecture. I was simply frustrated by inefficient tools and knew enough about computers to try building something better.</p>
+      <p>Looking back, the same pattern appears throughout much of my later career:</p>
+      <ul>
+        <li>Understand how people actually work.</li>
+        <li>Find the unnecessary friction.</li>
+        <li>Build something that removes it.</li>
+      </ul>
+      <p>While the technologies have became much more sophisticated over the years, that pattern never really changed.</p>
 
-    <h2>Still Working Ten Years Later</h2>
-    <p>Years after I'd left the music store and moved on to a career in web development, I learned that the software I'd written was still being used.</p>
-    <p><strong>Roughly a decade later, it was still doing its job.</strong></p>
-    <p>That has always stuck with me. It wasn't built with a technology anyone would consider modern today. It wasn't built with the expectation that it would become an important piece of software architecture. <strong>It was built because people had a problem and the existing tools weren't solving it very well</strong>.</p>
-    <p>And it lasted.</p>
-    <p>That experience helped shape the way I think about technology even now.</p>
-    <ul>
-      <li>Newer isn't automatically better.</li>
-      <li>Popular isn't automatically appropriate.</li>
-      <li>Technology used to build something isn't what determines whether it was successful.</li>
-    </ul>
-    <p><strong>Good software solves the right problem for the people who actually use it.</strong></p>
-    <p>Sometimes the best evidence that you made the right decisions is simply that, years later, people are still using it.</p>
+      <h2>Still Working Ten Years Later</h2>
+      <p>Years after I'd left the music store and moved on to a career in web development, I learned that the software I'd written was still being used.</p>
+      <p><strong>Roughly a decade later, it was still doing its job.</strong></p>
+      <p>That has always stuck with me. It wasn't built with a technology anyone would consider modern today. It wasn't built with the expectation that it would become an important piece of software architecture. <strong>It was built because people had a problem and the existing tools weren't solving it very well</strong>.</p>
+      <p>And it lasted.</p>
+      <p>That experience helped shape the way I think about technology even now.</p>
+      <ul>
+        <li>Newer isn't automatically better.</li>
+        <li>Popular isn't automatically appropriate.</li>
+        <li>Technology used to build something isn't what determines whether it was successful.</li>
+      </ul>
+      <p><strong>Good software solves the right problem for the people who actually use it.</strong></p>
+      <p>Sometimes the best evidence that you made the right decisions is simply that, years later, people are still using it.</p>
+    </div>
   </article>
 
 <!--
@@ -433,32 +467,38 @@
 
 -->
   <article class='case-study' id='case-study_pbn'>
-    <h1><span>Promotional Broadcast Network:</span> Building Experiences That Continued After Release</h1>
-    <h2>The Project</h2>
-    <p>At Promotional Broadcast Network, I served as Art Director and Lead Programmer on a narrative-driven adventure game for both Mac and Windows.</p>
-    <p>The experience was inspired by exploration games such as <em>Myst</em> and <em>Riven</em>.</p>
-    <p>It combined 3D environments, animation, storytelling, interaction, and software development into a single entertainment experience.</p>
-    <p>I directed a team of four artists and programmers while also contributing directly to modeling, texturing, animation, rendering, programming, camera direction, color, and the overall visual language of the game.</p>
-    <p>Our 3D workflow evolved from Strata 3D to LightWave as the project grew.</p>
+    <header>
+      <h1><span>Promotional Broadcast Network:</span> Building Experiences That Continued After Release</h1>
+    </header>
 
-    <h2>Keeping the World Consistent</h2>
-    <p>A project built by several artists can easily begin to feel like several different worlds. Part of my responsibility as Art Director was <strong>maintaining consistency</strong>: camera choices, lighting, color palettes, environment design, and interaction.</p>
-    <p>Those decisions had to reinforce one another so that <strong>the player experienced a single coherent place</strong> rather than a collection of independently produced assets.</p>
+    <div class='article-content'>
+      <h2>The Project</h2>
+      <p>At Promotional Broadcast Network, I served as Art Director and Lead Programmer on a narrative-driven adventure game for both Mac and Windows.</p>
+      <p>The experience was inspired by exploration games such as <em>Myst</em> and <em>Riven</em>.</p>
+      <p>It combined 3D environments, animation, storytelling, interaction, and software development into a single entertainment experience.</p>
+      <p>I directed a team of four artists and programmers while also contributing directly to modeling, texturing, animation, rendering, programming, camera direction, color, and the overall visual language of the game.</p>
+      <p>Our 3D workflow evolved from Strata 3D to LightWave as the project grew.</p>
 
-    <h2>An Experience That Could Change</h2>
-    <p>One of the more unusual technical features was an online update system. Although the primary game shipped on CD-ROM, it could connect online and receive new information. That allowed content to change or become available over time rather than remaining permanently frozen at the moment the disc shipped.</p>
-    <p>Today, continuously updated software is ordinary. But at the time, the distinction between packaged software and online experiences was much stronger.</p>
-    <p>Building a system that crossed that boundary opened up interesting possibilities for storytelling. The experience didn't necessarily have to end when the software shipped. It also gave us, the artists and developers, a little leeway. While we needed to have assests locked down when the CD was pressed, we still had a couple weeks after that to continue refining and testing before the game went live.</p>
-    <p>That was a luxury compared to many of today's continuous-integration pipelines.</p>
+      <h2>Keeping the World Consistent</h2>
+      <p>A project built by several artists can easily begin to feel like several different worlds. Part of my responsibility as Art Director was <strong>maintaining consistency</strong>: camera choices, lighting, color palettes, environment design, and interaction.</p>
+      <p>Those decisions had to reinforce one another so that <strong>the player experienced a single coherent place</strong> rather than a collection of independently produced assets.</p>
 
-    <h2>Looking Back</h2>
-    <p>The tools we used are obviously very different from the ones I use today, but the underlying problems aren't.</p>
-    <ul>
-      <li>How do several disciplines contribute to <strong>one coherent experience</strong>?</li>
-      <li>How do visual design, interaction, technology, and story <strong>reinforce</strong> each other?</li>
-      <li>How can technology <strong>support an idea without becoming the idea</strong> itself?</li>
-    </ul>
-    <p>Those are questions I've continued asking throughout my career.</p>
+      <h2>An Experience That Could Change</h2>
+      <p>One of the more unusual technical features was an online update system. Although the primary game shipped on CD-ROM, it could connect online and receive new information. That allowed content to change or become available over time rather than remaining permanently frozen at the moment the disc shipped.</p>
+      <p>Today, continuously updated software is ordinary. But at the time, the distinction between packaged software and online experiences was much stronger.</p>
+      <p>Building a system that crossed that boundary opened up interesting possibilities for storytelling. The experience didn't necessarily have to end when the software shipped. It also gave us, the artists and developers, a little leeway. While we needed to have assests locked down when the CD was pressed, we still had a couple weeks after that to continue refining and testing before the game went live.</p>
+      <p>That was a luxury compared to many of today's continuous-integration pipelines.</p>
+
+      <h2>Looking Back</h2>
+      <p>The tools we used are obviously very different from the ones I use today, but the underlying problems aren't.</p>
+      <ul>
+        <li>How do several disciplines contribute to <strong>one coherent experience</strong>?</li>
+        <li>How do visual design, interaction, technology, and story <strong>reinforce</strong> each other?</li>
+        <li>How can technology <strong>support an idea without becoming the idea</strong> itself?</li>
+      </ul>
+      <p>Those are questions I've continued asking throughout my career.</p>
+    </div>
+
   </article>
 
 

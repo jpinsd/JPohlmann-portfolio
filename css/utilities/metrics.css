@@ -36,6 +36,8 @@
 
 
   @media (prefers-reduced-motion: reduce) {
+    --tx-xs : 0s;
+    --tx-ss : 0s;
     --tx-s : 0s;
     --tx-m : 0s;
     --tx-l : 0s;
