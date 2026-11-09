@@ -42,6 +42,7 @@ body {
   background: var(--canvas);
   color: var(--text-color);
   overflow-x: clip;
+
 }
 
 main {
@@ -88,7 +89,7 @@ strong {
   initial-value: 100%;
 }
 
-:where(a, a:visited, [popovertarget]) {
+:where(a, a:visited, [popovertarget]):not(.nav-link) {
   --loc-hover-gradient: 100%;
   --t: var(--tx-ss);
 
@@ -180,23 +181,11 @@ mark {
 }
 
 nav {
-  position: fixed;
-  top: 0;
-  right: 0;
-
-  height: min-content;
   z-index: 100;
-  display: flex;
-  justify-content: end;
 }
 
 menu {
   list-style-type: none;
-  padding: 1rem 2rem 0 0;
-  display: flex;
-  flex-direction: column;
-  width: min-content;
-  /* gap: 1rem; */
   margin: 0;
   li {
     margin: 0;
@@ -298,6 +287,7 @@ button[popovertarget] {
   /* transform: scaleY(1); */
   display: flex;
   flex-direction: column;
+  outline: 2px solid transparent;
 }
 
 [popover]:popover-open::backdrop {

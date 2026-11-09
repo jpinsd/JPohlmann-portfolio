@@ -21,11 +21,32 @@
 
     @TODO: menu to go to arts site, p-m.style, codelab / codepens, and github
 
+
+    convert menu to a popup?
+    that would allow escape key to dismiss it 🤔
+
   -->
   <nav>
     <menu>
+      <li class='nav-trigger'>
+        <input type='checkbox' name='nav-trigger' id='nav-trigger'>
+        <label for='nav-trigger'>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"  width="100%" height="100%"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z" fill="currentColor" /></svg>
+        </label>
+      </li>
+
+      <li class="nav-links">
+          <a class="nav-link -internal" href='index.html'>Home</a>
+          <!-- <a class="nav-link -internal" href='case-studies.html''>Case Studies</a> -->
+          <a class="nav-link -external" href='https://github.com/jpinsd'>Github</a>
+          <a class="nav-link -external" href='https://codepen.io/jp-arts' >CodePen</a>
+          <!-- <a class="nav-link -external" href='https://jpohlmann.art'>Other interests</a> -->
+          <!-- <a class="external" href='https://p-m.style'>Official P-M site</a>
+          <a class="external" href='https://codelab.jpohlmann.com'>CodeLab</a> -->
+      </li>
+
       <li class="mode">
-        <input type='radio' name='mode' value="system" id='theme-system' >
+         <input type='radio' name='mode' value="system" id='theme-system' >
           <label for='theme-system'>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"  width="100%" height="100%"><!--!Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M128 96C92.7 96 64 124.7 64 160L64 416C64 451.3 92.7 480 128 480L272 480L256 528L184 528C170.7 528 160 538.7 160 552C160 565.3 170.7 576 184 576L456 576C469.3 576 480 565.3 480 552C480 538.7 469.3 528 456 528L384 528L368 480L512 480C547.3 480 576 451.3 576 416L576 160C576 124.7 547.3 96 512 96L128 96zM160 160L480 160C497.7 160 512 174.3 512 192L512 352C512 369.7 497.7 384 480 384L160 384C142.3 384 128 369.7 128 352L128 192C128 174.3 142.3 160 160 160z" fill="currentColor" /></svg>
         </label>
@@ -40,10 +61,6 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="100%" height="100%"><!--!Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576C388.8 576 451.3 548.8 497.3 504.6C504.6 497.6 506.7 486.7 502.6 477.5C498.5 468.3 488.9 462.6 478.8 463.4C473.9 463.8 469 464 464 464C362.4 464 280 381.6 280 280C280 207.9 321.5 145.4 382.1 115.2C391.2 110.7 396.4 100.9 395.2 90.8C394 80.7 386.6 72.5 376.7 70.3C358.4 66.2 339.4 64 320 64z" fill="currentColor" /></svg>
           </label>
       </li>
-      <li><a class="external" href='https://p-m.style'>Official P-M site</a></li>
-      <li><a class="external" href='https://codelab.jpohlmann.com'>CodeLab</a></li>
-      <li><a class="external" href='https://github.com/jpinsd'>Github</a></li>
-      <li><a class="external" href='https://jpohlmann.art'>Other interests</a></li>
     </menu>
   </nav>
 
@@ -53,7 +70,7 @@
       <h2>About Me</h2>
       <img src='img/logo-2025-web.svg' alt='my face'>
       <div class='intro'>
-        <p>HI! I'm <strong>Jeffrey Pohlmann</strong>, but I go by <strong>"JP"</strong>. I've been developing web sites since the very begining in 1995. I love modern CSS and all the things it can do. At times, I even enjoy JavaScript. I also love dogs, electronic music, and 3D printing.</p>
+        <p>HI! I'm <strong>Jeffrey Pohlmann</strong>, but I go by <strong>"JP"</strong>. I’ve been building for the web since 1995. I love modern CSS and all the things it can do. At times, I even enjoy JavaScript. I also love dogs, electronic music, and 3D printing.</p>
         <p>I'm pretty easy to talk to. Choose your favorite method:</p>
       </div>
       <div class='contacts'>
@@ -340,7 +357,7 @@
 
   <section id='achievements'>
 
-    <h2>Achievements</h2>
+    <h2>Selected Highlights</h2>
     <ul class="achievements">
       <li>Awarded 3 U.S. Patents for Interaction Design
           <a href='https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/D873281' target="_blank">1</a>
@@ -391,7 +408,7 @@
 
 
           <button popovertarget="studs-popover" class="popover-trigger -more">more </button>
-          <dialog popover id="studs-popover">
+          <dialog popover autofocus tabindex="-1" id="studs-popover">
             <button class="button -close" popovertarget="studs-popover" popovertargetaction="hide">
               <b>&times;</b>
             </button>
@@ -435,7 +452,7 @@
           <p>The system I created uses a series of section templates that can be stitched together in arbitrary order to create a new page. Not only did this greatly decrease the time to design or update pages, but <strong>development time was also drastically reduced</strong> from a couple days down to about an hour.</p>
 
           <button popovertarget="puppyspot-popover" class="popover-trigger -more">more </button>
-          <dialog popover id="puppyspot-popover">
+          <dialog popover autofocus tabindex="-1" id="puppyspot-popover">
             <button class="button -close" popovertarget="puppyspot-popover" popovertargetaction="hide">
               <b>&times;</b>
             </button>
@@ -480,7 +497,7 @@
           <p><strong>Creating a streamlined and simple-to-follow interface</strong> for genetic testing was the primary task.</p>
 
           <button popovertarget="illumina-popover" class="popover-trigger -more">more </button>
-          <dialog popover id="illumina-popover">
+          <dialog popover autofocus tabindex="-1" id="illumina-popover">
             <button class="button -close" popovertarget="illumina-popover" popovertargetaction="hide">
               <b> &times;</b>
             </button>
