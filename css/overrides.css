@@ -1,104 +1,294 @@
-/* hiding for now */
-menu .external {display: none;}
+/* hover or tap */
+:root {
+  --icons: 2.5rem;
+  --tap: false;
 
-.mode {
-  justify-content: end;
-  gap: .5rem;
-  padding-block-end: .5em;
-  /* border-bottom: 1px solid var(--border); */
+  interpolate-size: allow-keywords;
 
-  /* quick fix to remove light/dark switches from firefox */
-  display: none;
-  @container style(--theme: dark) or style(--theme: light) {
-    display: flex;
+  @media (pointer: coarse) {
+    --tap: true;
+  }
+}
+
+@property --angle {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 135deg;
+
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  container-type: inline-size;
+
+
+  /*
+  @container style(--tap: false) {
+    &:has(nav:hover) {
+    --nav-track-size: 1fr;
+    --nav-opacity: 1;
+    --nav-blur: 6px;
+    }
   }
 
-  /* contrasting shadow */
-  &::before,
-  &::after {
-    --w: 300px;
-    --h: 150px;
-    --b: var(--canvas);
-    --gradient: ellipse calc(var(--w) * .8) calc(var(--h) * .8) at 80% 10%;
-    /* --b: red; */
-
-    content: '';
-    position: fixed;
-    top: 0;
-    right: 0;
-    width:  min(100vw, var(--w));
-    height: min(100vw, var(--h));
-    pointer-events: none;
+  @container style(--tap: true) {
+    &:has(#nav-trigger:checked) {
+    --nav-track-size: 1fr;
+    --nav-opacity: 1;
+    --nav-blur: 6px;
+    --scale: 5;
+    --nav-width: 70cqi;
+    --nav-links-dir: column;
+    }
   }
+  */
 
-  &::after {
-    /* background: var(--gradient); */
-    background: radial-gradient(var(--gradient),
-                                rgb(from var(--b) r g b / .9) 20%,
-                                rgb(from var(--b) r g b / .01) 95%);
-    z-index: -1;
+  &:has(#nav-trigger:checked) {
+    main {
+      /* transform-origin: 0% 0%;
+      transform: perspective(100vh) translateZ(-60px); */
+    }
   }
+}
+
+nav {
+  --size: 2rem;
+  --padding: 1.5rem;
+  --w: max-content;
+  --h: calc(var(--size) + var(--padding));
+  --left: calc(100% + 2rem);
+  --delay1: var(--tx-m);
+  --delay2: 0s;
+  --color: var(--text-color);
+  --color-hover: var(--primary);
+  --backdrop-height: 0;
+  --backdrop-opacity: 0;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  pointer-events: none;
+
+  height: var(--h);
+  width: var(--w);
+  padding-inline-end: 2rem;
+
+  background-color: transparent;
+  transition: height var(--delay1), background-color var(--delay1);
+  transition-delay: var(--delay1), var(--delay1);
 
   &::before {
-    backdrop-filter: blur(6px);
-    mask-image: radial-gradient(var(--gradient),
-                                black 50%,
-                                transparent 90%);
+    content: '';
+    width: calc(100vw - 100%);
+    height: var(--backdrop-height);
+    background: rgb(from var(--base) r g b / .03);
+    position: absolute;
+    left: calc(-100vw + 100%);
+    z-index: -1;
+    opacity: var(--backdrop-opacity);
+    backdrop-filter: blur(16px);
+    transition: height 0s, opacity var(--tx-x);
+    transition-delay: 0s, var(--delay1);
+
   }
+
+  &:has(#nav-trigger:checked) {
+    --h: 100dvh;
+    --left: 0;
+    --delay1: var(--tx-ss);
+    --delay2: var(--tx-m);
+    --backdrop-height: 100%;
+    --backdrop-opacity: 1;
+
+    pointer-events: all;
+    background-color: var(--canvas);
+    /* transition-delay: 0s; */
+  }
+
+  #nav-trigger {
+    display: none
+  }
+
+
+  menu {
+    color: var(--color);
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas: "trigger"
+                         "links"
+                         "mode";
+
+    .nav-trigger {grid-area: trigger}
+    .nav-links   {grid-area: links}
+    .mode        {grid-area: mode}
+
+    .nav-trigger {
+      --rotate: 0deg;
+      --top: calc(50% - (var(--size) * .2) + 1px);
+      --delay1: var(--tx-m);
+      --delay2: 0s;
+
+      justify-self: end;
+      position: relative;
+      height: calc(var(--size) + var(--padding));
+      width: var(--size);
+      pointer-events: all;
+
+      &::before {
+        content:'';
+        height: 100%;
+        aspect-ratio: 1;
+        display: block;
+        scale: 2.5;
+        background: radial-gradient(var(--canvas) 20%, transparent 70%);
+      }
+
+
+      svg {display: none;} /* <-- remove this SVG */
+
+      label {
+        border: 2px solid var(--color);
+        border-radius: .5rem;
+        width: var(--size);
+        height: var(--size);
+        display: flex;
+
+        position: absolute;
+        top: var(--padding);
+        right: 0;
+
+        transition: border-color var(--tx-l);
+
+        &:hover {
+          --color: var(--text-color-dark);
+        }
+
+        &::before,
+        &::after {
+          --w: calc(var(--size) * .5);
+          content:'';
+          width: var(--w);
+          height: 2px;
+          background: var(--color);
+          position: absolute;
+          top: calc(50% - 1px);
+          left: calc(50% - (var(--w) / 2));
+          rotate: var(--rotate);
+          translate: 0 var(--top);
+
+          transition: translate var(--tx-ss), rotate var(--tx-ss);
+          transition-delay: var(--delay1), var(--delay2);
+        }
+
+        &::after {
+          translate: 0 calc(var(--top) * -1);
+          rotate: calc(var(--rotate) * -1);
+        }
+      }
+
+      &:has(#nav-trigger:checked) {
+        --top: calc(50% - 1px);
+        --rotate: 45deg;
+        --delay1: 0s;
+        --delay2: var(--tx-m);
+        --color: var(--color-hover);
+      }
+
+    } /* .nav-trigger */
+
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+
+        position: relative;
+        left: var(--left);
+        transition: left var(--tx-l);
+        transition-delay: var(--delay1);
+
+      @container (width < 600px) {}
+
+      .nav-link {
+        color: var(--color);
+        text-decoration: none;
+        font-size: clamp(var(--m), 2vw, var(--xl));
+
+
+        &:hover {}
+
+        &::before {}
+
+        &:last-of-type {}
+
+        @container (width < 600px) {}
+      }
+    }
+  }
+
+  /*menu */
+
+
+
+  .mode {
+    /* gap: .5rem;
+    padding-block-end: .5em; */
+
+    /* quick fix to remove light/dark switches from older browsers */
+    display: none;
+
+    @container style(--theme: dark) or style(--theme: light) {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      justify-content: space-between;
+
+      position: relative;
+      left: var(--left);
+      transition: left var(--tx-l);
+      transition-delay:  var(--delay2);
+
+      /* display: grid;
+      grid-template-rows: var(--nav-track-size);
+      grid-template-columns: var(--nav-track-size);
+
+      transition: var(--nav-transition);
+      opacity: var(--nav-opacity);
+      overflow: clip;  */
+    }
+
 
   [type="radio"] {
     display: none;
   }
 
   [type="radio"] + label {
-    color: var(--text-color-light);
-    width: 3em;
-    height: 3em;
-    padding: .5em;
-    font-size: 12px;
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border-radius: 2.25em;
-    border: 2px solid transparent;
-    backdrop-filter: blur(5px);
-    background: rgb(from var(--text-color) r g b / .07) padding-box;
-    /* opacity: .875; */
-    transition: var(--tx-m);
+    max-width: 1.5rem;
 
     &:hover {
-      /* opacity: 1; */
-      scale: 1.1;
-      background: rgb(from var(--text-color) r g b / .2) padding-box;
+      color: var(--color-hover);
+      transition: color var(--tx-s);
     }
 
-    &::before {
-      content:'';
-      inset: 0;
-      position: absolute;
-      background: linear-gradient(to bottom right,
-                                  rgba(255,255,255, .65),
-                                  rgba(255,255,255, 0) 40% 70%,
-                                  rgba(255,255,255, .25) 100%) border-box;
-      border-radius: inherit;
-      z-index: -1;
-
-      border: 2px solid transparent;
-
-      filter: blur(2px);
-
-      mask: linear-gradient(black 0 0) border-box,
-            linear-gradient(black 0 0) padding-box;
-      mask-composite: subtract;
-    }
+    &::before {}
   }
 
-  [type='radio']:checked + label {
-    /* border-color: rgb(from var(--text-color) r g b / 40%) */
-    background: rgb(from var(--primary) r g b / .2) padding-box
+  [type='radio']:checked + label {}
+
   }
-}
+} /* nav */
+
+
+
 
 .-more {
   display: inline-flex;
@@ -494,10 +684,6 @@ details[open] summary::before {
   padding-block: 2rem;
 }
 
-#philosophy {
-  min-height: 45vh;
-}
-
 #achievements {
   --a: -3.5deg;
 }
@@ -506,6 +692,7 @@ details[open] summary::before {
   /* overflow: clip; */
   display: grid;
   grid-template: 1fr / 1fr;
+  min-height: 45vh;
 
   &:hover {
     --playstate: paused;
@@ -774,4 +961,71 @@ details[open] summary::before {
   }
 }
 
+/*
+
+____ ____ ____ ____    ____ ___ _  _ ___  _   _
+|    |__| [__  |___ __ [__   |  |  | |  \  \_/
+|___ |  | ___] |___    ___]  |  |__| |__/   |
+
+
+*/
+
+
+.case-study {
+  --pad: 6em;
+  --w: 2em;
+  margin-block: var(--pad);
+  position: sticky;
+  top: 1rem;
+
+  background: var(--canvas);
+
+  > :not(header){
+    width: min(100%, 50ch);
+    margin-inline: auto;
+  }
+
+  &::before {
+    content:'';
+    display: block;
+    width: 100%;
+    height: 10rem;
+    background: linear-gradient(to bottom, transparent, var(--canvas));
+    position: absolute;
+    left: 0;
+    top: -10rem;
+  }
+
+  /* &::after {
+    content: url("../img/logo-2025-web-square.svg");
+    display: block;
+    height: var(--w);
+    aspect-ratio: 1;
+    position: relative;
+    left: calc(50% - (var(--w) / 2));
+    margin-block-start: var(--pad);
+    filter: var(--logo-shadow-small);
+  }
+
+  &::before {
+    --m: calc((var(--w) / 2) + 3px);
+    --h: 10px;
+    content:'';
+    display: block;
+    height: var(--h);
+    width: calc(var(--w) * 6);
+    position: absolute;
+    bottom: calc((var(--w) / 2) - (var(--h) / 2));
+    left: calc(50% - (var(--w) * 3));
+    background: radial-gradient(var(--base-200), transparent 60%);
+    mask: radial-gradient(circle at center, transparent var(--m), black calc(var(--m) + 6px));
+  } */
+
+  .article-content {
+    height: max(60vh, 500px);
+    overflow-y: auto;
+  }
+
+
+}
 
