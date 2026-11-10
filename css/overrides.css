@@ -152,10 +152,8 @@ nav {
         background: radial-gradient(var(--canvas) 20%, transparent 70%);
       }
 
-
-      svg {display: none;} /* <-- remove this SVG */
-
       label {
+        text-indent: -200vw;
         background: var(--canvas);
         border: 2px solid var(--color);
         border-radius: .5rem;
@@ -217,21 +215,12 @@ nav {
         transition: left var(--tx-l);
         transition-delay: var(--delay1);
 
-      @container (width < 600px) {}
+      /* @container (width < 600px) {} */
 
       .nav-link {
         color: var(--color);
         text-decoration: none;
         font-size: clamp(var(--m), 2vw, var(--xl));
-
-
-        &:hover {}
-
-        &::before {}
-
-        &:last-of-type {}
-
-        @container (width < 600px) {}
       }
     }
   }
@@ -241,9 +230,6 @@ nav {
 
 
   .mode {
-    /* gap: .5rem;
-    padding-block-end: .5em; */
-
     /* quick fix to remove light/dark switches from older browsers */
     display: none;
 
@@ -257,14 +243,6 @@ nav {
       left: var(--left);
       transition: left var(--tx-l);
       transition-delay:  var(--delay2);
-
-      /* display: grid;
-      grid-template-rows: var(--nav-track-size);
-      grid-template-columns: var(--nav-track-size);
-
-      transition: var(--nav-transition);
-      opacity: var(--nav-opacity);
-      overflow: clip;  */
     }
 
 
@@ -279,8 +257,6 @@ nav {
       color: var(--color-hover);
       transition: color var(--tx-s);
     }
-
-    &::before {}
   }
 
   [type='radio']:checked + label {}
@@ -590,16 +566,6 @@ nav {
     }
   }
 }
-
-
-
-/* details {
-  --d: 0s;
-
-  @media (prefers-reduced-motion: no-preference) {
-    --d: .3s;
-  }
-} */
 
 details::details-content {
   display: block;
@@ -977,8 +943,6 @@ ____ ____ ____ ____    ____ ___ _  _ ___  _   _
   --w: 2em;
   margin-block: var(--pad);
   position: relative;
-  /* position: sticky;
-  top: 1rem; */
 
   background: var(--canvas);
 
@@ -1028,12 +992,5 @@ ____ ____ ____ ____    ____ ___ _  _ ___  _   _
       margin-block-start: 4rem;
     }
   }
-
-  /* .article-content {
-    height: max(60vh, 500px);
-    overflow-y: auto;
-  } */
-
-
 }
 
