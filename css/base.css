@@ -271,6 +271,7 @@ button[popovertarget] {
   max-width: min(var(--content-width) - 4rem, 100vw - 4rem);
   max-height: calc(100dvh - 4rem);
   overflow-y: auto;
+  overscroll-behavior: contain;
 
   font-size: clamp(1rem, 2.25vw, 1.2rem);
   padding-inline: 1rem;

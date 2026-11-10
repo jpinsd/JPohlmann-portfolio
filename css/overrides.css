@@ -156,6 +156,7 @@ nav {
       svg {display: none;} /* <-- remove this SVG */
 
       label {
+        background: var(--canvas);
         border: 2px solid var(--color);
         border-radius: .5rem;
         width: var(--size);
@@ -975,8 +976,9 @@ ____ ____ ____ ____    ____ ___ _  _ ___  _   _
   --pad: 6em;
   --w: 2em;
   margin-block: var(--pad);
-  position: sticky;
-  top: 1rem;
+  position: relative;
+  /* position: sticky;
+  top: 1rem; */
 
   background: var(--canvas);
 
@@ -985,18 +987,14 @@ ____ ____ ____ ____    ____ ___ _  _ ___  _   _
     margin-inline: auto;
   }
 
-  &::before {
-    content:'';
-    display: block;
-    width: 100%;
-    height: 10rem;
-    background: linear-gradient(to bottom, transparent, var(--canvas));
-    position: absolute;
-    left: 0;
-    top: -10rem;
+  h1 span {
+    color: var(--text-color-dark);
+    &::after {
+      content: " • ";
+    }
   }
 
-  /* &::after {
+  &::after {
     content: url("../img/logo-2025-web-square.svg");
     display: block;
     height: var(--w);
@@ -1019,12 +1017,22 @@ ____ ____ ____ ____    ____ ___ _  _ ___  _   _
     left: calc(50% - (var(--w) * 3));
     background: radial-gradient(var(--base-200), transparent 60%);
     mask: radial-gradient(circle at center, transparent var(--m), black calc(var(--m) + 6px));
-  } */
+  }
 
-  .article-content {
+
+  .popover-wrapper {
+    padding-block: 2rem;
+    height: min(800px, 80vh);
+
+    h2:not(:first-of-type) {
+      margin-block-start: 4rem;
+    }
+  }
+
+  /* .article-content {
     height: max(60vh, 500px);
     overflow-y: auto;
-  }
+  } */
 
 
 }
